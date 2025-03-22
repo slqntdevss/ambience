@@ -4,9 +4,10 @@ import { hostname } from "node:os";
 import wisp from "wisp-server-node";
 import Fastify from "fastify";
 import fastifyStatic from "@fastify/static";
+import { fileURLToPath } from "url";
 
-// static paths
-import { publicPath } from "ultraviolet-static";
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
+const publicPath = join(__dirname, "../public");
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
@@ -52,6 +53,16 @@ fastify.register(fastifyStatic, {
 	prefix: "/baremux/",
 	decorateReply: false,
 });
+
+fastify.get('/autoc', async function (req, res) {
+	const { query } = req.query;
+    if (!query) {
+        return res.status(400).send({ error: 'Query parameter is required' });
+    }
+    const result = await fetch(`https://duckduckgo.com/ac/?q=${query}&format=json`)
+    .then((response) => response.json());
+    res.status(200).send(result);
+})
 
 fastify.server.on("listening", () => {
 	const address = fastify.server.address();
