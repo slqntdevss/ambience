@@ -42,7 +42,7 @@ class GameLoader {
     }
 
     async findGameData(gameId) {
-        const response = await fetch('/assets/js/games.json');
+        const response = await fetch('/assets/json/games.json');
         const data = await response.json();
         return data.games.find(game => game.id === gameId);
     }
