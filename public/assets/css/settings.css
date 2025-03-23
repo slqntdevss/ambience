@@ -1,0 +1,251 @@
+@import url('/assets/css/themes.css');
+
+.settings-content {
+    padding: 2rem;
+    color: white;
+}
+
+.settings-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.settings-section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.settings-section h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* Theme options */
+.theme-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .theme-options {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.theme-option {
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.theme-option:hover {
+    transform: translateY(-5px);
+}
+
+.theme-option.active {
+    position: relative;
+}
+
+.theme-option.active::after {
+    content: "✓";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--amethyst-primary);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.theme-preview {
+    height: 100px;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--glass-border);
+}
+
+/* Theme previews */
+.amethyst-theme {
+    background: linear-gradient(135deg, #9c27b0, #673ab7);
+}
+
+.redmoon-theme {
+    background: linear-gradient(135deg, #ff2222, #cb2020);
+}
+
+.sunrise-theme {
+    background: linear-gradient(135deg, #ff5e4d, #2d2d78);
+}
+
+.bloodmoon-theme {
+    background: linear-gradient(135deg, #ff4d4d, #2a2a2a);
+}
+
+.cottoncandy-theme {
+    background: linear-gradient(135deg, #e4b3ff, #98ccff);
+}
+
+.space-theme {
+    background: linear-gradient(135deg, #191970, #7b68ee);
+}
+
+.winter-theme {
+    background: linear-gradient(135deg, #d3f3f8, #bff3ff);
+}
+
+.gold-theme {
+    background: linear-gradient(135deg, #ffd700, #b8860b);
+}
+
+.ocean-theme {
+    background: linear-gradient(135deg, #03a9f4, #3f51b5);
+}
+
+.forest-theme {
+    background: linear-gradient(135deg, #4caf50, #009688);
+}
+
+/* Injections */
+.injections-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .injections-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.injections-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.injection-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.injection-item h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.injection-domain {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+}
+
+.injection-description {
+    margin-bottom: 1rem;
+}
+
+.injection-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.delete-injection {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.delete-injection:hover {
+    background: rgba(244, 67, 54, 0.3);
+}
+
+.edit-injection {
+    background: rgba(33, 150, 243, 0.2);
+    color: #2196f3;
+    border: 1px solid rgba(33, 150, 243, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.edit-injection:hover {
+    background: rgba(33, 150, 243, 0.3);
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.settings-btn {
+    background: var(--amethyst-secondary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.settings-btn:hover {
+    background: var(--amethyst-primary);
+}
+
+/* Code editor */
+.code-preview {
+    background: #1e1e1e;
+    border-radius: 6px;
+    padding: 1rem;
+    font-family: monospace;
+    white-space: pre-wrap;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+} 

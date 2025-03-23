@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ambience</title>
+    <title>ambience settings</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/g.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/css/settings.css" rel="stylesheet">
 </head>
 <body>
     <button class="toggle-btn expanded"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
@@ -19,23 +19,90 @@
             <ul class="nav-links">
                 <li><a href="/g"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg></span> games</a></li>
                 <li><a href="/a"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-headset"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></svg></span> apps</a></li>
-                <li><a href="/s"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cog"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M12 2v2"/><path d="M12 22v-2"/><path d="m17 20.66-1-1.73"/><path d="M11 10.27 7 3.34"/><path d="m20.66 17-1.73-1"/><path d="m3.34 7 1.73 1"/><path d="M14 12h8"/><path d="M2 12h2"/><path d="m20.66 7-1.73 1"/><path d="m3.34 17 1.73-1"/><path d="m17 3.34-1 1.73"/><path d="m11 13.73-4 6.93"/></svg></span> settings</a></li>
+                <li><a href="/s" class="active"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cog"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M12 2v2"/><path d="M12 22v-2"/><path d="m17 20.66-1-1.73"/><path d="M11 10.27 7 3.34"/><path d="m20.66 17-1.73-1"/><path d="m3.34 7 1.73 1"/><path d="M14 12h8"/><path d="M2 12h2"/><path d="m20.66 7-1.73 1"/><path d="m3.34 17 1.73-1"/><path d="m17 3.34-1 1.73"/><path d="m11 13.73-4 6.93"/></svg></span> settings</a></li>
             </ul>
         </nav>
         <main class="main-content settings-content">
             <h1>settings</h1>
+            
+            <div class="settings-section">
+                <h2>Theme</h2>
+                <div class="theme-options">
+                    <div class="theme-option" data-theme="amethyst">
+                        <div class="theme-preview amethyst-theme"></div>
+                        <span>Amethyst</span>
+                    </div>
+                    <div class="theme-option" data-theme="redmoon">
+                        <div class="theme-preview redmoon-theme"></div>
+                        <span>Red Moon</span>
+                    </div>
+                    <div class="theme-option" data-theme="sunrise">
+                        <div class="theme-preview sunrise-theme"></div>
+                        <span>Sunrise</span>
+                    </div>
+                    <div class="theme-option" data-theme="bloodmoon">
+                        <div class="theme-preview bloodmoon-theme"></div>
+                        <span>Blood Moon</span>
+                    </div>
+                    <div class="theme-option" data-theme="cottoncandy">
+                        <div class="theme-preview cottoncandy-theme"></div>
+                        <span>Cotton Candy</span>
+                    </div>
+                    <div class="theme-option" data-theme="space">
+                        <div class="theme-preview space-theme"></div>
+                        <span>Space</span>
+                    </div>
+                    <div class="theme-option" data-theme="winter">
+                        <div class="theme-preview winter-theme"></div>
+                        <span>Winter</span>
+                    </div>
+                    <div class="theme-option" data-theme="gold">
+                        <div class="theme-preview gold-theme"></div>
+                        <span>Gold</span>
+                    </div>
+                    <div class="theme-option" data-theme="ocean">
+                        <div class="theme-preview ocean-theme"></div>
+                        <span>Ocean</span>
+                    </div>
+                    <div class="theme-option" data-theme="forest">
+                        <div class="theme-preview forest-theme"></div>
+                        <span>Forest</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!--<div class="settings-section">
+                <h2>Site Injections</h2>
+                <div class="injections-container">
+                    <div class="injections-list">
+                        Injections will be loaded here
+                    </div>
+                    
+                    <div class="add-injection">
+                        <h3>Add New Injection</h3>
+                        <div class="form-group">
+                            <label for="domain">Domain</label>
+                            <input type="text" id="domain" placeholder="example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Script Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" id="description" placeholder="What does this script do?">
+                        </div>
+                        <div class="form-group">
+                            <label for="code">Code</label>
+                            <textarea id="code" placeholder="JavaScript code to inject"></textarea>
+                        </div>
+                        <button id="add-script-btn" class="settings-btn">Add Script</button>
+                    </div>
+                </div>
+            </div> -->
         </main>
     </div>
 
-    <script>
-    const toggleBtn = document.querySelector('.toggle-btn');
-    const sidebar = document.querySelector('.sidebar');
-    const mainContent = document.querySelector('.main-content');
-    toggleBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('hidden');
-        toggleBtn.classList.toggle('expanded');
-        mainContent.classList.toggle('expanded');
-    });
-    </script>
+    <script src="/assets/js/settings.js"></script>
 </body>
 </html>

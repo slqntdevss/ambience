@@ -182,6 +182,7 @@ urlBar.addEventListener("submit", async (event) => {
 	setTimeout(() => {
 		iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
 	}, 500)
+    window.scriptManager.checkAndInjectScript(url);
     urlInput.value = currentURL;
 });
 

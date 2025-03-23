@@ -1,0 +1,186 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #9c27b0, #673ab7);
+    --glass-bg: rgba(30, 30, 40, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --amethyst-primary: #9c27b0;
+    --amethyst-secondary: #673ab7;
+    --text-color: #ffffff;
+    --sidebar-bg: rgba(20, 20, 30, 0.8);
+    --card-bg: rgba(40, 40, 50, 0.7);
+    --button-bg: rgba(156, 39, 176, 0.7);
+    --button-hover: rgba(156, 39, 176, 0.9);
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --input-border: rgba(255, 255, 255, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body[data-theme="redmoon"] {
+    --primary-gradient: linear-gradient(135deg, #ff2222, #cb2020);
+    --glass-bg: rgba(50, 20, 20, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --amethyst-primary: #ff2222;
+    --amethyst-secondary: #cb2020;
+    --sidebar-bg: rgba(45, 15, 15, 0.8);
+    --card-bg: rgba(60, 25, 25, 0.7);
+    --button-bg: rgba(255, 34, 34, 0.7);
+    --button-hover: rgba(255, 34, 34, 0.9);
+}
+
+body[data-theme="sunrise"] {
+    --primary-gradient: linear-gradient(135deg, #ff5e4d, #2d2d78);
+    --glass-bg: rgba(35, 35, 60, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --amethyst-primary: #ff5e4d;
+    --amethyst-secondary: #2d2d78;
+    --sidebar-bg: rgba(30, 30, 55, 0.8);
+    --card-bg: rgba(45, 45, 70, 0.7);
+    --button-bg: rgba(255, 94, 77, 0.7);
+    --button-hover: rgba(255, 94, 77, 0.9);
+}
+
+body[data-theme="bloodmoon"] {
+    --primary-gradient: linear-gradient(135deg, #ff4d4d, #2a2a2a);
+    --glass-bg: rgba(50, 25, 25, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --amethyst-primary: #ff4d4d;
+    --amethyst-secondary: #2a2a2a;
+    --sidebar-bg: rgba(45, 20, 20, 0.8);
+    --card-bg: rgba(60, 30, 30, 0.7);
+    --button-bg: rgba(255, 77, 77, 0.7);
+    --button-hover: rgba(255, 77, 77, 0.9);
+}
+
+/* Cotton Candy Theme */
+body[data-theme="cottoncandy"] {
+    --primary-gradient: linear-gradient(135deg, #e4b3ff, #98ccff);
+    --glass-bg: rgba(40, 40, 60, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --amethyst-primary: #e4b3ff;
+    --amethyst-secondary: #98ccff;
+    --sidebar-bg: rgba(35, 35, 55, 0.8);
+    --card-bg: rgba(50, 50, 70, 0.7);
+    --button-bg: rgba(228, 179, 255, 0.7);
+    --button-hover: rgba(228, 179, 255, 0.9);
+    --text-color: #ffffff;
+}
+
+body[data-theme="space"] {
+    --primary-gradient: linear-gradient(135deg, #191970, #7b68ee);
+    --glass-bg: rgba(20, 20, 40, 0.7);
+    --glass-border: rgba(123, 104, 238, 0.2);
+    --amethyst-primary: #7b68ee;
+    --amethyst-secondary: #191970;
+    --sidebar-bg: rgba(15, 15, 35, 0.8);
+    --card-bg: rgba(30, 30, 50, 0.7);
+    --button-bg: rgba(123, 104, 238, 0.7);
+    --button-hover: rgba(123, 104, 238, 0.9);
+}
+
+body[data-theme="winter"] {
+    --primary-gradient: linear-gradient(135deg, #d3f3f8, #bff3ff);
+    --glass-bg: rgba(30, 40, 50, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --amethyst-primary: #00bfff;
+    --amethyst-secondary: #0077be;
+    --sidebar-bg: rgba(25, 35, 45, 0.8);
+    --card-bg: rgba(40, 50, 60, 0.7);
+    --button-bg: rgba(0, 191, 255, 0.7);
+    --button-hover: rgba(0, 191, 255, 0.9);
+    --text-color: #ffffff;
+}
+
+body[data-theme="gold"] {
+    --primary-gradient: linear-gradient(135deg, #ffd700, #b8860b);
+    --glass-bg: rgba(50, 40, 20, 0.7);
+    --glass-border: rgba(255, 215, 0, 0.2);
+    --amethyst-primary: #ffd700;
+    --amethyst-secondary: #b8860b;
+    --sidebar-bg: rgba(45, 35, 15, 0.8);
+    --card-bg: rgba(60, 50, 30, 0.7);
+    --button-bg: rgba(255, 215, 0, 0.7);
+    --button-hover: rgba(255, 215, 0, 0.9);
+    --text-color: #ffffff;
+}
+
+body[data-theme="ocean"] {
+    --primary-gradient: linear-gradient(135deg, #03a9f4, #3f51b5);
+    --glass-bg: rgba(20, 30, 50, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --amethyst-primary: #03a9f4;
+    --amethyst-secondary: #3f51b5;
+    --sidebar-bg: rgba(15, 25, 45, 0.8);
+    --card-bg: rgba(30, 40, 60, 0.7);
+    --button-bg: rgba(3, 169, 244, 0.7);
+    --button-hover: rgba(3, 169, 244, 0.9);
+}
+
+body[data-theme="forest"] {
+    --primary-gradient: linear-gradient(135deg, #4caf50, #009688);
+    --glass-bg: rgba(30, 50, 40, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --amethyst-primary: #4caf50;
+    --amethyst-secondary: #009688;
+    --sidebar-bg: rgba(25, 45, 35, 0.8);
+    --card-bg: rgba(40, 60, 50, 0.7);
+    --button-bg: rgba(76, 175, 80, 0.7);
+    --button-hover: rgba(76, 175, 80, 0.9);
+}
+
+body {
+    background: var(--primary-gradient);
+    color: var(--text-color);
+}
+
+.sidebar {
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--glass-border);
+}
+
+/* Apply theme to buttons */
+.settings-btn, 
+.eval-popup-button.inject,
+.search-btn,
+.nav-btn {
+    background: var(--amethyst-secondary);
+}
+
+.settings-btn:hover, 
+.eval-popup-button.inject:hover,
+.search-btn:hover,
+.nav-btn:hover {
+    background: var(--amethyst-primary);
+}
+
+/* Apply theme to cards and containers */
+.settings-section,
+.game-card,
+.app-card,
+.iframe-container,
+.eval-popup {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+/* Apply theme to inputs */
+input, textarea, select {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text-color);
+}
+
+/* Apply theme to active elements */
+.nav-links a.active,
+.theme-option.active::after {
+    background: var(--amethyst-primary);
+}
+
+/* Apply theme to hover states */
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Apply theme to utility bar */
+.utility-bar {
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--glass-border);
+}

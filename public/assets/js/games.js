@@ -131,7 +131,6 @@ class GamesLoader {
     }
 }
 
-// Initialize and load games when the document is ready
 document.addEventListener('DOMContentLoaded', () => {
     const gamesLoader = new GamesLoader();
     gamesLoader.loadGames();
