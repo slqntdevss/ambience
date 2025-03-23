@@ -130,10 +130,10 @@ class GamesLoader {
                 gameUrl = __uv$config.prefix + __uv$config.encodeUrl(gameData.url);
                 
                 let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
-                if (window.connection && typeof window.connection.getTransport === 'function') {
-                    if (await window.connection.getTransport() !== "/epoxy/index.mjs") {
+                if (connection && typeof connection.getTransport === 'function') {
+                    if (await connection.getTransport() !== "/epoxy/index.mjs") {
                         console.log("setting transport to epoxy for game");
-                        await window.connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
+                        await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
                     }
                 }
             } catch (error) {
