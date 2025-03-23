@@ -27,7 +27,7 @@ body {
     position: fixed;
     left: 20px;
     top: 20px;
-    width: 50px;
+    width: 45px;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     color: white;

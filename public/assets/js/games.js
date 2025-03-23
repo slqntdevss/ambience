@@ -17,7 +17,7 @@ class GamesLoader {
 
     createGameCard(game) {
         return `
-            <div class="game-card" data-game-id="${game.id}">
+            <div class="game-card" data-game-id="${game.id}" data-game-type="${game.type}">
                 <img src="${game.image}" alt="${game.title}">
                 <div class="game-info">
                     <h3>${game.title}</h3>
@@ -53,23 +53,47 @@ class GamesLoader {
         gameCards.forEach(card => {
             card.addEventListener('click', () => {
                 const gameId = card.dataset.gameId;
-                this.launchGame(gameId);
+                const gameType = card.dataset.gameType;
+                this.launchGame(gameId, gameType);
             });
         });
     }
 
-    async launchGame(gameId) {
+    async launchGame(gameId, gameType) {
         const gameData = await this.findGameData(gameId);
-        if (gameData && gameData.url) {
-            this.gameTitle.textContent = gameData.title;
-            this.gameFrame.src = gameData.url;
-            this.showGame();
+        if (!gameData) return;
+
+        this.gameTitle.textContent = gameData.title;
+
+        let gameUrl;
+        if (gameType === 'cdn') {
+            gameUrl = gameData.url;
+        } else if (gameType === 'local') {
+            gameUrl = gameData.path;
+        } else {
+            console.error('Unknown game type:', gameType);
+            return;
         }
+
+        this.gameFrame.src = 'about:blank';
+        this.showGame();
+        
+        setTimeout(() => {
+            this.gameFrame.src = gameUrl;
+        }, 100);
+
+        this.gameFrame.onload = () => {
+            console.log(`Game ${gameData.title} loaded successfully`);
+        };
+
+        this.gameFrame.onerror = () => {
+            console.error(`Failed to load game ${gameData.title}`);
+            this.hideGame();
+        };
     }
 
     showGame() {
         this.iframeContainer.style.display = 'block';
-        // Trigger reflow
         this.iframeContainer.offsetHeight;
         this.iframeContainer.classList.add('visible');
     }
@@ -79,6 +103,7 @@ class GamesLoader {
         setTimeout(() => {
             this.iframeContainer.style.display = 'none';
             this.gameFrame.src = 'about:blank';
+            this.gameTitle.textContent = '';
         }, 300);
     }
 
@@ -93,9 +118,14 @@ class GamesLoader {
     }
 
     async findGameData(gameId) {
-        const response = await fetch('/assets/json/games.json');
-        const data = await response.json();
-        return data.games.find(game => game.id === gameId);
+        try {
+            const response = await fetch('/assets/json/games.json');
+            const data = await response.json();
+            return data.games.find(game => game.id === gameId);
+        } catch (error) {
+            console.error('Error fetching game data:', error);
+            return null;
+        }
     }
 }
 
