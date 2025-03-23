@@ -25,7 +25,6 @@
     font-size: 1.5rem;
 }
 
-/* Theme options */
 .theme-options {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -75,7 +74,6 @@
     border: 1px solid var(--glass-border);
 }
 
-/* Theme previews */
 .amethyst-theme {
     background: linear-gradient(135deg, #9c27b0, #673ab7);
 }
@@ -116,7 +114,14 @@
     background: linear-gradient(135deg, #4caf50, #009688);
 }
 
-/* Injections */
+.terminal-theme {
+    background: linear-gradient(135deg, #000000, #0f9b0f);
+}
+
+.darkmode-theme {
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+}
+
 .injections-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -191,7 +196,6 @@
     background: rgba(33, 150, 243, 0.3);
 }
 
-/* Form */
 .form-group {
     margin-bottom: 1rem;
 }
@@ -238,7 +242,6 @@
     background: var(--amethyst-primary);
 }
 
-/* Code editor */
 .code-preview {
     background: #1e1e1e;
     border-radius: 6px;

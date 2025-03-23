@@ -1,5 +1,3 @@
-const toggleBtn = document.querySelector('.toggle-btn');
-const sidebar = document.querySelector('.sidebar');
 const searchContainer = document.querySelector('.search-container');
 const searchInput = document.querySelector('#addr');
 const autocompleteResults = document.querySelector('.autocomplete-results');
@@ -15,14 +13,6 @@ const forwardBtn = document.getElementById('forwardBtn');
 const reloadBtn = document.getElementById('reloadBtn');
 const closeBtn = document.getElementById('closeBtn');
 let currentURL = ""
-
-sidebar.classList.remove('hidden');
-
-toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('hidden');
-    toggleBtn.classList.toggle('expanded');
-    searchContainer.classList.toggle('expanded');
-});
 
 async function getAutocompleteSuggestions(query) {
     try {
@@ -157,6 +147,7 @@ searchForm.addEventListener("submit", async (event) => {
 	setTimeout(() => {
 		iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
 	}, 500)
+    window.scriptManager.checkAndInjectScript()
     urlInput.value = currentURL;
 });
 

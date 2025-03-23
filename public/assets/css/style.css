@@ -176,7 +176,6 @@ body {
 .autocomplete-item:hover {
     background: rgba(255, 255, 255, 0.1);
 } 
-/* Iframe and utility bar styles */
 .iframe-container {
     position: fixed;
     top: 20px;

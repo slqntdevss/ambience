@@ -50,7 +50,6 @@ body[data-theme="bloodmoon"] {
     --button-hover: rgba(255, 77, 77, 0.9);
 }
 
-/* Cotton Candy Theme */
 body[data-theme="cottoncandy"] {
     --primary-gradient: linear-gradient(135deg, #e4b3ff, #98ccff);
     --glass-bg: rgba(40, 40, 60, 0.7);
@@ -136,7 +135,6 @@ body {
     border-right: 1px solid var(--glass-border);
 }
 
-/* Apply theme to buttons */
 .settings-btn, 
 .eval-popup-button.inject,
 .search-btn,
@@ -151,7 +149,6 @@ body {
     background: var(--amethyst-primary);
 }
 
-/* Apply theme to cards and containers */
 .settings-section,
 .game-card,
 .app-card,
@@ -161,26 +158,54 @@ body {
     border: 1px solid var(--glass-border);
 }
 
-/* Apply theme to inputs */
 input, textarea, select {
     background: var(--input-bg);
     border: 1px solid var(--input-border);
     color: var(--text-color);
 }
 
-/* Apply theme to active elements */
 .nav-links a.active,
 .theme-option.active::after {
     background: var(--amethyst-primary);
 }
 
-/* Apply theme to hover states */
 .nav-links a:hover {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* Apply theme to utility bar */
 .utility-bar {
     background: var(--glass-bg);
     border-bottom: 1px solid var(--glass-border);
+}
+
+body[data-theme="terminal"] {
+    --primary-gradient: linear-gradient(135deg, #000000, #0f9b0f);
+    --glass-bg: rgba(0, 20, 0, 0.8);
+    --glass-border: rgba(15, 155, 15, 0.2);
+    --amethyst-primary: #0f9b0f;
+    --amethyst-secondary: #000000;
+    --text-color: #0f9b0f;
+    --sidebar-bg: rgba(0, 10, 0, 0.9);
+    --card-bg: rgba(0, 30, 0, 0.8);
+    --button-bg: rgba(15, 155, 15, 0.7);
+    --button-hover: rgba(15, 155, 15, 0.9);
+    --input-bg: rgba(0, 0, 0, 0.5);
+    --input-border: rgba(15, 155, 15, 0.3);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+body[data-theme="darkmode"] {
+    --primary-gradient: linear-gradient(135deg, #121212, #1e1e1e);
+    --glass-bg: rgba(25, 25, 25, 0.8);
+    --glass-border: rgba(40, 40, 40, 0.3);
+    --amethyst-primary: #444444;
+    --amethyst-secondary: #222222;
+    --text-color: #ffffff;
+    --sidebar-bg: rgba(18, 18, 18, 0.9);
+    --card-bg: rgba(30, 30, 30, 0.8);
+    --button-bg: rgba(50, 50, 50, 0.8);
+    --button-hover: rgba(60, 60, 60, 0.9);
+    --input-bg: rgba(40, 40, 40, 0.5);
+    --input-border: rgba(60, 60, 60, 0.3);
+    --shadow-color: rgba(0, 0, 0, 0.5);
 }

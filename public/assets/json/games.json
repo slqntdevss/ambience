@@ -6,7 +6,8 @@
             "type": "local",
             "description": "Survival",
             "image": "assets/img/games/minecraft.jpg",
-            "url": "/games/minecraft"
+            "path": "/games/minecraft",
+            "categories": ["strategy", "arcade"]
         },
         {
             "id": "slope",
@@ -14,15 +15,8 @@
             "title": "Slope",
             "description": "Endless Runner",
             "image": "assets/img/games/slope.png",
-            "url": "/games/slope"
-        },
-        {
-            "id": "2048",
-            "title": "2048",
-            "type": "cdn",
-            "description": "Puzzle Game",
-            "image": "assets/img/games/2048.png",
-            "url": "https://raw.githack.com/GalacticNetwork/3kh0-assets/main/2048/index.html"
+            "path": "/games/slope",
+            "categories": ["strategy", "arcade"]
         },
         {
             "id": "mariokart64",
@@ -30,7 +24,8 @@
             "title": "Mario Kart 64",
             "description": "Racing Game",
             "image": "assets/img/games/mariokart.jpeg",
-            "url": "/games/n64/mariokart"
+            "path": "/games/n64/mariokart",
+            "categories": ["action", "arcade"]
         },
         {
             "id": "ssb64",
@@ -38,7 +33,8 @@
             "title": "Super Smash Bros 64",
             "description": "Fighting",
             "image": "assets/img/games/ssb64.webp",
-            "url": "/games/n64/supersmashbros"
+            "path": "/games/n64/supersmashbros",
+            "categories": ["action", "arcade"]
         },
         {
             "id": "supermario64",
@@ -46,7 +42,8 @@
             "title": "Super Mario 64",
             "description": "Platformer",
             "image": "assets/img/games/sm64.jpg",
-            "url": "/games/n64/supermario"
+            "path": "/games/n64/supermario",
+            "categories": ["action", "arcade"]
         },
         {
             "id": "2048",
@@ -54,7 +51,8 @@
             "type": "proxied",
             "description": "Puzzle Game",
             "image": "assets/img/games/2048.png",
-            "url": "https://raw.rawgit.net/GalacticNetwork/3kh0-assets/main/2048/index.html"
+            "url": "https://raw.rawgit.net/GalacticNetwork/3kh0-assets/main/2048/index.html",
+            "categories": ["puzzle", "arcade", "strategy"]
         }
     ]
 }
