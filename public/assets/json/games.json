@@ -6,7 +6,7 @@
             "type": "cdn",
             "description": "Survival",
             "image": "assets/img/games/minecraft.jpg",
-            "path": "/games/minecraft"
+            "url": "/games/minecraft"
         },
         {
             "id": "slope",
@@ -14,7 +14,7 @@
             "title": "Slope",
             "description": "Endless Runner",
             "image": "assets/img/games/slope.png",
-            "path": "/games/slope"
+            "url": "/games/slope"
         },
         {
             "id": "2048",
@@ -22,7 +22,7 @@
             "type": "cdn",
             "description": "Puzzle Game",
             "image": "assets/img/games/2048.png",
-            "path": "https://raw.rawgit.net/GalacticNetwork/3kh0-assets/main/2048/index.html"
+            "url": "https://raw.rawgit.net/GalacticNetwork/3kh0-assets/main/2048/index.html"
         }
     ]
 }
