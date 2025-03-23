@@ -3,14 +3,14 @@
         {
             "id": "eaglercraft",
             "title": "Eaglercraft",
-            "type": "cdn",
+            "type": "local",
             "description": "Survival",
             "image": "assets/img/games/minecraft.jpg",
             "url": "/games/minecraft"
         },
         {
             "id": "slope",
-            "type": "cdn",
+            "type": "local",
             "title": "Slope",
             "description": "Endless Runner",
             "image": "assets/img/games/slope.png",
@@ -20,6 +20,38 @@
             "id": "2048",
             "title": "2048",
             "type": "cdn",
+            "description": "Puzzle Game",
+            "image": "assets/img/games/2048.png",
+            "url": "https://raw.githack.com/GalacticNetwork/3kh0-assets/main/2048/index.html"
+        },
+        {
+            "id": "mariokart64",
+            "type": "local",
+            "title": "Mario Kart 64",
+            "description": "Racing Game",
+            "image": "assets/img/games/mariokart.jpeg",
+            "url": "/games/n64/mariokart"
+        },
+        {
+            "id": "ssb64",
+            "type": "local",
+            "title": "Super Smash Bros 64",
+            "description": "Fighting",
+            "image": "assets/img/games/ssb64.webp",
+            "url": "/games/n64/supersmashbros"
+        },
+        {
+            "id": "supermario64",
+            "type": "local",
+            "title": "Super Mario 64",
+            "description": "Platformer",
+            "image": "assets/img/games/sm64.jpg",
+            "url": "/games/n64/supermario"
+        },
+        {
+            "id": "2048",
+            "title": "2048",
+            "type": "proxied",
             "description": "Puzzle Game",
             "image": "assets/img/games/2048.png",
             "url": "https://raw.rawgit.net/GalacticNetwork/3kh0-assets/main/2048/index.html"

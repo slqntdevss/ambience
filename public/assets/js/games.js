@@ -70,6 +70,8 @@ class GamesLoader {
             gameUrl = gameData.url;
         } else if (gameType === 'local') {
             gameUrl = gameData.path;
+        } else if (gameType === 'proxied') {
+            gameUrl = gameData.path;
         } else {
             console.error('Unknown game type:', gameType);
             return;
