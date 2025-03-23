@@ -11,15 +11,15 @@
             "id": "slope",
             "title": "Slope",
             "description": "Endless Runner",
-            "image": "assets/img/games/slope.jpg",
+            "image": "assets/img/games/slope.png",
             "url": "/games/slope"
         },
         {
             "id": "2048",
             "title": "2048",
             "description": "Puzzle Game",
-            "image": "assets/img/games/2048.jpg",
-            "url": "/games/2048"
+            "image": "assets/img/games/2048.png",
+            "url": "https://raw.rawgit.net/GalacticNetwork/3kh0-assets/main/2048/index.html"
         }
     ]
 }

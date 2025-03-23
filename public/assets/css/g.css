@@ -79,3 +79,25 @@
 .nav-links a.active {
     background: rgba(255, 255, 255, 0.1);
 }
+
+/* Game iframe styles */
+.game-title {
+    color: white;
+    flex: 1;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+#gameFrame {
+    width: 100%;
+    height: calc(100% - 60px);
+    border: none;
+    background: black; /* Better for game loading */
+    border-radius: 12px 12px 0 0;
+}
+
+#fullscreenBtn {
+    font-size: 1.2rem;
+    padding: 8px 12px;
+}
