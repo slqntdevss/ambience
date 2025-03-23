@@ -1,7 +1,7 @@
 {
-	"name": "uv-app",
+	"name": "ambience",
 	"version": "1.0.0",
-	"description": "Ultraviolet instance",
+	"description": "ambience proxy for da win",
 	"type": "module",
 	"engines": {
 		"npm": ">=7.0.0",
