@@ -4,9 +4,9 @@ const autocompleteResults = document.querySelector('.autocomplete-results');
 const iframeContainer = document.querySelector('.iframe-container');
 const addr = document.getElementById("addr")
 const searchForm = document.getElementById("searchForm")
-const urlBar = document.querySelector('.url-bar')
 const iframe = document.getElementById("browserFrame")
 const connection = new BareMux.BareMuxConnection("/baremux/worker.js")
+const urlForm = document.querySelector('.url-bar')
 const urlInput = document.getElementById('urlInput');
 const backBtn = document.getElementById('backBtn');
 const forwardBtn = document.getElementById('forwardBtn');
@@ -78,7 +78,8 @@ document.getElementById('searchForm').addEventListener('submit', (e) => {
 urlInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         e.preventDefault();
-        showIframe()
+        showIframe();
+        handleUrlFormSubmit();
     }
 });
 
@@ -96,7 +97,11 @@ reloadBtn.addEventListener('click', () => {
 
 browserFrame.addEventListener('load', () => {
     urlInput.value = currentURL;
-    console.log(__uv$config.decodeUrl(browserFrame.src.split('ence/')[1]))
+    try {
+        console.log(__uv$config.decodeUrl(browserFrame.src.split('ence/')[1]));
+    } catch (error) {
+        console.error("Error decoding URL:", error);
+    }
 });
 
 urlInput.addEventListener('input', (e) => {
@@ -117,6 +122,7 @@ function showIframe() {
     iframeContainer.offsetHeight;
     iframeContainer.classList.add('visible');
 }
+
 function hideIframe() {
     iframeContainer.classList.remove('visible');
     setTimeout(() => {
@@ -125,56 +131,70 @@ function hideIframe() {
     }, 300);
 }
 
+async function handleUrlFormSubmit() {
+    try {
+        await registerSW();
+    } catch (err) {
+        console.error("An error occurred while registering the service worker: ", err);
+        throw err;
+    }
+
+    const url = search(urlInput.value, "https://duckduckgo.com/?q=%s");
+
+    let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
+    if (await connection.getTransport() !== "/epoxy/index.mjs") {
+        console.log("setting transport to epoxy");
+        await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
+    }
+    
+    currentURL = url;
+    setTimeout(() => {
+        iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+    }, 500);
+    
+    if (window.scriptManager && typeof window.scriptManager.checkAndInjectScript === 'function') {
+        window.scriptManager.checkAndInjectScript();
+    }
+    
+    urlInput.value = currentURL;
+}
+
 searchForm.addEventListener("submit", async (event) => {
-	event.preventDefault();
+    event.preventDefault();
 
-	try {
-		await registerSW();
-	} catch (err) {
-		console.error("An error occured while registering the service worker: ", err)
-		throw err;
-	}
+    try {
+        await registerSW();
+    } catch (err) {
+        console.error("An error occurred while registering the service worker: ", err);
+        throw err;
+    }
 
+    const url = search(addr.value, "https://duckduckgo.com/?q=%s");
 
-	const url = search(addr.value, "https://duckduckgo.com/?q=%s");
-
-	let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
-	if (await connection.getTransport() !== "/epoxy/index.mjs") {
-		console.log("setting transport to epoxy")
-		await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
-	}
-    currentURL = url
-	setTimeout(() => {
-		iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-	}, 500)
-    window.scriptManager.checkAndInjectScript()
+    let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
+    if (await connection.getTransport() !== "/epoxy/index.mjs") {
+        console.log("setting transport to epoxy");
+        await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
+    }
+    
+    currentURL = url;
+    setTimeout(() => {
+        iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+    }, 500);
+    
+    if (window.scriptManager && typeof window.scriptManager.checkAndInjectScript === 'function') {
+        window.scriptManager.checkAndInjectScript();
+    }
+    
     urlInput.value = currentURL;
 });
 
-urlBar.addEventListener("submit", async (event) => {
-	event.preventDefault();
-
-	try {
-		await registerSW();
-	} catch (err) {
-		console.error("An error occured while registering the service worker: ", err)
-		throw err;
-	}
-
-
-	const url = search(addr.value, "https://duckduckgo.com/?q=%s");
-
-	let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
-	if (await connection.getTransport() !== "/epoxy/index.mjs") {
-		console.log("setting transport to epoxy")
-		await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
-	}
-    currentURL = url
-	setTimeout(() => {
-		iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-	}, 500)
-    window.scriptManager.checkAndInjectScript(url);
-    urlInput.value = currentURL;
-});
+if (urlForm) {
+    urlForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        console.log("URL form submit event triggered");
+        handleUrlFormSubmit();
+    });
+}
 
 closeBtn.addEventListener('click', hideIframe); 
