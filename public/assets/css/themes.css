@@ -1,11 +1,11 @@
 :root {
-    --primary-gradient: linear-gradient(135deg, #9c27b0, #673ab7);
-    --glass-bg: rgba(30, 30, 40, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --amethyst-primary: #9c27b0;
-    --amethyst-secondary: #673ab7;
+    --primary-gradient: linear-gradient(135deg, #9b6dff, #7245d1);
+    --amethyst-primary: #9b6dff;
+    --amethyst-secondary: #7245d1;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
     --text-color: #ffffff;
-    --sidebar-bg: rgba(20, 20, 30, 0.8);
+    --sidebar-bg: rgba(255, 255, 255, 0.1);
     --card-bg: rgba(40, 40, 50, 0.7);
     --button-bg: rgba(156, 39, 176, 0.7);
     --button-hover: rgba(156, 39, 176, 0.9);
