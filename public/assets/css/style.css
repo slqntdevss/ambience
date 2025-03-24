@@ -275,6 +275,93 @@ body {
     color: #ff4444;
 } 
 
+.eval-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 450px;
+    z-index: 2000;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.eval-popup.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.eval-popup-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.eval-popup-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+.eval-popup-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.eval-popup-description {
+    margin: 1rem 0;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.eval-popup-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.eval-popup-button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.eval-popup-button.cancel {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.eval-popup-button.cancel:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.eval-popup-button.inject {
+    background: var(--amethyst-secondary);
+    color: white;
+}
+
 .eval-popup-button.inject:hover {
     background: var(--amethyst-primary);
 }

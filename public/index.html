@@ -37,17 +37,19 @@
             </div>
             <div class="iframe-container" style="display: none;">
                 <div class="utility-bar">
-                    <button class="nav-btn" id="backBtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></button>
-                    <button class="nav-btn" id="forwardBtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
-                    <button class="nav-btn" id="reloadBtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-cw"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg></button>
-                    <button class="nav-btn" id="fcBtn" onclick="toggleFullscreen();"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-expand"><path d="m15 15 6 6"/><path d="m15 9 6-6"/><path d="M21 16.2V21h-4.8"/><path d="M21 7.8V3h-4.8"/><path d="M3 16.2V21h4.8"/><path d="m3 21 6-6"/><path d="M3 7.8V3h4.8"/><path d="M9 9 3 3"/></svg></button>
-                    <button class="nav-btn" id="inspectBtn" onclick="inspect()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></button>
+                    <div class="left-controls">
+                        <button class="nav-btn" id="backBtn">←</button>
+                        <button class="nav-btn" id="forwardBtn">→</button>
+                        <button class="nav-btn" id="reloadBtn">↻</button>
+                    </div>
                     <form class="url-bar">
-                        <input type="text" id="urlInput" placeholder="search or enter a url">
+                        <input type="text" id="urlInput" placeholder="Enter URL or search...">
                     </form>
-                    <button class="close-btn" id="closeBtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+                    <div class="right-controls">
+                        <button class="close-btn" id="closeBtn">✕</button>
+                    </div>
                 </div>
-                <iframe id="browserFrame" id="fc" src="about:blank"></iframe>
+                <iframe id="browserFrame" src="about:blank"></iframe>
             </div>
         </main>
     </div>

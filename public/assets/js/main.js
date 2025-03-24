@@ -1,18 +1,21 @@
 const searchContainer = document.querySelector('.search-container');
 const searchInput = document.querySelector('#addr');
 const autocompleteResults = document.querySelector('.autocomplete-results');
-const iframeContainer = document.querySelector('.iframe-container');
-const addr = document.getElementById("addr")
-const searchForm = document.getElementById("searchForm")
-const iframe = document.getElementById("browserFrame")
-const connection = new BareMux.BareMuxConnection("/baremux/worker.js")
-const urlForm = document.querySelector('.url-bar')
+const addr = document.getElementById("addr");
+const searchForm = document.getElementById("searchForm");
+const iframe = document.getElementById("browserFrame");
+const connection = new BareMux.BareMuxConnection("/baremux/worker.js");
+const urlForm = document.querySelector('.url-bar');
 const urlInput = document.getElementById('urlInput');
 const backBtn = document.getElementById('backBtn');
 const forwardBtn = document.getElementById('forwardBtn');
 const reloadBtn = document.getElementById('reloadBtn');
 const closeBtn = document.getElementById('closeBtn');
-let currentURL = ""
+const iframeContainer = document.querySelector('.iframe-container');
+let currentURL = "";
+
+// Make urlInput available to iframe-manager.js
+window.urlInput = urlInput;
 
 async function getAutocompleteSuggestions(query) {
     try {
@@ -72,7 +75,7 @@ document.addEventListener('click', (e) => {
 
 document.getElementById('searchForm').addEventListener('submit', (e) => {
     e.preventDefault();
-    showIframe()
+    showIframe();
 });
 
 urlInput.addEventListener('keypress', (e) => {
@@ -93,15 +96,6 @@ forwardBtn.addEventListener('click', () => {
 
 reloadBtn.addEventListener('click', () => {
     browserFrame.contentWindow.location.reload();
-});
-
-browserFrame.addEventListener('load', () => {
-    urlInput.value = currentURL;
-    try {
-        console.log(__uv$config.decodeUrl(browserFrame.src.split('ence/')[1]));
-    } catch (error) {
-        console.error("Error decoding URL:", error);
-    }
 });
 
 urlInput.addEventListener('input', (e) => {
@@ -127,11 +121,12 @@ function hideIframe() {
     iframeContainer.classList.remove('visible');
     setTimeout(() => {
         iframeContainer.style.display = 'none';
-        browserFrame.src = 'about:blank';
+        iframe.src = 'about:blank';
     }, 300);
 }
 
 async function handleUrlFormSubmit() {
+    console.log("URL form submitted");
     try {
         await registerSW();
     } catch (err) {
@@ -148,14 +143,13 @@ async function handleUrlFormSubmit() {
     }
     
     currentURL = url;
+    
     setTimeout(() => {
         iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
     }, 500);
     
-    if (window.scriptManager && typeof window.scriptManager.checkAndInjectScript === 'function') {
-        window.scriptManager.checkAndInjectScript();
-    }
-    
+    window.scriptManager.checkAndInjectScript(currentURL);
+
     urlInput.value = currentURL;
 }
 
@@ -178,13 +172,12 @@ searchForm.addEventListener("submit", async (event) => {
     }
     
     currentURL = url;
+    
     setTimeout(() => {
         iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
     }, 500);
     
-    if (window.scriptManager && typeof window.scriptManager.checkAndInjectScript === 'function') {
-        window.scriptManager.checkAndInjectScript();
-    }
+    window.scriptManager.checkAndInjectScript(currentURL);
     
     urlInput.value = currentURL;
 });
@@ -197,4 +190,6 @@ if (urlForm) {
     });
 }
 
-closeBtn.addEventListener('click', hideIframe); 
+if (closeBtn) {
+    closeBtn.addEventListener('click', hideIframe);
+}

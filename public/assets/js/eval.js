@@ -5,23 +5,11 @@ class ScriptManager {
         this.overlay = null;
         this.currentScript = null;
         this.url = null;
-        this.loadScripts();
-        this.init();
+        this.initialized = false;
+        this.popupTimeout = null;
+        this.initializeDefaultScripts();
     }
 
-    loadScripts() {
-        const savedScripts = localStorage.getItem('ambienceScripts');
-        
-        if (savedScripts) {
-            try {
-                this.scripts = JSON.parse(savedScripts);
-            } catch (e) {
-                this.initializeDefaultScripts();
-            }
-        } else {
-            this.initializeDefaultScripts();
-        }
-    }
 
     initializeDefaultScripts() {
         this.scripts = {
@@ -30,49 +18,30 @@ class ScriptManager {
                 description: 'Improves the Discord experience by adding plugins.',
                 code: 'alert("Vencord coming soon!");'
             },
-            'github.com': {
-                name: 'GitHub Enhancer',
-                description: 'Adds useful features to GitHub like file icons and code folding.',
+            'example.com': {
+                name: 'Dark Mode',
+                description: 'Enables dark mode on Example.com',
                 code: `
-                    const style = document.createElement('style');
-                    style.textContent = \`
-                        .repository-content { position: relative; }
-                        .ambience-gh-tools { 
-                            position: fixed;
-                            top: 70px;
-                            right: 20px;
-                            background: #0d1117;
-                            border: 1px solid #30363d;
-                            border-radius: 6px;
-                            padding: 10px;
-                            z-index: 100;
-                        }
-                        .ambience-gh-tools button {
-                            background: #238636;
-                            color: white;
-                            border: none;
-                            padding: 5px 10px;
-                            border-radius: 4px;
-                            cursor: pointer;
-                            margin: 5px;
-                        }
-                    \`;
-                    document.head.appendChild(style);
+                    document.body.style.background = "#121212";
+                    document.body.style.color = "#e0e0e0";
                     
-                    setTimeout(() => {
-                        const toolbar = document.createElement('div');
-                        toolbar.className = 'ambience-gh-tools';
-                        toolbar.innerHTML = \`
-                            <button id="ambience-copy-repo">Copy Repo URL</button>
-                            <button id="ambience-star-repo">⭐ Star</button>
-                        \`;
-                        document.querySelector('.repository-content')?.appendChild(toolbar);
-                        
-                        document.getElementById('ambience-copy-repo')?.addEventListener('click', () => {
-                            navigator.clipboard.writeText(window.location.href);
-                            alert('Repository URL copied to clipboard!');
-                        });
-                    }, 1000);
+                    document.querySelectorAll('a').forEach(a => {
+                        a.style.color = '#90caf9';
+                    });
+                    
+                    document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(h => {
+                        h.style.color = '#f5f5f5';
+                    });
+                    
+                    document.querySelectorAll('input, button, select, textarea').forEach(el => {
+                        el.style.backgroundColor = '#2d2d2d';
+                        el.style.color = '#e0e0e0';
+                        el.style.borderColor = '#444';
+                    });
+                    
+                    document.querySelectorAll('table, th, td').forEach(el => {
+                        el.style.borderColor = '#444';
+                    });
                 `
             },
         };
@@ -96,8 +65,9 @@ class ScriptManager {
         domain = domain.replace(/^www\./, '');
         domain = domain.split('/')[0];
         
+        
         for (const [scriptDomain, scriptInfo] of Object.entries(this.scripts)) {
-            if (domain.includes(scriptDomain)) {
+            if (domain === scriptDomain || domain.includes(scriptDomain)) {
                 return {
                     ...scriptInfo,
                     domain: scriptDomain
@@ -123,13 +93,27 @@ class ScriptManager {
     }
 
     init() {
+        if (this.initialized) return;
+        
         this.createPopupElements();
         document.body.appendChild(this.overlay);
         document.body.appendChild(this.popup);
         this.setupEventListeners();
+        this.initialized = true;
     }
 
     createPopupElements() {
+        const existingOverlay = document.querySelector('.eval-popup-overlay');
+        const existingPopup = document.querySelector('.eval-popup');
+        
+        if (existingOverlay) {
+            existingOverlay.remove();
+        }
+        
+        if (existingPopup) {
+            existingPopup.remove();
+        }
+        
         this.overlay = document.createElement('div');
         this.overlay.className = 'eval-popup-overlay';
         
@@ -163,15 +147,24 @@ class ScriptManager {
         const cancelBtn = document.getElementById('eval-cancel');
         const injectBtn = document.getElementById('eval-inject');
         
-        cancelBtn.addEventListener('click', () => this.hidePopup());
+        const newCancelBtn = cancelBtn.cloneNode(true);
+        const newInjectBtn = injectBtn.cloneNode(true);
         
-        injectBtn.addEventListener('click', () => {
+        cancelBtn.parentNode.replaceChild(newCancelBtn, cancelBtn);
+        injectBtn.parentNode.replaceChild(newInjectBtn, injectBtn);
+        
+        newCancelBtn.addEventListener('click', () => this.hidePopup());
+        
+        newInjectBtn.addEventListener('click', () => {
             if (this.currentScript) {
                 this.executeScript(this.currentScript);
             }
             this.hidePopup();
         });
         
+        const newOverlay = this.overlay.cloneNode(true);
+        this.overlay.parentNode?.replaceChild(newOverlay, this.overlay);
+        this.overlay = newOverlay;
         this.overlay.addEventListener('click', () => this.hidePopup());
     }
 
@@ -215,9 +208,16 @@ class ScriptManager {
     checkAndInjectScript(url) {
         if (!url) return;
         
+        
         const scriptInfo = this.getScriptForUrl(url);
         if (scriptInfo) {
-            setTimeout(() => {
+            
+            if (this.popupTimeout) {
+                clearTimeout(this.popupTimeout);
+            }
+            
+            this.popupTimeout = setTimeout(() => {
+                this.init();
                 this.showPopup(scriptInfo, url);
             }, 2000);
         }
@@ -227,3 +227,30 @@ class ScriptManager {
 const scriptManager = new ScriptManager();
 window.scriptManager = scriptManager;
 window.evalPopupManager = scriptManager;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const iframe = document.getElementById('browserFrame');
+    
+    if (iframe) {
+        iframe.addEventListener('load', () => {
+            try {
+                const url = __uv$config.decodeUrl(iframe.contentWindow.location.href.split('/ence/')[1]);
+                scriptManager.checkAndInjectScript(url);
+            } catch (e) {
+                console.error("Error checking iframe URL:", e);
+            }
+        });
+    }
+});
+
+setTimeout(() => {
+    const iframe = document.getElementById('browserFrame');
+    if (iframe) {
+        try {
+            const url = iframe.contentWindow.location.href;
+            scriptManager.checkAndInjectScript(url);
+        } catch (e) {
+            console.error("Error on initial URL check:", e);
+        }
+    }
+}, 1000);
