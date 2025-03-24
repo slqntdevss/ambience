@@ -70,7 +70,7 @@
             "description": "Sports Game",
             "image": "assets/img/games/basketbros.jpeg",
             "url": "https://script.google.com/macros/s/AKfycbxUfaDSpH-0SJL0WPKt38JY7OOOGMmtpY9JTSbL8pvtjxS7jSpNHHu6MdZgWUshIU00Kw/exec",
-            "categories": ["action", "sports"]
+            "categories": ["2player", "sports"]
         },
         {
             "id": "basketrandom",
