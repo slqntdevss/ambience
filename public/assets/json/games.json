@@ -7,7 +7,7 @@
             "description": "Survival",
             "image": "assets/img/games/minecraft.jpg",
             "path": "/games/minecraft",
-            "categories": ["strategy", "arcade"]
+            "categories": ["strategy", "arcade", "sandbox"]
         },
         {
             "id": "slope",
@@ -51,8 +51,53 @@
             "type": "proxied",
             "description": "Puzzle Game",
             "image": "assets/img/games/2048.png",
-            "url": "https://raw.rawgit.net/GalacticNetwork/3kh0-assets/main/2048/index.html",
+            "url": "https://raw.githack.com/GalacticNetwork/3kh0-assets/main/2048/index.html",
             "categories": ["puzzle", "arcade", "strategy"]
+        },
+        {
+            "id": "mcjava",
+            "title": "Minecraft Java",
+            "type": "proxied",
+            "description": "Sandbox Game",
+            "image": "assets/img/games/java.webp",
+            "url": "https://eaglercraft.com/mc/1.12.2/",
+            "categories": ["sandbox", "arcade", "strategy"]
+        },
+        {
+            "id": "basketbros",
+            "title": "Basket Bros",
+            "type": "proxied",
+            "description": "Sports Game",
+            "image": "assets/img/games/basketbros.jpeg",
+            "url": "https://script.google.com/macros/s/AKfycbxUfaDSpH-0SJL0WPKt38JY7OOOGMmtpY9JTSbL8pvtjxS7jSpNHHu6MdZgWUshIU00Kw/exec",
+            "categories": ["action", "sports"]
+        },
+        {
+            "id": "basketrandom",
+            "title": "Basket Random",
+            "type": "local",
+            "description": "Sports Game",
+            "image": "assets/img/games/basketrandom.jpeg",
+            "path": "/games/basket-random",
+            "categories": ["2player", "sports", "arcade"]
+        },
+        {
+            "id": "soccerrandom",
+            "title": "Soccer Random",
+            "type": "local",
+            "description": "Sports Game",
+            "image": "assets/img/games/soccerrandom.jpeg",
+            "path": "/games/soccer-random",
+            "categories": ["2player", "sports", "arcade"]
+        },
+        {
+            "id": "1v1.lol",
+            "title": "1v1.LOL",
+            "type": "local",
+            "description": "Shooting game",
+            "image": "assets/img/games/1v1lol.jpeg",
+            "path": "/games/1v1-lol/oldest",
+            "categories": ["shooter", "action", "strategy"]
         }
     ]
 }
