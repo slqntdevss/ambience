@@ -91,6 +91,42 @@
             "categories": ["2player", "sports", "arcade"]
         },
         {
+            "id": "volleyrandom",
+            "title": "Volley Random",
+            "type": "proxied",
+            "description": "Sports Game",
+            "image": "assets/img/games/volleyrandom.jpeg",
+            "url": "https://raw.rawgit.net/galacticnetwork/3kh0-assets/refs/heads/main/volley-random/index.html",
+            "categories": ["2player", "sports", "arcade"]
+        },
+        {
+            "id": "boxingrandom",
+            "title": "Boxing Random",
+            "type": "local",
+            "description": "Sports Game",
+            "image": "assets/img/games/boxingrandom.avif",
+            "path": "/games/boxing-random",
+            "categories": ["2player", "sports", "arcade"]
+        },
+        {
+            "id": "basketballstars",
+            "title": "Basketball Stars",
+            "type": "local",
+            "description": "Sports Game",
+            "image": "assets/img/games/basketball-stars.avif",
+            "path": "/games/basketball/stars",
+            "categories": ["2player","sports"]
+        },
+        {
+            "id": "basketballlegends",
+            "title": "Basketball Legends",
+            "type": "local",
+            "description": "Sports Game",
+            "image": "assets/img/games/basketballlegends.avif",
+            "path": "/games/basketball/legends",
+            "categories": ["2player","sports"]
+        },
+        {
             "id": "1v1.lol",
             "title": "1v1.LOL",
             "type": "local",
