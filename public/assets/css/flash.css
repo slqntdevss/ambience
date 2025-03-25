@@ -1,0 +1,84 @@
+@import url('/assets/css/themes.css');
+
+        :root {
+            --amethyst-primary: #9b6dff;
+            --amethyst-secondary: #7245d1;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--amethyst-primary), var(--amethyst-secondary));
+            min-height: 100vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .game-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 20px;
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .game-player {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .error-message {
+            color: #ff4444;
+            margin-top: 20px;
+            text-align: center;
+            background: rgba(255, 68, 68, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .game-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }

@@ -16,7 +16,13 @@ class ScriptManager {
             'discord.com': {
                 name: 'Vencord',
                 description: 'Improves the Discord experience by adding plugins.',
-                code: 'alert("Vencord coming soon!");'
+                code: `
+                try {
+                    eval('https://raw.githubusercontent.com/Vencord/builds/main/Vencord.user.js');
+                } catch (err) {
+                    console.error('An error occured running vencord: ' err) 
+                }
+                `
             },
             'example.com': {
                 name: 'Dark Mode',

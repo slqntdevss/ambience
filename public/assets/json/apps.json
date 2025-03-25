@@ -1,0 +1,58 @@
+{
+    "apps": [
+        {
+            "id": "yt",
+            "title": "YouTube",
+            "image": "/assets/img/apps/youtube.jpg",
+            "url": "https://youtube.com"
+        },
+        {
+            "id": "dc",
+            "title": "Discord",
+            "image": "/assets/img/apps/",
+            "url": "https://discord.com"
+        },
+        {
+            "id": "gh",
+            "title": "Github",
+            "image": "/assets/img/apps/",
+            "url": "https://github.com"
+        },
+        {
+            "id": "ha",
+            "title": "HiAnime",
+            "image": "/assets/img/apps/",
+            "url": "https://hianime.to"
+        },
+        {
+            "id": "gfn",
+            "title": "Geforce Now",
+            "image": "/assets/img/apps/",
+            "url": "https://play.geforce.com"
+        },
+        {
+            "id": "tw",
+            "title": "Twitch",
+            "image": "/assets/img/apps/",
+            "url": "https://twitch.tv"
+        },
+        {
+            "id": "yt",
+            "title": "YouTube",
+            "image": "/assets/img/apps/",
+            "url": "https://youtube.com"
+        },
+        {
+            "id": "yt",
+            "title": "YouTube",
+            "image": "/assets/img/apps/",
+            "url": "https://youtube.com"
+        },
+        {
+            "id": "gl",
+            "title": "Google",
+            "image": "/assets/img/apps/",
+            "url": "https://google.com"
+        }
+    ]
+}

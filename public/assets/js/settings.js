@@ -6,12 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.querySelector('.toggle-btn');
     const sidebar = document.querySelector('.sidebar');
     const mainContent = document.querySelector('.main-content');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('hidden');
+            toggleBtn.classList.toggle('expanded');
+            mainContent.classList.toggle('expanded');
+        });
+    }
     
-    toggleBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('hidden');
-        toggleBtn.classList.toggle('expanded');
-        mainContent.classList.toggle('expanded');
-    });
     
     function loadCurrentTheme() {
         const currentTheme = localStorage.getItem('ambienceTheme') || 'amethyst';
