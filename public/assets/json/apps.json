@@ -9,49 +9,103 @@
         {
             "id": "dc",
             "title": "Discord",
-            "image": "/assets/img/apps/",
+            "image": "/assets/img/apps/discord.jpg",
             "url": "https://discord.com"
         },
         {
             "id": "gh",
             "title": "Github",
-            "image": "/assets/img/apps/",
+            "image": "/assets/img/apps/github.jpeg",
             "url": "https://github.com"
         },
         {
             "id": "ha",
             "title": "HiAnime",
-            "image": "/assets/img/apps/",
+            "image": "/assets/img/apps/hianime.webp",
             "url": "https://hianime.to"
         },
         {
             "id": "gfn",
             "title": "Geforce Now",
-            "image": "/assets/img/apps/",
+            "image": "/assets/img/apps/gfn.png",
             "url": "https://play.geforce.com"
         },
         {
             "id": "tw",
             "title": "Twitch",
-            "image": "/assets/img/apps/",
+            "image": "/assets/img/apps/twitch.avif",
             "url": "https://twitch.tv"
         },
         {
-            "id": "yt",
-            "title": "YouTube",
-            "image": "/assets/img/apps/",
-            "url": "https://youtube.com"
+            "id": "tt",
+            "title": "TikTok",
+            "image": "/assets/img/apps/tiktok.png",
+            "url": "https://tiktok.com"
         },
         {
-            "id": "yt",
-            "title": "YouTube",
-            "image": "/assets/img/apps/",
-            "url": "https://youtube.com"
+            "id": "iv",
+            "title": "Invidious (youtube alternative)",
+            "image": "/assets/img/apps/iv.png",
+            "url": "https://invidious.nerdvpn.de"
+        },
+        {
+            "id": "gpt",
+            "title": "ChatGPT",
+            "image": "/assets/img/apps/gpt.webp",
+            "url": "https://curtiss.pages.dev/history/src/AI"
+        },
+        {
+            "id": "cmg",
+            "title": "Cool Math Games",
+            "image": "/assets/img/apps/cmg.png",
+            "url": "https://coolmathgames.com"
+        },
+        {
+            "id": "vc",
+            "title": "Vercel",
+            "image": "/assets/img/apps/vercell.webp",
+            "url": "https://vercel.com"
+        },
+        {
+            "id": "tdw",
+            "title": "ThirtyDollar.Website",
+            "image": "/assets/img/apps/thirtydollar.jpg",
+            "url": "https://thirtydollar.website"
+        },
+        {
+            "id": "chess",
+            "title": "Chess.COM",
+            "image": "/assets/img/apps/chess.png",
+            "url": "https://chess.com"
+        },
+        {
+            "id": "espn",
+            "title": "ESPN",
+            "image": "/assets/img/apps/poki.png",
+            "url": "https://espn.com"
+        },
+        {
+            "id": "poki",
+            "title": "Poki",
+            "image": "/assets/img/apps/espn.jpeg",
+            "url": "https://poki.com"
+        },
+        {
+            "id": "ngg",
+            "title": "Now.gg",
+            "image": "/assets/img/apps/ngg.jpg",
+            "url": "https://now.gg"
+        },
+        {
+            "id": "ng",
+            "title": "Newgrounds",
+            "image": "/assets/img/apps/ngs.jpg",
+            "url": "https://newgrounds.com"
         },
         {
             "id": "gl",
             "title": "Google",
-            "image": "/assets/img/apps/",
+            "image": "/assets/img/apps/google.jpg",
             "url": "https://google.com"
         }
     ]
