@@ -16,16 +16,16 @@ class AppLoader {
     }
 
     setupEventListeners() {
-        this.closeBtn.addEventListener('click', () => this.hideGame());
+        this.closeBtn.addEventListener('click', () => this.hideApp());
         this.fullscreenBtn.addEventListener('click', () => this.toggleFullscreen());
     }
 
-    createAppCard(game) {
+    createAppCard(app) {
         return `
-            <div class="game-card" data-game-id="${game.id}" data-game-type="${game.type}">
-                <img src="${game.image}" alt="${game.title}">
+            <div class="game-card" data-app-id="${app.id}">
+                <img src="${app.image}" alt="${app.title}">
                 <div class="game-info">
-                    <h3>${game.title}</h3>
+                    <h3>${app.title}</h3>
                 </div>
             </div>
         `;
@@ -34,7 +34,7 @@ class AppLoader {
     async loadApps() {
         try {
             const response = await fetch('/assets/json/apps.json');
-            if (!response.ok) throw new Error('Failed to load games data');
+            if (!response.ok) throw new Error('Failed to load apps  data');
             
             const data = await response.json();
             this.allApps = data.apps;
@@ -43,8 +43,8 @@ class AppLoader {
             this.addClickHandlers();
 
         } catch (error) {
-            console.error('Error loading games:', error);
-            this.appsGrid.innerHTML = '<p class="error">Failed to load games</p>';
+            console.error('Error loading apps:', error);
+            this.appsGrid.innerHTML = '<p class="error">Failed to load apps</p>';
         }
     }
     
@@ -63,6 +63,7 @@ class AppLoader {
         appCards.forEach(card => {
             card.addEventListener('click', () => {
                 const appId = card.dataset.appId;
+                console.log(card.dataset)
                 this.launchApp(appId);
             });
         });
@@ -70,7 +71,9 @@ class AppLoader {
 
     async launchApp(appId) {
         const appData = await this.findAppData(appId);
-        if (!appData) return;
+        if (!appData) {
+            console.log("cant find ", appId)
+        };
 
         this.appTitle.textContent = appData.title;
 
@@ -78,7 +81,7 @@ class AppLoader {
 
         try {
             await this.registerServiceWorker();
-            appUrl = __uv$config.prefix + __uv$config.encodeUrl(gameData.url);
+            appUrl = __uv$config.prefix + __uv$config.encodeUrl(appData.url);
             
             let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
             if (connection && typeof connection.getTransport === 'function') {
@@ -104,7 +107,7 @@ class AppLoader {
         };
 
         this.appFrame.onerror = () => {
-            console.error(`Failed to load game ${appData.title}`);
+            console.error(`Failed to load app ${appData.title}`);
             this.hideApp();
         };
     }
