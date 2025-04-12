@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: space
+    name: ambience
     region: oregon
     plan: free
     runtime: node
