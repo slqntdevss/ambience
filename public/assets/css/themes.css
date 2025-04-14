@@ -64,7 +64,7 @@ body[data-theme="cottoncandy"] {
 }
 
 body[data-theme="space"] {
-    --primary-gradient: linear-gradient(135deg, #191970, #7b68ee);
+    --primary-gradient: linear-gradient(135deg, #7b68ee, #191970);
     --glass-bg: rgba(20, 20, 40, 0.7);
     --glass-border: rgba(123, 104, 238, 0.2);
     --amethyst-primary: #7b68ee;

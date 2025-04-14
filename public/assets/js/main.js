@@ -14,9 +14,6 @@ const closeBtn = document.getElementById('closeBtn');
 const iframeContainer = document.querySelector('.iframe-container');
 let currentURL = "";
 
-// Make urlInput available to iframe-manager.js
-window.urlInput = urlInput;
-
 async function getAutocompleteSuggestions(query) {
     try {
         const response = await fetch(`/autoc?query=${encodeURIComponent(query)}`);
@@ -145,7 +142,7 @@ async function handleUrlFormSubmit() {
     currentURL = url;
     
     setTimeout(() => {
-        iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+        browserFrame.href = __uv$config.prefix + url;
     }, 500);
     
     window.scriptManager.checkAndInjectScript(currentURL);
@@ -174,7 +171,7 @@ searchForm.addEventListener("submit", async (event) => {
     currentURL = url;
     
     setTimeout(() => {
-        iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+        browserFrame.href = __uv$config.prefix + url;
     }, 500);
     
     window.scriptManager.checkAndInjectScript(currentURL);

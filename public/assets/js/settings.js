@@ -89,36 +89,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    /*addScriptBtn.addEventListener('click', () => {
-        const domain = document.getElementById('domain').value.trim();
-        const name = document.getElementById('name').value.trim();
-        const description = document.getElementById('description').value.trim();
-        const code = document.getElementById('code').value.trim();
-        
-        if (!domain || !name || !code) {
-            alert('Please fill in all required fields (domain, name, and code).');
-            return;
-        }
-        
-        const scriptInfo = {
-            name,
-            description,
-            code
-        };
-        
-        window.scriptManager.addScript(domain, scriptInfo);
-        
-        document.getElementById('domain').value = '';
-        document.getElementById('name').value = '';
-        document.getElementById('description').value = '';
-        document.getElementById('code').value = '';
-        
-        addScriptBtn.textContent = 'Add Script';
-        delete addScriptBtn.dataset.editing;
-        
-        loadInjections();
-    });*/
-    
     loadCurrentTheme();
-    //loadInjections();
 }); 

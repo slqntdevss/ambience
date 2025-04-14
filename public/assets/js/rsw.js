@@ -1,7 +1,5 @@
 "use strict";
-/**
- * Distributed with Ultraviolet and compatible with most configurations.
- */
+
 const stockSW = "/sw.js";
 
 const swAllowedHostnames = ["localhost", "127.0.0.1"];

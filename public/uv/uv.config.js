@@ -1,15 +1,16 @@
 self.__uv$config = {
-    prefix: "/ambi/ence/",
-    encodeUrl: Ultraviolet.codec.xor.encode,
-    decodeUrl: Ultraviolet.codec.xor.decode,
-    handler: "/uv/uv.handler.js",
-    client: "/uv/uv.client.js",
-    bundle: "/uv/uv.bundle.js",
-    config: "/uv/uv.config.js",
-    sw: "/uv/uv.sw.js",
-  };
-  (async () => {
-    while (typeof __uv$eval === "undefined") await new Promise(r => setTimeout(r, 1)) // wait until the eval niggeria exists
+    prefix: '/ambi/ence/',
+    encodeUrl: Ultraviolet.codec.plain.encode,
+    decodeUrl: Ultraviolet.codec.plain.decode,
+    handler: '/uv/uv.handler.js',
+    client: '/uv/uv.client.js',
+    bundle: '/uv/uv.bundle.js',
+    config: '/uv/uv.config.js',
+    sw: '/uv/uv.sw.js',
+};
+
+(async () => {
+    while (typeof __uv$eval === "undefined") await new Promise(r => setTimeout(r, 1)) 
 
     if (window.top === window) return;
 

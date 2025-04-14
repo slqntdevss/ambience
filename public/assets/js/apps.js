@@ -100,6 +100,7 @@ class AppLoader {
         
         setTimeout(() => {
             this.appFrame.src = appUrl;
+            console.log("set iframe to ", appUrl)
         }, 100);
 
         this.appFrame.onload = () => {
