@@ -136,6 +136,15 @@
             "categories": ["shooter", "action", "strategy"]
         },
         {
+            "id": "cc3d",
+            "title": "Crazy Cattle 3D",
+            "type": "local",
+            "description": "Game of the century",
+            "image": "assets/img/games/cc3d.jpg",
+            "path": "/games/cc3d/",
+            "categories": ["arcade", "action", "strategy"]
+        },
+        {
             "id": "ltf2",
             "title": "Learn to fly 2",
             "type": "local",
