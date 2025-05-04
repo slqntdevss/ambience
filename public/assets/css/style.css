@@ -15,7 +15,6 @@
 }
 
 body {
-    background: linear-gradient(135deg, var(--amethyst-primary), var(--amethyst-secondary));
     min-height: 100vh;
     color: white;
 }

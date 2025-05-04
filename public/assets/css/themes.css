@@ -124,7 +124,66 @@ body[data-theme="forest"] {
     --button-bg: rgba(76, 175, 80, 0.7);
     --button-hover: rgba(76, 175, 80, 0.9);
 }
-
+body[data-theme="nebula"] {
+    --primary-gradient: linear-gradient(135deg, #a66cff, #5ee7df);
+    --glass-bg: rgba(30, 20, 40, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --amethyst-primary: #a66cff;
+    --amethyst-secondary: #5ee7df;
+    --sidebar-bg: rgba(25, 15, 35, 0.8);
+    --card-bg: rgba(40, 30, 50, 0.7);
+    --button-bg: rgba(166, 108, 255, 0.7);
+    --button-hover: rgba(166, 108, 255, 0.9);
+    --text-color: #ffffff;
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --input-border: rgba(255, 255, 255, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
+body[data-theme="aurora"] {
+    --primary-gradient: linear-gradient(135deg, #00ffd5, #4d00ff);
+    --glass-bg: rgba(15, 25, 30, 0.75);
+    --glass-border: rgba(0, 255, 213, 0.15);
+    --amethyst-primary: #00ffd5;
+    --amethyst-secondary: #4d00ff;
+    --sidebar-bg: rgba(10, 20, 25, 0.85);
+    --card-bg: rgba(20, 30, 40, 0.7);
+    --button-bg: rgba(0, 255, 213, 0.6);
+    --button-hover: rgba(0, 255, 213, 0.85);
+    --text-color: #e0fdfd;
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --input-border: rgba(0, 255, 213, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
+body[data-theme="twilight"] {
+    --primary-gradient: linear-gradient(135deg, #ff9a8b, #2b5876);
+    --glass-bg: rgba(30, 25, 40, 0.75);
+    --glass-border: rgba(255, 154, 139, 0.2);
+    --amethyst-primary: #ff9a8b;
+    --amethyst-secondary: #2b5876;
+    --sidebar-bg: rgba(25, 20, 35, 0.85);
+    --card-bg: rgba(40, 30, 50, 0.7);
+    --button-bg: rgba(255, 154, 139, 0.7);
+    --button-hover: rgba(255, 154, 139, 0.9);
+    --text-color: #ffffff;
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --input-border: rgba(255, 154, 139, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
+body[data-theme="pineforest"] {
+    --primary-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    --glass-bg: rgba(20, 30, 35, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --amethyst-primary: #8fd3f4;
+    --amethyst-secondary: #1e3c50;
+    --sidebar-bg: rgba(15, 25, 30, 0.85);
+    --card-bg: rgba(30, 40, 45, 0.7);
+    --button-bg: rgba(143, 211, 244, 0.7);
+    --button-hover: rgba(143, 211, 244, 0.9);
+    --text-color: #e0f7ff;
+    --input-bg: rgba(255, 255, 255, 0.08);
+    --input-border: rgba(255, 255, 255, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
 body {
     background: var(--primary-gradient);
     color: var(--text-color);
