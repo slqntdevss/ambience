@@ -132,7 +132,7 @@ urlInput.addEventListener("input", (e) => {
 
 
 // for some reason it wont work unless its a fucntion smh
-async function handleUrlFormSubmit() {
+async function searchHandler() {
 	try {
 		await registerSW();
 	} catch (err) {
@@ -153,11 +153,9 @@ async function handleUrlFormSubmit() {
 	if ((await connection.getTransport()) !== "/epoxy/index.mjs") {
 		console.log("setting transport to epoxy");
 		await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
-        console.log("b")
 	}
 
 	currentURL = url;
-    console.log("a")
 	setTimeout(() => {
 		iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
         console.log("blah blah blah heres the encoded url:", __uv$config.prefix + __uv$config.encodeUrl(url))
@@ -166,7 +164,6 @@ async function handleUrlFormSubmit() {
 	window.scriptManager.handleInject(currentURL);
 
 	urlInput.value = currentURL;
-    console.log("d")
 }
 
 searchForm.addEventListener("submit", async (event) => {
@@ -212,7 +209,7 @@ if (urlForm) {
 	urlForm.addEventListener("submit", (event) => {
 		event.preventDefault();
 		console.log("URL form submit event triggered");
-		handleUrlFormSubmit();
+		searchHandler();
 	});
 } else {
     console.log("BAD BAD BAD VERY BAD")
