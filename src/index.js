@@ -6,6 +6,8 @@ import Fastify from "fastify";
 import fastifyStatic from "@fastify/static";
 import { fileURLToPath } from "url";
 import { Server } from "socket.io"
+import { Groq } from 'groq-sdk';
+import 'dotenv/config'
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const publicPath = join(__dirname, "../public");
@@ -13,6 +15,9 @@ import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 
+const groq = new Groq({
+	apiKey: process.env.GROQ_API_KEY
+});
 const fastify = Fastify({
 	serverFactory: (handler) => {
 		return createServer()
@@ -63,6 +68,33 @@ fastify.get('/autoc', async function (req, res) {
     const result = await fetch(`https://duckduckgo.com/ac/?q=${query}&format=json`)
     .then((response) => response.json());
     res.status(200).send(result);
+})
+
+fastify.post('/ai', async function (req, res) {
+
+	const { prompt } = req.body;
+
+	if (!prompt) {
+		return res.status(400).send({ error: 'missing prompt' })
+	}
+	console.log("starting ai thingy for prompt:", prompt)
+	const completion = await groq.chat.completions.create({
+		"messages": [
+			{ role: 'user', content: prompt }
+		],
+		"model": "llama3-70b-8192",
+    	"temperature": 1,
+    	"max_completion_tokens": 1024,
+    	"top_p": 1,
+    	"stream": true,
+    	"stop": null
+	})
+
+	for await (const chunk of completion) {
+		const data = chunk.choices?.[0]?.delta?.content || '';
+		res.raw.write(data)
+	}
+	res.raw.end();
 })
 
 fastify.server.on("listening", () => {
