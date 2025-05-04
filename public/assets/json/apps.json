@@ -7,10 +7,10 @@
             "url": "https://youtube.com"
         },
         {
-            "id": "dc",
-            "title": "Discord",
-            "image": "/assets/img/apps/discord.jpg",
-            "url": "https://discord.com"
+            "id": "ef.gg",
+            "title": "EasyFun.gg (nowgg alternative)",
+            "image": "/assets/img/apps/efgg.jpg",
+            "url": "https://easyfun.gg"
         },
         {
             "id": "gh",
@@ -28,7 +28,7 @@
             "id": "gfn",
             "title": "Geforce Now",
             "image": "/assets/img/apps/gfn.png",
-            "url": "https://play.geforce.com"
+            "url": "https://play.geforcenow.com"
         },
         {
             "id": "tw",
