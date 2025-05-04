@@ -16,7 +16,9 @@
     border-radius: 12px;
     padding: 1.5rem;
 }
-
+.search-container h3 {
+    padding-bottom: 1.4rem;
+}
 #gameSearch {
     width: 100%;
     padding: 0.75rem 1rem;

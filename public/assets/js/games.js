@@ -1,4 +1,6 @@
-const connection = new BareMux.BareMuxConnection("/baremux/worker.js")
+const connection = new BareMux.BareMuxConnection("/baremux/worker.js");
+let gameCounter = 0;
+let gameCountText = document.getElementById("counter");
 class GamesLoader {
     constructor() {
         this.gamesGrid = document.querySelector('.games-grid');
@@ -18,7 +20,14 @@ class GamesLoader {
     }
 
     setupEventListeners() {
-        this.closeBtn.addEventListener('click', () => this.hideGame());
+        this.closeBtn.addEventListener('click', () => {
+            this.iframeContainer.classList.remove('visible');
+        setTimeout(() => {
+            this.iframeContainer.style.display = 'none';
+            this.gameFrame.src = 'about:blank';
+            this.gameTitle.textContent = '';
+        }, 300);
+        });
         this.fullscreenBtn.addEventListener('click', () => this.toggleFullscreen());
         
         this.searchInput.addEventListener('input', () => {
@@ -75,7 +84,16 @@ class GamesLoader {
         this.noResults.style.display = 'none';
         
         games.forEach(game => {
-            this.gamesGrid.innerHTML += this.createGameCard(game);
+            this.gamesGrid.innerHTML += `
+            <div class="game-card" data-game-id="${game.id}" data-game-type="${game.type}" data-categories="${game.categories.join(',')}">
+                <img src="${game.image}" alt="${game.title}">
+                <div class="game-info">
+                    <h3>${game.title}</h3>
+                    <p>${game.description}</p>
+                </div>
+            </div>
+        `;
+            gameCounter+=1
         });
         
         this.addClickHandlers();
@@ -126,7 +144,17 @@ class GamesLoader {
             gameUrl = gameData.path;
         } else if (gameType === 'proxied') {
             try {
-                await this.registerServiceWorker();
+                if (typeof registerSW === 'function') {
+                    try {
+                        await registerSW();
+                    } catch (err) {
+                        console.error("An error occurred while registering the service worker:", err);
+                        throw err;
+                    }
+                } else {
+                    console.error("registerSW function not found");
+                    throw new Error("Service worker registration function not available");
+                }
                 gameUrl = __uv$config.prefix + __uv$config.encodeUrl(gameData.url);
                 
                 let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
@@ -146,7 +174,9 @@ class GamesLoader {
         }
 
         this.gameFrame.src = 'about:blank';
-        this.showGame();
+        this.iframeContainer.style.display = 'block';
+        this.iframeContainer.offsetHeight;
+        this.iframeContainer.classList.add('visible');
         
         setTimeout(() => {
             this.gameFrame.src = gameUrl;
@@ -158,38 +188,13 @@ class GamesLoader {
 
         this.gameFrame.onerror = () => {
             console.error(`Failed to load game ${gameData.title}`);
-            this.hideGame();
-        };
-    }
-
-    async registerServiceWorker() {
-        if (typeof registerSW === 'function') {
-            try {
-                await registerSW();
-                return true;
-            } catch (err) {
-                console.error("An error occurred while registering the service worker:", err);
-                throw err;
-            }
-        } else {
-            console.error("registerSW function not found");
-            throw new Error("Service worker registration function not available");
-        }
-    }
-
-    showGame() {
-        this.iframeContainer.style.display = 'block';
-        this.iframeContainer.offsetHeight;
-        this.iframeContainer.classList.add('visible');
-    }
-
-    hideGame() {
-        this.iframeContainer.classList.remove('visible');
+            this.iframeContainer.classList.remove('visible');
         setTimeout(() => {
             this.iframeContainer.style.display = 'none';
             this.gameFrame.src = 'about:blank';
             this.gameTitle.textContent = '';
         }, 300);
+        };
     }
 
     toggleFullscreen() {
@@ -207,7 +212,8 @@ class GamesLoader {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',async () => {
     const gamesLoader = new GamesLoader();
-    gamesLoader.loadGames();
+    await gamesLoader.loadGames();
+    gameCountText.innerText = `${gameCounter} games loaded`;
 });

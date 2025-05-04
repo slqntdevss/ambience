@@ -14,7 +14,7 @@
             "type": "local",
             "title": "Slope",
             "description": "Endless Runner",
-            "image": "assets/img/games/slope.png",
+            "image": "assets/img/games/slope.jpg",
             "path": "/games/slope",
             "categories": ["strategy", "arcade"]
         },
@@ -23,7 +23,7 @@
             "type": "local",
             "title": "Mario Kart 64",
             "description": "Racing Game",
-            "image": "assets/img/games/mariokart.jpeg",
+            "image": "assets/img/games/mariokart.jpg",
             "path": "/games/n64/mariokart",
             "categories": ["action", "arcade"]
         },
@@ -32,7 +32,7 @@
             "type": "local",
             "title": "Super Smash Bros 64",
             "description": "Fighting",
-            "image": "assets/img/games/ssb64.webp",
+            "image": "assets/img/games/ssb64.jpg",
             "path": "/games/n64/supersmashbros",
             "categories": ["action", "arcade"]
         },
@@ -50,7 +50,7 @@
             "title": "2048",
             "type": "proxied",
             "description": "Puzzle Game",
-            "image": "assets/img/games/2048.png",
+            "image": "assets/img/games/2048.jpg",
             "url": "https://raw.githack.com/GalacticNetwork/3kh0-assets/main/2048/index.html",
             "categories": ["puzzle", "arcade", "strategy"]
         },
@@ -59,7 +59,7 @@
             "title": "Minecraft Java",
             "type": "proxied",
             "description": "Sandbox Game",
-            "image": "assets/img/games/java.webp",
+            "image": "assets/img/games/java.jpg",
             "url": "https://eaglercraft.com/mc/1.12.2/",
             "categories": ["sandbox", "arcade", "strategy"]
         },
@@ -68,7 +68,7 @@
             "title": "Basket Bros",
             "type": "proxied",
             "description": "Sports Game",
-            "image": "assets/img/games/basketbros.jpeg",
+            "image": "assets/img/games/basketbros.jpg",
             "url": "https://script.google.com/macros/s/AKfycbxUfaDSpH-0SJL0WPKt38JY7OOOGMmtpY9JTSbL8pvtjxS7jSpNHHu6MdZgWUshIU00Kw/exec",
             "categories": ["2player", "sports"]
         },
@@ -77,7 +77,7 @@
             "title": "Basket Random",
             "type": "local",
             "description": "Sports Game",
-            "image": "assets/img/games/basketrandom.jpeg",
+            "image": "assets/img/games/basketrandom.jpg",
             "path": "/games/basket-random",
             "categories": ["2player", "sports", "arcade"]
         },
@@ -86,7 +86,7 @@
             "title": "Soccer Random",
             "type": "local",
             "description": "Sports Game",
-            "image": "assets/img/games/soccerrandom.jpeg",
+            "image": "assets/img/games/soccerrandom.jpg",
             "path": "/games/soccer-random",
             "categories": ["2player", "sports", "arcade"]
         },
@@ -95,7 +95,7 @@
             "title": "Volley Random",
             "type": "proxied",
             "description": "Sports Game",
-            "image": "assets/img/games/volleyrandom.jpeg",
+            "image": "assets/img/games/volleyrandom.jpg",
             "url": "https://raw.rawgit.net/galacticnetwork/3kh0-assets/refs/heads/main/volley-random/index.html",
             "categories": ["2player", "sports", "arcade"]
         },
@@ -104,7 +104,7 @@
             "title": "Boxing Random",
             "type": "local",
             "description": "Sports Game",
-            "image": "assets/img/games/boxingrandom.avif",
+            "image": "assets/img/games/boxingrandom.jpg",
             "path": "/games/boxing-random",
             "categories": ["2player", "sports", "arcade"]
         },
@@ -113,7 +113,7 @@
             "title": "Basketball Stars",
             "type": "local",
             "description": "Sports Game",
-            "image": "assets/img/games/basketball-stars.avif",
+            "image": "assets/img/games/basketball-stars.jpg",
             "path": "/games/basketball/stars",
             "categories": ["2player","sports"]
         },
@@ -122,7 +122,7 @@
             "title": "Basketball Legends",
             "type": "local",
             "description": "Sports Game",
-            "image": "assets/img/games/basketballlegends.avif",
+            "image": "assets/img/games/basketballlegends.jpg",
             "path": "/games/basketball/legends",
             "categories": ["2player","sports"]
         },
@@ -131,7 +131,7 @@
             "title": "1v1.LOL",
             "type": "local",
             "description": "Shooting game",
-            "image": "assets/img/games/1v1lol.jpeg",
+            "image": "assets/img/games/1v1lol.jpg",
             "path": "/games/1v1-lol/oldest",
             "categories": ["shooter", "action", "strategy"]
         },
@@ -140,7 +140,7 @@
             "title": "Learn to fly 2",
             "type": "local",
             "description": "Flight game",
-            "image": "assets/img/games/ltf2.jpeg",
+            "image": "assets/img/games/ltf2.jpg",
             "path": "/games/flash/ltf2",
             "categories": ["arcade", "strategy", "sandbox"]
         },
@@ -185,7 +185,7 @@
             "title": "Worlds Hardest Game",
             "type": "local",
             "description": "Challenge game",
-            "image": "assets/img/games/whg.png",
+            "image": "assets/img/games/whg.jpg",
             "path": "/games/flash/whg",
             "categories": ["arcade", "strategy"]
         },
@@ -197,6 +197,96 @@
             "image": "assets/img/games/whg2.jpg",
             "path": "/games/flash/whg2",
             "categories": ["arcade", "strategy"]
-        }
+        },
+        {
+            "id": "pbake",
+            "title": "Papa's Bakeria",
+            "type": "local",
+            "description": "Papa Louie Game",
+            "image": "assets/img/games/pbake.jpg",
+            "path": "/games/flash/pbake",
+            "categories": ["strategy", "simulation"]
+          },
+          {
+            "id": "pburg",
+            "title": "Papa's Burgeria",
+            "type": "local",
+            "description": "Papa Louie Game",
+            "image": "assets/img/games/pburg.jpg",
+            "path": "/games/flash/pburg",
+            "categories": ["strategy", "simulation"]
+          },
+          {
+            "id": "pchee",
+            "title": "Papa's Cheeseria",
+            "type": "local",
+            "description": "Papa Louie Game",
+            "image": "assets/img/games/pchee.jpg",
+            "path": "/games/flash/pchee",
+            "categories": ["strategy", "simulation"]
+          },
+          {
+            "id": "pcupc",
+            "title": "Papa's Cupcakeria",
+            "type": "local",
+            "description": "Papa Louie Game",
+            "image": "assets/img/games/pcupc.jpg",
+            "path": "/games/flash/pcupc",
+            "categories": ["strategy", "simulation"]
+          },
+          {
+            "id": "pdonut",
+            "title": "Papa's Donuteria",
+            "type": "local",
+            "description": "Papa Louie Game",
+            "image": "assets/img/games/pdonut.jpg",
+            "path": "/games/flash/pdonut",
+            "categories": ["strategy", "simulation"]
+          },
+          {
+            "id": "pfreeze",
+            "title": "Papa's Freezeria",
+            "type": "local",
+            "description": "Papa Louie Game",
+            "image": "assets/img/games/pfreeze.jpg",
+            "path": "/games/flash/pfreeze",
+            "categories": ["strategy", "simulation"]
+          },
+          {
+            "id": "photdog",
+            "title": "Papa's Hotdoggeria",
+            "type": "local",
+            "description": "Papa Louie Game",
+            "image": "assets/img/games/photdog.jpg",
+            "path": "/games/flash/photdog",
+            "categories": ["strategy", "simulation"]
+          },
+          {
+            "id": "ppan",
+            "title": "Papa's Pancakeria",
+            "type": "local",
+            "description": "Papa Louie Game",
+            "image": "assets/img/games/ppan.jpg",
+            "path": "/games/flash/ppan",
+            "categories": ["strategy", "simulation"]
+          },
+          {
+            "id": "ppasta",
+            "title": "Papa's Pastaria",
+            "type": "local",
+            "description": "Papa Louie Game",
+            "image": "assets/img/games/ppasta.jpg",
+            "path": "/games/flash/ppasta",
+            "categories": ["strategy", "simulation"]
+          },
+          {
+            "id": "ppizza",
+            "title": "Papa's Pizzeria",
+            "type": "local",
+            "description": "Papa Louie Game",
+            "image": "assets/img/games/ppizza.jpg",
+            "path": "/games/flash/ppizza",
+            "categories": ["strategy", "simulation"]
+          }          
     ]
 }
