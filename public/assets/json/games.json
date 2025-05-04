@@ -134,6 +134,69 @@
             "image": "assets/img/games/1v1lol.jpeg",
             "path": "/games/1v1-lol/oldest",
             "categories": ["shooter", "action", "strategy"]
+        },
+        {
+            "id": "ltf2",
+            "title": "Learn to fly 2",
+            "type": "local",
+            "description": "Flight game",
+            "image": "assets/img/games/ltf2.jpeg",
+            "path": "/games/flash/ltf2",
+            "categories": ["arcade", "strategy", "sandbox"]
+        },
+        {
+            "id": "dl1",
+            "title": "Duck life 1",
+            "type": "local",
+            "description": "Competition game",
+            "image": "assets/img/games/dl1.jpg",
+            "path": "/games/flash/dl1",
+            "categories": ["arcade", "strategy", "sandbox"]
+        },
+        {
+            "id": "dl2",
+            "title": "Duck life 2",
+            "type": "local",
+            "description": "Competition game",
+            "image": "assets/img/games/dl2.jpg",
+            "path": "/games/flash/dl2",
+            "categories": ["arcade", "strategy", "sandbox"]
+        },
+        {
+            "id": "dl3",
+            "title": "Duck life 3",
+            "type": "local",
+            "description": "Competition game",
+            "image": "assets/img/games/dl3.jpg",
+            "path": "/games/flash/dl3",
+            "categories": ["arcade", "strategy", "sandbox"]
+        },
+        {
+            "id": "dl4",
+            "title": "Duck life 4",
+            "type": "local",
+            "description": "Competition game",
+            "image": "assets/img/games/dl4.jpg",
+            "path": "/games/flash/dl4",
+            "categories": ["arcade", "strategy", "sandbox"]
+        },
+        {
+            "id": "whg",
+            "title": "Worlds Hardest Game",
+            "type": "local",
+            "description": "Challenge game",
+            "image": "assets/img/games/whg.png",
+            "path": "/games/flash/whg",
+            "categories": ["arcade", "strategy"]
+        },
+        {
+            "id": "whg2",
+            "title": "Worlds Hardest Game 2",
+            "type": "local",
+            "description": "Challenge game",
+            "image": "assets/img/games/whg2.jpg",
+            "path": "/games/flash/whg2",
+            "categories": ["arcade", "strategy"]
         }
     ]
 }

@@ -8,10 +8,10 @@ class ScriptManager {
 		this.initialized = false;
 		this.popupTimeout = null;
 		this.customInjectText = null
-		this.initializeDefaultScripts();
+		this.initScripts();
 	}
 
-	initializeDefaultScripts() {
+	initScripts() {
 		this.scripts = {
 			"discord.com": {
 				name: "Vencord",
@@ -19,46 +19,10 @@ class ScriptManager {
 				customInjectText: "Ok",
 				code: `
 				console.log("ambience tech 2032 trademark")
-                `,
-			},
-			"example.com": {
-				name: "Dark Mode",
-				description: "Enables dark mode on Example.com",
-				code: `
-                    document.body.style.background = "#121212";
-                    document.body.style.color = "#e0e0e0";
-                    
-                    document.querySelectorAll('a').forEach(a => {
-                        a.style.color = '#90caf9';
-                    });
-                    
-                    document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(h => {
-                        h.style.color = '#f5f5f5';
-                    });
-                    
-                    document.querySelectorAll('input, button, select, textarea').forEach(el => {
-                        el.style.backgroundColor = '#2d2d2d';
-                        el.style.color = '#e0e0e0';
-                        el.style.borderColor = '#444';
-                    });
-                    
-                    document.querySelectorAll('table, th, td').forEach(el => {
-                        el.style.borderColor = '#444';
-                    });
-                `,
+                `
 			},
 		};
-		this.saveScripts();
 	}
-
-	saveScripts() {
-		try {
-			localStorage.setItem("ambienceScripts", JSON.stringify(this.scripts));
-		} catch (e) {
-			console.error("Error saving scripts:", e);
-		}
-	}
-
 	getScriptForUrl(url) {
 		if (!url) return null;
 
@@ -73,15 +37,13 @@ class ScriptManager {
 					...scriptInfo,
 					domain: scriptDomain,
 				};
-			} else {
-				console.log("failed url match: ", domain, ", ", scriptDomain)
 			}
 		}
 
 		return null;
 	}
 
-	addScript(domain, scriptInfo) {
+	newScript(domain, scriptInfo) {
 		this.scripts[domain] = scriptInfo;
 		this.saveScripts();
 	}
