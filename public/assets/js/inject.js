@@ -43,20 +43,6 @@ class ScriptManager {
 		return null;
 	}
 
-	newScript(domain, scriptInfo) {
-		this.scripts[domain] = scriptInfo;
-		this.saveScripts();
-	}
-
-	removeScript(domain) {
-		if (this.scripts[domain]) {
-			delete this.scripts[domain];
-			this.saveScripts();
-			return true;
-		}
-		return false;
-	}
-
 	init(scriptInfo) {
 		if (this.initialized) return;
 		this.customInjectText = scriptInfo.customInjectText
@@ -119,19 +105,32 @@ class ScriptManager {
 		cancelBtn.parentNode.replaceChild(newCancelBtn, cancelBtn);
 		injectBtn.parentNode.replaceChild(newInjectBtn, injectBtn);
 
-		newCancelBtn.addEventListener("click", () => this.hidePopup());
+		newCancelBtn.addEventListener("click", () => {
+			this.overlay.classList.remove("visible");
+			this.popup.classList.remove("visible");
+			this.currentScript = null;
+			this.customInjectText = null
+		});
 
 		newInjectBtn.addEventListener("click", () => {
 			if (this.currentScript) {
 				this.executeScript(this.currentScript);
 			}
-			this.hidePopup();
+			this.overlay.classList.remove("visible");
+			this.popup.classList.remove("visible");
+			this.currentScript = null;
+			this.customInjectText = null
 		});
 
 		const newOverlay = this.overlay.cloneNode(true);
 		this.overlay.parentNode?.replaceChild(newOverlay, this.overlay);
 		this.overlay = newOverlay;
-		this.overlay.addEventListener("click", () => this.hidePopup());
+		this.overlay.addEventListener("click", () => {
+			this.overlay.classList.remove("visible");
+			this.popup.classList.remove("visible");
+			this.currentScript = null;
+			this.customInjectText = null
+		});
 	}
 
 	showPopup(scriptInfo, url) {
@@ -145,13 +144,6 @@ class ScriptManager {
 
 		this.overlay.classList.add("visible");
 		this.popup.classList.add("visible");
-	}
-
-	hidePopup() {
-		this.overlay.classList.remove("visible");
-		this.popup.classList.remove("visible");
-		this.currentScript = null;
-		this.customInjectText = null
 	}
 
 	executeScript(code) {
@@ -173,7 +165,7 @@ class ScriptManager {
 		}
 	}
 
-	checkAndInjectScript(url) {
+	handleInject(url) {
 		if (!url) return;
 
 		const scriptInfo = this.getScriptForUrl(url);
@@ -210,15 +202,3 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 });
-
-setTimeout(() => {
-	const iframe = document.getElementById("browserFrame");
-	if (iframe) {
-		try {
-			const url = iframe.contentWindow.location.href;
-			scriptManager.checkAndInjectScript(url);
-		} catch (e) {
-			console.error("Error on initial URL check:", e);
-		}
-	}
-}, 1000);
