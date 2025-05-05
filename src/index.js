@@ -72,14 +72,23 @@ fastify.get('/autoc', async function (req, res) {
 
 fastify.post('/ai', async function (req, res) {
 
-	const { prompt } = req.body;
+	console.log(req.body)
+
+	const prompt = req.body?.prompt;
+	console.log(prompt)
 
 	if (!prompt) {
 		return res.status(400).send({ error: 'missing prompt' })
 	}
-	console.log("starting ai thingy for prompt:", prompt)
+	
+	res.raw.removeHeader('Content-Encoding');
+  	res.raw.setHeader('Content-Type', 'text/plain; charset=utf-8');
+ 	res.raw.setHeader('Transfer-Encoding', 'chunked');
+
+	 console.log("starting ai thingy for prompt:", prompt)
 	const completion = await groq.chat.completions.create({
 		"messages": [
+			{ role: 'system', content: 'Try to avoid using markdown tags, like **** and just keep everything in plaintext.' }, //ill add markdown support later im just lazy af
 			{ role: 'user', content: prompt }
 		],
 		"model": "llama3-70b-8192",
@@ -92,6 +101,7 @@ fastify.post('/ai', async function (req, res) {
 
 	for await (const chunk of completion) {
 		const data = chunk.choices?.[0]?.delta?.content || '';
+		console.log(data)
 		res.raw.write(data)
 	}
 	res.raw.end();

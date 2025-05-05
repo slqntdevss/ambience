@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/i.css" rel="stylesheet">
     <script src="baremux/index.js"></script>
     <script src="uv/uv.bundle.js"></script>
     <script src="uv/uv.config.js"></script>
@@ -27,17 +28,17 @@
                 <li><a href="i"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot-icon lucide-bot"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span> AI</a></li>
             </ul>
         </nav>
-        <main class="main-content">
-            <div class="search-container">
-                <h1>soon (im lazy :3)</h1>
-            </div>
-        </main>
+        <div id="message-container">
+            
+        </div>
+        <div id="send-container">
+            <input id="message-box" placeholder="ask anything." autocomplete="off">
+            <button id="send-button"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-icon lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg></button>
+        </div>
     </div>
-    <script src="assets/js/search.js"></script>
-    <script src="assets/js/main.js"></script>
     <script src="assets/js/xtra.js"></script>
     <script src="assets/js/settings.js"></script>
-    <script src="assets/js/inject.js" defer></script>
+    <script src="assets/js/i.js" defer></script>
     <script>
                   function toggleFullscreen() {
             let elem = document.querySelector('#browserFrame');
