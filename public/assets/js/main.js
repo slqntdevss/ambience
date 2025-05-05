@@ -75,7 +75,7 @@ urlInput.addEventListener("keypress", (e) => {
 		iframeContainer.style.display = "block";
 	    iframeContainer.offsetHeight;
 	    iframeContainer.classList.add("visible");
-		handleUrlFormSubmit();
+		handleSearch();
 	}
 });
 
@@ -132,7 +132,7 @@ urlInput.addEventListener("input", (e) => {
 
 
 // for some reason it wont work unless its a fucntion smh
-async function searchHandler() {
+async function handleSearch() {
 	try {
 		await registerSW();
 	} catch (err) {
@@ -209,7 +209,7 @@ if (urlForm) {
 	urlForm.addEventListener("submit", (event) => {
 		event.preventDefault();
 		console.log("URL form submit event triggered");
-		searchHandler();
+		handleSearch();
 	});
 } else {
     console.log("BAD BAD BAD VERY BAD")

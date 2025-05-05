@@ -2,51 +2,51 @@ const connection = new BareMux.BareMuxConnection("/baremux/worker.js");
 let gameCounter = 0;
 let gameCountText = document.getElementById("counter");
 class GamesLoader {
-    constructor() {
-        this.gamesGrid = document.querySelector('.games-grid');
-        this.iframeContainer = document.querySelector('.iframe-container');
-        this.gameFrame = document.getElementById('gameFrame');
-        this.closeBtn = document.getElementById('closeBtn');
-        this.fullscreenBtn = document.getElementById('fullscreenBtn');
-        this.gameTitle = document.querySelector('.game-title');
-        this.searchInput = document.getElementById('gameSearch');
-        this.categoryBtns = document.querySelectorAll('.category-btn');
-        this.noResults = document.querySelector('.no-results');
-        
-        this.allGames = [];
-        this.currentCategory = 'all';
-        
-        this.setupEventListeners();
-    }
+	constructor() {
+		this.gamesGrid = document.querySelector(".games-grid");
+		this.iframeContainer = document.querySelector(".iframe-container");
+		this.gameFrame = document.getElementById("gameFrame");
+		this.closeBtn = document.getElementById("closeBtn");
+		this.fullscreenBtn = document.getElementById("fullscreenBtn");
+		this.gameTitle = document.querySelector(".game-title");
+		this.searchInput = document.getElementById("gameSearch");
+		this.categoryBtns = document.querySelectorAll(".category-btn");
+		this.noResults = document.querySelector(".no-results");
 
-    setupEventListeners() {
-        this.closeBtn.addEventListener('click', () => {
-            this.iframeContainer.classList.remove('visible');
-        setTimeout(() => {
-            this.iframeContainer.style.display = 'none';
-            this.gameFrame.src = 'about:blank';
-            this.gameTitle.textContent = '';
-        }, 300);
-        });
-        this.fullscreenBtn.addEventListener('click', () => this.toggleFullscreen());
-        
-        this.searchInput.addEventListener('input', () => {
-            this.filterGames();
-        });
-        
-        this.categoryBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                this.categoryBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                this.currentCategory = btn.dataset.category;
-                this.filterGames();
-            });
-        });
-    }
+		this.allGames = [];
+		this.currentCategory = "all";
 
-    createGameCard(game) {
-        return `
-            <div class="game-card" data-game-id="${game.id}" data-game-type="${game.type}" data-categories="${game.categories.join(',')}">
+		this.setupEventListeners();
+	}
+
+	setupEventListeners() {
+		this.closeBtn.addEventListener("click", () => {
+			this.iframeContainer.classList.remove("visible");
+			setTimeout(() => {
+				this.iframeContainer.style.display = "none";
+				this.gameFrame.src = "about:blank";
+				this.gameTitle.textContent = "";
+			}, 300);
+		});
+		this.fullscreenBtn.addEventListener("click", () => this.toggleFullscreen());
+
+		this.searchInput.addEventListener("input", () => {
+			this.filterGames();
+		});
+
+		this.categoryBtns.forEach((btn) => {
+			btn.addEventListener("click", () => {
+				this.categoryBtns.forEach((b) => b.classList.remove("active"));
+				btn.classList.add("active");
+				this.currentCategory = btn.dataset.category;
+				this.filterGames();
+			});
+		});
+	}
+
+	createGameCard(game) {
+		return `
+            <div class="game-card" data-game-id="${game.id}" data-game-type="${game.type}" data-categories="${game.categories.join(",")}">
                 <img src="${game.image}" alt="${game.title}">
                 <div class="game-info">
                     <h3>${game.title}</h3>
@@ -54,38 +54,37 @@ class GamesLoader {
                 </div>
             </div>
         `;
-    }
+	}
 
-    async loadGames() {
-        try {
-            const response = await fetch('/assets/json/games.json');
-            if (!response.ok) throw new Error('Failed to load games data');
-            
-            const data = await response.json();
-            this.allGames = data.games;
-            
-            this.renderGames(this.allGames);
-            this.addClickHandlers();
+	async loadGames() {
+		try {
+			const response = await fetch("/assets/json/games.json");
+			if (!response.ok) throw new Error("Failed to load games data");
 
-        } catch (error) {
-            console.error('Error loading games:', error);
-            this.gamesGrid.innerHTML = '<p class="error">Failed to load games</p>';
-        }
-    }
-    
-    renderGames(games) {
-        this.gamesGrid.innerHTML = '';
-        
-        if (games.length === 0) {
-            this.noResults.style.display = 'block';
-            return;
-        }
-        
-        this.noResults.style.display = 'none';
-        
-        games.forEach(game => {
-            this.gamesGrid.innerHTML += `
-            <div class="game-card" data-game-id="${game.id}" data-game-type="${game.type}" data-categories="${game.categories.join(',')}">
+			const data = await response.json();
+			this.allGames = data.games;
+
+			this.renderGames(this.allGames);
+			this.addClickHandlers();
+		} catch (error) {
+			console.error("Error loading games:", error);
+			this.gamesGrid.innerHTML = '<p class="error">Failed to load games</p>';
+		}
+	}
+
+	renderGames(games) {
+		this.gamesGrid.innerHTML = "";
+
+		if (games.length === 0) {
+			this.noResults.style.display = "block";
+			return;
+		}
+
+		this.noResults.style.display = "none";
+
+		games.forEach((game) => {
+			this.gamesGrid.innerHTML += `
+            <div class="game-card" data-game-id="${game.id}" data-game-type="${game.type}" data-categories="${game.categories.join(",")}">
                 <img src="${game.image}" alt="${game.title}">
                 <div class="game-info">
                     <h3>${game.title}</h3>
@@ -93,127 +92,138 @@ class GamesLoader {
                 </div>
             </div>
         `;
-            gameCounter+=1
-        });
-        
-        this.addClickHandlers();
-    }
-    
-    filterGames() {
-        const searchTerm = this.searchInput.value.toLowerCase().trim();
-        
-        let filteredGames = this.allGames;
-        
-        if (searchTerm) {
-            filteredGames = filteredGames.filter(game => 
-                game.title.toLowerCase().includes(searchTerm) || 
-                game.description.toLowerCase().includes(searchTerm)
-            );
-        }
-        
-        if (this.currentCategory !== 'all') {
-            filteredGames = filteredGames.filter(game => 
-                game.categories && game.categories.includes(this.currentCategory)
-            );
-        }
-        
-        this.renderGames(filteredGames);
-    }
+			gameCounter += 1;
+		});
 
-    addClickHandlers() {
-        const gameCards = document.querySelectorAll('.game-card');
-        gameCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const gameId = card.dataset.gameId;
-                const gameType = card.dataset.gameType;
-                this.launchGame(gameId, gameType);
-            });
-        });
-    }
+		this.addClickHandlers();
+	}
 
-    async launchGame(gameId, gameType) {
-        const gameData = await this.findGameData(gameId);
-        if (!gameData) return;
+	filterGames() {
+		const searchTerm = this.searchInput.value.toLowerCase().trim();
 
-        this.gameTitle.textContent = gameData.title;
+		let filteredGames = this.allGames;
 
-        let gameUrl;
-        if (gameType === 'cdn') {
-            gameUrl = gameData.url;
-        } else if (gameType === 'local') {
-            gameUrl = gameData.path;
-        } else if (gameType === 'proxied') {
-            try {
-                if (typeof registerSW === 'function') {
-                    try {
-                        await registerSW();
-                    } catch (err) {
-                        console.error("An error occurred while registering the service worker:", err);
-                        throw err;
-                    }
-                } else {
-                    console.error("registerSW function not found");
-                    throw new Error("Service worker registration function not available");
-                }
-                gameUrl = __uv$config.prefix + __uv$config.encodeUrl(gameData.url);
-                
-                let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
-                if (connection && typeof connection.getTransport === 'function') {
-                    if (await connection.getTransport() !== "/epoxy/index.mjs") {
-                        console.log("setting transport to epoxy for game");
-                        await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
-                    }
-                }
-            } catch (error) {
-                console.error('Error setting up proxy for game:', error);
-                return;
-            }
-        } else {
-            console.error('Unknown game type:', gameType);
-            return;
-        }
+		if (searchTerm) {
+			filteredGames = filteredGames.filter(
+				(game) =>
+					game.title.toLowerCase().includes(searchTerm) ||
+					game.description.toLowerCase().includes(searchTerm)
+			);
+		}
 
-        this.gameFrame.src = 'about:blank';
-        this.iframeContainer.style.display = 'block';
-        this.iframeContainer.offsetHeight;
-        this.iframeContainer.classList.add('visible');
-        
-        setTimeout(() => {
-            this.gameFrame.src = gameUrl;
-        }, 100);
+		if (this.currentCategory !== "all") {
+			filteredGames = filteredGames.filter(
+				(game) =>
+					game.categories && game.categories.includes(this.currentCategory)
+			);
+		}
 
-        this.gameFrame.onload = () => {
-            console.log(`Game ${gameData.title} loaded successfully`);
-        };
+		this.renderGames(filteredGames);
+	}
 
-        this.gameFrame.onerror = () => {
-            console.error(`Failed to load game ${gameData.title}`);
-            this.iframeContainer.classList.remove('visible');
-        setTimeout(() => {
-            this.iframeContainer.style.display = 'none';
-            this.gameFrame.src = 'about:blank';
-            this.gameTitle.textContent = '';
-        }, 300);
-        };
-    }
+	addClickHandlers() {
+		const gameCards = document.querySelectorAll(".game-card");
+		gameCards.forEach((card) => {
+			card.addEventListener("click", () => {
+				const gameId = card.dataset.gameId;
+				const gameType = card.dataset.gameType;
+				this.launchGame(gameId, gameType);
+			});
+		});
+	}
 
-    toggleFullscreen() {
-        if (!document.fullscreenElement) {
-            this.gameFrame.requestFullscreen().catch(err => {
-                console.error(`Error attempting to enable fullscreen: ${err.message}`);
-            });
-        } else {
-            document.exitFullscreen();
-        }
-    }
+	async launchGame(gameId, gameType) {
+		const gameData = await this.findGameData(gameId);
+		if (!gameData) return;
 
-    async findGameData(gameId) {
-        return this.allGames.find(game => game.id === gameId);
-    }
+		this.gameTitle.textContent = gameData.title;
+
+		let gameUrl;
+		if (gameType === "cdn") {
+			gameUrl = gameData.url;
+		} else if (gameType === "local") {
+			gameUrl = gameData.path;
+		} else if (gameType === "proxied") {
+			try {
+				if (typeof registerSW === "function") {
+					try {
+						await registerSW();
+					} catch (err) {
+						console.error(
+							"An error occurred while registering the service worker:",
+							err
+						);
+						throw err;
+					}
+				} else {
+					console.error("registerSW function not found");
+					throw new Error("Service worker registration function not available");
+				}
+				gameUrl = __uv$config.prefix + __uv$config.encodeUrl(gameData.url);
+
+				let wispUrl =
+					(location.protocol === "https:" ? "wss" : "ws") +
+					"://" +
+					location.host +
+					"/wisp/";
+				if (connection && typeof connection.getTransport === "function") {
+					if ((await connection.getTransport()) !== "/epoxy/index.mjs") {
+						console.log("setting transport to epoxy for game");
+						await connection.setTransport("/epoxy/index.mjs", [
+							{ wisp: wispUrl },
+						]);
+					}
+				}
+			} catch (error) {
+				console.error("Error setting up proxy for game:", error);
+				return;
+			}
+		} else {
+			console.error("Unknown game type:", gameType);
+			return;
+		}
+
+		this.gameFrame.src = "about:blank";
+		this.iframeContainer.style.display = "block";
+		this.iframeContainer.offsetHeight;
+		this.iframeContainer.classList.add("visible");
+
+		setTimeout(() => {
+			this.gameFrame.src = gameUrl;
+		}, 100);
+
+		this.gameFrame.onload = () => {
+			console.log(`Game ${gameData.title} loaded successfully`);
+		};
+
+		this.gameFrame.onerror = () => {
+			console.error(`Failed to load game ${gameData.title}`);
+			this.iframeContainer.classList.remove("visible");
+			setTimeout(() => {
+				this.iframeContainer.style.display = "none";
+				this.gameFrame.src = "about:blank";
+				this.gameTitle.textContent = "";
+			}, 300);
+		};
+	}
+
+	toggleFullscreen() {
+		if (!document.fullscreenElement) {
+			this.gameFrame.requestFullscreen().catch((err) => {
+				console.error(`Error attempting to enable fullscreen: ${err.message}`);
+			});
+		} else {
+			document.exitFullscreen();
+		}
+	}
+
+	async findGameData(gameId) {
+		return this.allGames.find((game) => game.id === gameId);
+	}
 }
 
-document.addEventListener('DOMContentLoaded',async () => {
-    const gamesLoader = new GamesLoader();
-    await gamesLoader.loadGames();
-    gameCountText.innerText = `${gameCounter} games loaded`;
+document.addEventListener("DOMContentLoaded", async () => {
+	const gamesLoader = new GamesLoader();
+	await gamesLoader.loadGames();
+	gameCountText.innerText = `${gameCounter} games loaded`;
 });
