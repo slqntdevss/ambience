@@ -296,6 +296,114 @@
             "image": "assets/img/games/ppizza.jpg",
             "path": "/games/flash/ppizza",
             "categories": ["strategy", "simulation"]
-          }          
+          },          
+          {
+            "id": "ultrakill",
+            "title": "ULTRAKILL",
+            "type": "proxied",
+            "description": "Shooting game",
+            "image": "assets/img/games/ultrakill.webp",
+            "url": "https://celebrated-griffin-f093cc.netlify.app/ultrakill/",
+            "categories": ["shooter", "action", "strategy"]
+        },
+        {
+            "id": "repo",
+            "title": "REPO",
+            "type": "proxied",
+            "description": "Strategy Game",
+            "image": "assets/img/games/repo.jpg",
+            "url": "https://preeminent-pastelito-e22a5f.netlify.app/",
+            "categories": ["2player", "strategy"]
+        },
+        {
+            "id": "roblox",
+            "title": "Roblox (modern)",
+            "type": "proxied",
+            "description": "Sandbox Game",
+            "image": "assets/img/games/rblx.avif",
+            "url": "https://www.easyfun.gg/embed/roblox.html?start=1",
+            "categories": ["sandbox"]
+        },
+        {
+            "id": "Roblox-2014",
+            "title": "Roblox (2014)",
+            "type": "proxied",
+            "description": "Sandbox Game",
+            "image": "assets/img/games/roblox.jpg",
+            "url": "https://voluble-fairy-ba4138.netlify.app/roblox/",
+            "categories": ["sandbox"]
+        },
+        {
+            "id": "badparenting",
+            "title": "Bad Parenting",
+            "type": "proxied",
+            "description": "ironic since its made by a pedo",
+            "image": "assets/img/games/bp.jpg",
+            "url": "https://magical-dasik-5018b4.netlify.app/",
+            "categories": ["horror", "story"]
+        },
+        {
+            "id": "hl",
+            "title": "Half Life",
+            "type": "proxied",
+            "description": "evil scheme",
+            "image": "assets/img/games/hl.jpg",
+            "url": "https://hl-ecru.vercel.app/",
+            "categories": ["shooter", "puzzle"]
+        },
+        {
+            "id": "people-playground",
+            "title": "People Playground",
+            "type": "proxied",
+            "description": "Sandbox Game",
+            "image": "assets/img/games/people.jpg",
+            "url": "https://celebrated-griffin-f093cc.netlify.app/people-playground/",
+            "categories": ["sandbox"]
+        },
+        {
+            "id": "batim",
+            "title": "Bendy and the Ink Machine",
+            "type": "proxied",
+            "description": "oooh scary",
+            "image": "assets/img/games/batim.jpg",
+            "url": "https://voluble-fairy-ba4138.netlify.app/bendy/",
+            "categories": ["puzzle", "strategy", "horror"]
+        },
+        {
+            "id": "buckshotroulette",
+            "title": "Buckshot Roulette",
+            "type": "local",
+            "description": "Shooting Game",
+            "image": "assets/img/games/br.jpg",
+            "path": "/games/buckshot",
+            "categories": ["horror","shooter", "strategy"]
+        },
+        {
+            "id": "crk",
+            "title": "Cookie Run Kingdom",
+            "type": "proxied",
+            "description": "cookie run",
+            "image": "assets/img/games/crk.webp",
+            "url": "https://www.easyfun.gg/embed/cookierun-kingdom-cloud-online.html?start=1",
+            "categories": ["strategy", "story"]
+        },
+        {
+            "id": "fortnite",
+            "title": "Fortnite",
+            "type": "proxied",
+            "description": "Shooting Game",
+            "image": "assets/img/games/fn.jpeg",
+            "url": "https://www.easyfun.gg/embed/fortnite-battle-royale-cloud-online.html?start=1",
+            "categories": ["shooter", "strategy"]
+        },
+        {
+            "id": "stumbleguys",
+            "title": "Stumble Guys",
+            "type": "proxied",
+            "description": "fall guys but better",
+            "image": "assets/img/games/stumble.jpg",
+            "url": "https://www.easyfun.gg/embed/stumble-guys-cloud-online.html?start=1",
+            "categories": ["strategy", "action"]
+        }
     ]
 }
