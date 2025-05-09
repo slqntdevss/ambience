@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				const url = __uv$config.decodeUrl(
 					iframe.contentWindow.location.href.split("/ence/")[1]
 				);
-				scriptManager.checkAndInjectScript(url);
+				scriptManager.handleInject(url);
 			} catch (e) {
 				console.error("Error checking iframe URL:", e);
 			}
