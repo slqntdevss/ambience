@@ -1,7 +1,36 @@
+function createNotification(message) {
+	const notifContainer = document.getElementById('notifContainer');
+	const notif = document.createElement("div");
+	// this can be solved way easier but im too lazy to split up the html into dom elements
+	const notifId = Math.floor(Math.random() * 999999);
+	notif.classList = "notification-popup";
+	notif.innerHTML = `
+		<div class="notification-header">
+            <h3 class="notification-title">Notification</h3>
+            <button class="notification-close" id="closeNotification-${notifId}">×</button>
+        </div>
+        <p class="notification-message">${message}</p>
+	`;
+
+	notifContainer.appendChild(notif);
+	setTimeout(() => {
+		notif.classList.add("visible");
+	}, 10);
+	document
+		.getElementById(`closeNotification-${notifId}`)
+		.addEventListener("click", () => {
+			notif.classList.remove("visible");
+			setTimeout(() => {
+				notif.remove();
+			}, 400);
+		});
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 	const themeOptions = document.querySelectorAll(".theme-option");
-	const injectionsList = document.querySelector(".injections-list");
-	const addScriptBtn = document.getElementById("add-script-btn");
+	//const injectionsList = document.querySelector(".injections-list");
+	//const addScriptBtn = document.getElementById("add-script-btn");
+	const transportChanger = document.getElementById("transport")
 
 	const toggleBtn = document.querySelector(".toggle-btn");
 	const sidebar = document.querySelector(".sidebar");
@@ -37,8 +66,30 @@ document.addEventListener("DOMContentLoaded", () => {
 			option.classList.add("active");
 		});
 	});
+	if (transportChanger) {
+		if (localStorage.getItem("currentTransport").includes("epoxy")) {
+			transportChanger.value = "epoxy"
+		} else if (localStorage.getItem("currentTransport").includes("libcurl")) {
+			transportChanger.value = "libcurl"
+		}
+		transportChanger.addEventListener('change', () => {
+			const transport = transportChanger.value
 
-	function loadInjections() {
+			if (transport == "epoxy") {
+				localStorage.setItem("currentTransport", "/epoxy/index.mjs")
+			} else if (transport == "libcurl") {
+				localStorage.setItem("currentTransport", "/libcurl/index.mjs")
+			} else {
+				console.log("invalid transport")
+				localStorage.setItem("currentTransport", "/epoxy/index.mjs")
+			}
+
+			
+			createNotification(`Transport changed to ${transport}!`)
+		})
+	}
+
+	/*function loadInjections() {
 		injectionsList.innerHTML = "";
 		const scripts = window.scriptManager.scripts;
 
@@ -90,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				addScriptBtn.dataset.editing = domain;
 			});
 		});
-	}
+	}*/
 
 	loadCurrentTheme();
 });
@@ -100,26 +151,5 @@ const socket = io();
 socket.emit("connection");
 
 socket.on("notificationReturn", (message) => {
-    const notifContainer = document.getElementById('notifContainer');
-	const notif = document.createElement("div");
-	// this can be solved way easier but im too lazy to split up the html into dom elements
-	const notifId = Math.floor(Math.random() * 999999);
-	notif.classList = "notification-popup";
-	notif.innerHTML = `
-		<div class="notification-header">
-            <h3 class="notification-title">Notification</h3>
-            <button class="notification-close" id="closeNotification-${notifId}">×</button>
-        </div>
-        <p class="notification-message">${message}</p>
-	`;
-
-	notifContainer.appendChild(notif);
-	setTimeout(() => {
-		notif.classList.add("visible");
-	}, 10);
-	document
-		.getElementById(`closeNotification-${notifId}`)
-		.addEventListener("click", () => {
-			notif.classList.remove("visible");
-		});
+    createNotification(message)
 });

@@ -13,8 +13,9 @@ import sanitizeHtml from 'sanitize-html';
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const publicPath = join(__dirname, "../public");
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
-import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
+import { epoxyPath } from "@mercuryworkshop/epoxy-transport"; 
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
+import { libcurlPath } from "@mercuryworkshop/libcurl-transport"
 
 const groq = new Groq({
 	apiKey: process.env.GROQ_API_KEY
@@ -74,6 +75,12 @@ fastify.register(fastifyStatic, {
 fastify.register(fastifyStatic, {
 	root: epoxyPath,
 	prefix: "/epoxy/",
+	decorateReply: false,
+});
+
+fastify.register(fastifyStatic, {
+	root: epoxyPath,
+	prefix: "/libcurl/",
 	decorateReply: false,
 });
 

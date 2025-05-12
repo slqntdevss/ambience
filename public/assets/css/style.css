@@ -401,13 +401,15 @@ body {
 	flex-direction: column-reverse;
 	gap: 10px;
 	z-index: 2000;
+	height: 80vh;
 	max-height: 80vh;
 	overflow: hidden; 
 	padding-right: 5px;
+	max-width: 60vw;
 }
 
 .notification-popup {
-	position: fixed;
+	position: relative;
 	bottom: 20px;
 	right: -350px;
 	background: var(--glass-bg);
@@ -419,13 +421,13 @@ body {
 	max-width: 90%;
 	z-index: 2000;
 	color: white;
-	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
 	text-shadow: 0 0px 10px rgba(255, 255, 255, 0.5);
 	transition: right 0.4s ease;
 }
 
 .notification-popup.visible {
-	right: 20px;
+	right: 0;
 }
 
 .notification-header {
@@ -465,4 +467,21 @@ body {
 	line-height: 1.4;
 	color: rgba(255, 255, 255, 0.9);
 	font-size: 0.9rem;
+}
+
+select {
+	background: var(--glass-bg);
+	backdrop-filter: blur(10px);
+	border: 1px solid var(--glass-border);
+	border-radius: 12px;
+	padding: 1rem;
+	margin: 0 auto;
+	max-width: 600px;
+	width: 470px;
+	position: relative;
+}
+option {
+	background: var(--glass-bg);
+	backdrop-filter: blur(10px);
+	border: 1px solid var(--glass-border);
 }

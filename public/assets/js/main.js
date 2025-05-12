@@ -186,23 +186,26 @@ searchForm.addEventListener("submit", async (event) => {
 		"://" +
 		location.host +
 		"/wisp/";
-	if ((await connection.getTransport()) !== "/epoxy/index.mjs") {
-		console.log("setting transport to epoxy");
-		await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
-        console.log("b")
+
+	const transport = localStorage.getItem("currentTransport") || "/epoxy/index.mjs"
+
+	if (!localStorage.getItem("currentTransport")) {
+		localStorage.setItem("currentTransport", "/epoxy/index.mjs")
+	}
+
+	if ((await connection.getTransport()) !== transport) {
+		console.log("setting transport to localstorage or epoxy");
+		await connection.setTransport(transport, [{ wisp: wispUrl }]);
 	}
 
 	currentURL = url;
-    console.log("a")
 	setTimeout(() => {
 		iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-        console.log("blah blah blah heres the encoded url:", __uv$config.prefix + __uv$config.encodeUrl(url))
 	}, 500);
 
 	window.scriptManager.handleInject(currentURL);
 
 	urlInput.value = currentURL;
-    console.log("d")
 });
 
 if (urlForm) {
