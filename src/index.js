@@ -8,6 +8,7 @@ import { fileURLToPath } from "url";
 import { Server } from "socket.io"
 import { Groq } from 'groq-sdk';
 import 'dotenv/config'
+import sanitizeHtml from 'sanitize-html';
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const publicPath = join(__dirname, "../public");
@@ -32,6 +33,28 @@ const fastify = Fastify({
 			});
 	},
 });
+
+const io = new Server(fastify.server)
+
+io.on("connection", (socket) => {
+	console.log(`new connection on ${socket.handshake.time} with ID ${socket.id}`)
+
+	socket.on("notification", (token, message) => {
+		console.log("bl;ahhh ", message)
+		//stop people from spamming the notif :33333
+		if(token == process.env.NOTIFICATION_SECRET_KEY) {
+			console.log("jnhlksj")
+			io.emit("notificationReturn", sanitizeHtml(message, {
+				allowedTags: [],
+				allowedAttributes: {}
+			}))
+		}
+	})
+	socket.on("freak", () => {
+		console.log(`freak at ${socket.handshake.address}`)
+	})
+})
+
 
 fastify.register(fastifyStatic, {
 	root: publicPath,

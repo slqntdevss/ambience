@@ -13,6 +13,7 @@
     <script src="uv/uv.bundle.js"></script>
     <script type="module" src="uv/uv.config.js"></script>
     <script src="assets/js/rsw.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
     <button class="toggle-btn expanded"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
@@ -36,6 +37,7 @@
             <button id="send-button"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-icon lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg></button>
         </div>
     </div>
+    <div class="notifications-container" id="notifContainer"></div>
     <script src="assets/js/xtra.js"></script>
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/i.js" defer></script>

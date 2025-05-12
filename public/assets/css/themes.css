@@ -243,7 +243,7 @@ body[data-theme="terminal"] {
     --glass-border: rgba(15, 155, 15, 0.2);
     --amethyst-primary: #0f9b0f;
     --amethyst-secondary: #000000;
-    --text-color: #0f9b0f;
+    --text-color: black;
     --sidebar-bg: rgba(0, 10, 0, 0.9);
     --card-bg: rgba(0, 30, 0, 0.8);
     --button-bg: rgba(15, 155, 15, 0.7);

@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
     <link href="/assets/css/settings.css" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
     <button class="toggle-btn expanded"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
@@ -95,7 +96,11 @@
                     </div>
                 </div>
             </div>
-            <div class="version-number">Prerelease 0.7.1 </div>
+            <div class="settings-section">
+                <h2>Proxy</h2>
+                
+            </div>
+            <div class="version-number">Prerelease 0.7.4 </div>
             <!--<div class="settings-section">
                 <h2>Site Injections</h2>
                 <div class="injections-container">
@@ -127,6 +132,7 @@
             </div> -->
         </main>
     </div>
+    <div class="notifications-container" id="notifContainer"></div>
     <script src="/assets/js/settings.js"></script>
 </body>
 </html>
