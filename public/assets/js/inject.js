@@ -10,6 +10,15 @@ class ScriptManager {
 		this.customInjectText = null
 		this.initScripts();
 	}
+	init(scriptInfo) {
+		if (this.initialized) return;
+		this.customInjectText = scriptInfo.customInjectText
+		this.createPopupElements();
+		document.body.appendChild(this.overlay);
+		document.body.appendChild(this.popup);
+		this.setupEventListeners();
+		this.initialized = true;
+	}
 
 	initScripts() {
 		this.scripts = {
@@ -21,8 +30,17 @@ class ScriptManager {
 				console.log("ambience tech 2032 trademark")
                 `
 			},
+			"example.com": {
+				name: "new popup style",
+				description: "felt cute, might delete later",
+				customInjectText: "you are such a cutie",
+				code: `
+				console.log("ambience tech 2032 trademark")
+                `
+			}
 		};
 	}
+
 	getScriptForUrl(url) {
 		if (!url) return null;
 
@@ -47,8 +65,16 @@ class ScriptManager {
 		if (this.initialized) return;
 		this.customInjectText = scriptInfo.customInjectText
 		this.createPopupElements();
-		document.body.appendChild(this.overlay);
-		document.body.appendChild(this.popup);
+		
+		const iframeContainer = document.querySelector('.iframe-container');
+		if (iframeContainer) {
+			iframeContainer.appendChild(this.overlay);
+			iframeContainer.appendChild(this.popup);
+		} else {
+			document.body.appendChild(this.overlay);
+			document.body.appendChild(this.popup);
+		}
+		
 		this.setupEventListeners();
 		this.initialized = true;
 	}
@@ -71,26 +97,30 @@ class ScriptManager {
 		this.popup = document.createElement("div");
 		this.popup.className = "eval-popup";
 		const customInjectText = this.customInjectText ? this.customInjectText : "Inject"
-		const text = this.url ? this.url : "this site.";
+		const text = this.url ? this.url.split('/')[0] : "this site";
+		
 		this.popup.innerHTML = `
             <div class="eval-popup-header">
-                <div class="eval-popup-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-syringe"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg></div>
-                <h3 class="eval-popup-title">Inject</h3>
+                <div class="eval-popup-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-syringe">
+                    <path d="m18 2 4 4"/>
+                    <path d="m17 7 3-3"/>
+                    <path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/>
+                    <path d="m9 11 4 4"/>
+                    <path d="m5 19-3 3"/>
+                    <path d="m14 4 6 6"/>
+                  </svg>
+                </div>
+                <h3 class="eval-popup-title">Addon available for ${text}</h3>
             </div>
             <div class="eval-popup-content">
                 <p class="eval-popup-description">
-                    Ambience has found an addon for ${text}
+                    <span id="script-name"></span>: <span id="script-description"></span>
                 </p>
-                <div class="eval-popup-script-info">
-                    <strong>Script:</strong> <span id="script-name">Unknown</span>
-                </div>
-                <div class="eval-popup-script-description">
-                    <strong>Description:</strong> <span id="script-description">No description provided</span>
-                </div>
             </div>
             <div class="eval-popup-buttons">
                 <button class="eval-popup-button cancel" id="eval-cancel">Cancel</button>
-                <button class="eval-popup-button inject" id="eval-inject">${customInjectText}</button>
+                <button class="eval-popup-button inject" id="eval-inject">${customInjectText || 'Inject'}</button>
             </div>
         `;
 	}
@@ -106,31 +136,32 @@ class ScriptManager {
 		injectBtn.parentNode.replaceChild(newInjectBtn, injectBtn);
 
 		newCancelBtn.addEventListener("click", () => {
-			this.overlay.classList.remove("visible");
-			this.popup.classList.remove("visible");
-			this.currentScript = null;
-			this.customInjectText = null
+			this.hidePopup();
 		});
 
 		newInjectBtn.addEventListener("click", () => {
 			if (this.currentScript) {
 				this.executeScript(this.currentScript);
 			}
-			this.overlay.classList.remove("visible");
-			this.popup.classList.remove("visible");
-			this.currentScript = null;
-			this.customInjectText = null
+			this.hidePopup();
 		});
 
 		const newOverlay = this.overlay.cloneNode(true);
 		this.overlay.parentNode?.replaceChild(newOverlay, this.overlay);
 		this.overlay = newOverlay;
 		this.overlay.addEventListener("click", () => {
-			this.overlay.classList.remove("visible");
-			this.popup.classList.remove("visible");
-			this.currentScript = null;
-			this.customInjectText = null
+			this.hidePopup();
 		});
+	}
+	
+	hidePopup() {
+		this.overlay.classList.remove("visible");
+		this.popup.classList.remove("visible");
+		
+		setTimeout(() => {
+			this.currentScript = null;
+			this.customInjectText = null;
+		}, 300);
 	}
 
 	showPopup(scriptInfo, url) {
@@ -143,7 +174,10 @@ class ScriptManager {
 			scriptInfo.description || "No description provided";
 
 		this.overlay.classList.add("visible");
-		this.popup.classList.add("visible");
+		
+		setTimeout(() => {
+			this.popup.classList.add("visible");
+		}, 50);
 	}
 
 	executeScript(code) {
