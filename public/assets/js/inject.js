@@ -97,7 +97,7 @@ class ScriptManager {
 		this.popup = document.createElement("div");
 		this.popup.className = "eval-popup";
 		const customInjectText = this.customInjectText ? this.customInjectText : "Inject"
-		const text = this.url ? this.url.split('/')[0] : "this site";
+		const text = this.url ? this.url : "this site";
 		
 		this.popup.innerHTML = `
             <div class="eval-popup-header">
@@ -119,7 +119,7 @@ class ScriptManager {
                 </p>
             </div>
             <div class="eval-popup-buttons">
-                <button class="eval-popup-button cancel" id="eval-cancel">Cancel</button>
+                <button class="eval-popup-button cancel" id="eval-cancel">Close</button>
                 <button class="eval-popup-button inject" id="eval-inject">${customInjectText || 'Inject'}</button>
             </div>
         `;

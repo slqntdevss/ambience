@@ -67,14 +67,15 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	});
 	if (transportChanger) {
-		if (localStorage.getItem("currentTransport").includes("epoxy")) {
+		if (localStorage.getItem("currentTransport") === null) {return}
+			if (localStorage.getItem("currentTransport").includes("epoxy")) {
 			transportChanger.value = "epoxy"
 		} else if (localStorage.getItem("currentTransport").includes("libcurl")) {
 			transportChanger.value = "libcurl"
 		}
 		transportChanger.addEventListener('change', () => {
 			const transport = transportChanger.value
-
+			console.log(transport)
 			if (transport == "epoxy") {
 				localStorage.setItem("currentTransport", "/epoxy/index.mjs")
 			} else if (transport == "libcurl") {
@@ -87,6 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			
 			createNotification(`Transport changed to ${transport}!`)
 		})
+	} else {
+		console.log("blehh")
 	}
 
 	/*function loadInjections() {

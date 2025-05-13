@@ -68,6 +68,7 @@ class GamesLoader {
 			this.addClickHandlers();
 		} catch (error) {
 			console.error("Error loading games:", error);
+			
 			this.gamesGrid.innerHTML = '<p class="error">Failed to load games</p>';
 		}
 	}
@@ -81,7 +82,6 @@ class GamesLoader {
 		}
 
 		this.noResults.style.display = "none";
-
 		games.forEach((game) => {
 			this.gamesGrid.innerHTML += `
             <div class="game-card" data-game-id="${game.id}" data-game-type="${game.type}" data-categories="${game.categories.join(",")}">
@@ -225,5 +225,5 @@ class GamesLoader {
 document.addEventListener("DOMContentLoaded", async () => {
 	const gamesLoader = new GamesLoader();
 	await gamesLoader.loadGames();
-	gameCountText.innerText = `${gameCounter} games loaded`;
+	gameCountText.innerText = `${gameCounter} games loadedd`;
 });
