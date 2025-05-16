@@ -62,6 +62,7 @@ class GamesLoader {
 			if (!response.ok) throw new Error("Failed to load games data");
 
 			const data = await response.json();
+			data.games.sort((a,b) => a.id.localeCompare(b.id))
 			this.allGames = data.games;
 
 			this.renderGames(this.allGames);

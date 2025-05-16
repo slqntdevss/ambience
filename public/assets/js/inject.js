@@ -7,12 +7,12 @@ class ScriptManager {
 		this.url = null;
 		this.initialized = false;
 		this.popupTimeout = null;
-		this.customInjectText = null
+		this.customInjectText = null;
 		this.initScripts();
 	}
 	init(scriptInfo) {
 		if (this.initialized) return;
-		this.customInjectText = scriptInfo.customInjectText
+		this.customInjectText = scriptInfo.customInjectText;
 		this.createPopupElements();
 		document.body.appendChild(this.overlay);
 		document.body.appendChild(this.popup);
@@ -24,11 +24,12 @@ class ScriptManager {
 		this.scripts = {
 			"discord.com": {
 				name: "Vencord",
-				description: "Improves the Discord experience by adding plugins. NOTE: This addon has already been injected! This is just to let you know what it does.",
+				description:
+					"Improves the Discord experience by adding plugins. NOTE: This addon has already been injected! This is just to let you know what it does.",
 				customInjectText: "Ok",
 				code: `
 				console.log("ambience tech 2032 trademark")
-                `
+                `,
 			},
 			"example.com": {
 				name: "new popup style",
@@ -36,8 +37,8 @@ class ScriptManager {
 				customInjectText: "you are such a cutie",
 				code: `
 				console.log("ambience tech 2032 trademark")
-                `
-			}
+                `,
+			},
 		};
 	}
 
@@ -63,10 +64,10 @@ class ScriptManager {
 
 	init(scriptInfo) {
 		if (this.initialized) return;
-		this.customInjectText = scriptInfo.customInjectText
+		this.customInjectText = scriptInfo.customInjectText;
 		this.createPopupElements();
-		
-		const iframeContainer = document.querySelector('.iframe-container');
+
+		const iframeContainer = document.querySelector(".iframe-container");
 		if (iframeContainer) {
 			iframeContainer.appendChild(this.overlay);
 			iframeContainer.appendChild(this.popup);
@@ -74,7 +75,7 @@ class ScriptManager {
 			document.body.appendChild(this.overlay);
 			document.body.appendChild(this.popup);
 		}
-		
+
 		this.setupEventListeners();
 		this.initialized = true;
 	}
@@ -96,9 +97,11 @@ class ScriptManager {
 
 		this.popup = document.createElement("div");
 		this.popup.className = "eval-popup";
-		const customInjectText = this.customInjectText ? this.customInjectText : "Inject"
+		const customInjectText = this.customInjectText
+			? this.customInjectText
+			: "Inject";
 		const text = this.url ? this.url : "this site";
-		
+
 		this.popup.innerHTML = `
             <div class="eval-popup-header">
                 <div class="eval-popup-icon">
@@ -120,7 +123,7 @@ class ScriptManager {
             </div>
             <div class="eval-popup-buttons">
                 <button class="eval-popup-button cancel" id="eval-cancel">Close</button>
-                <button class="eval-popup-button inject" id="eval-inject">${customInjectText || 'Inject'}</button>
+                <button class="eval-popup-button inject" id="eval-inject">${customInjectText || "Inject"}</button>
             </div>
         `;
 	}
@@ -153,11 +156,11 @@ class ScriptManager {
 			this.hidePopup();
 		});
 	}
-	
+
 	hidePopup() {
 		this.overlay.classList.remove("visible");
 		this.popup.classList.remove("visible");
-		
+
 		setTimeout(() => {
 			this.currentScript = null;
 			this.customInjectText = null;
@@ -174,7 +177,7 @@ class ScriptManager {
 			scriptInfo.description || "No description provided";
 
 		this.overlay.classList.add("visible");
-		
+
 		setTimeout(() => {
 			this.popup.classList.add("visible");
 		}, 50);
@@ -190,7 +193,7 @@ class ScriptManager {
                     script.textContent = ${JSON.stringify(code)};
                     document.head.appendChild(script);
                 })();`;
-                iframe.contentWindow.__uv$eval(injection);
+				iframe.contentWindow.__uv$eval(injection);
 			} else {
 				console.error("Iframe not found or not loaded");
 			}
@@ -209,8 +212,11 @@ class ScriptManager {
 			}
 
 			this.popupTimeout = setTimeout(() => {
-				this.init(scriptInfo);
-				this.showPopup(scriptInfo, url);
+				if (localStorage.getItem("shouldInject") == "true") {
+					console.log(localStorage.getItem("shouldInject"))
+					this.init(scriptInfo);
+					this.showPopup(scriptInfo, url);
+				}
 			}, 2000);
 		}
 	}

@@ -1,13 +1,22 @@
 {
     "games": [
         {
+            "id": "customswf",
+            "title": "Custom Flash Game",
+            "type": "local",
+            "description": "Upload your own file",
+            "image": "assets/img/games/flash.png",
+            "path": "/games/minecraft",
+            "categories": ["strategy", "arcade", "sandbox"]
+        },
+        {
             "id": "eaglercraft",
             "title": "Eaglercraft",
             "type": "local",
             "description": "Survival",
             "image": "assets/img/games/minecraft.jpg",
-            "path": "/games/minecraft",
-            "categories": ["strategy", "arcade", "sandbox"]
+            "path": "/games/flash/custom",
+            "categories": ["arcade", "sandbox"]
         },
         {
             "id": "slope",

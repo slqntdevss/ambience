@@ -1,7 +1,7 @@
 self.__uv$config = {
 	prefix: "/ambi/ence/",
-	encodeUrl: Ultraviolet.codec.xor.encode,
-	decodeUrl: Ultraviolet.codec.xor.decode,
+	encodeUrl: Ultraviolet.codec.base64.encode,
+	decodeUrl: Ultraviolet.codec.base64.decode,
 	handler: "/uv/uv.handler.js",
 	client: "/uv/uv.client.js",
 	bundle: "/uv/uv.bundle.js",
@@ -13,6 +13,8 @@ self.__uv$config = {
 		await new Promise((r) => setTimeout(r, 1));
 
 	if (window.top === window) return;
+
+	if (window.top.localStorage.getItem("shouldInject") == "false") {return}
 
 	const decodedUrl = __uv$config.decodeUrl(
 		location.pathname.replace(__uv$config.prefix, "")

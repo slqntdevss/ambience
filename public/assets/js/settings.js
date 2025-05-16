@@ -31,10 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	//const injectionsList = document.querySelector(".injections-list");
 	//const addScriptBtn = document.getElementById("add-script-btn");
 	const transportChanger = document.getElementById("transport")
-
 	const toggleBtn = document.querySelector(".toggle-btn");
 	const sidebar = document.querySelector(".sidebar");
 	const mainContent = document.querySelector(".main-content");
+	const injectToggle = document.getElementById("inject");
+
 	if (toggleBtn) {
 		toggleBtn.addEventListener("click", () => {
 			sidebar.classList.toggle("hidden");
@@ -88,10 +89,23 @@ document.addEventListener("DOMContentLoaded", () => {
 			
 			createNotification(`Transport changed to ${transport}!`)
 		})
-	} else {
-		console.log("blehh")
 	}
+	if (injectToggle) {
+   		if (localStorage.getItem("shouldInject") === null) {
+			localStorage.setItem("shouldInject", true)
+		};
 
+		if (localStorage.getItem("shouldInject") == "true") {
+			injectToggle.checked = true
+		} else {
+			injectToggle.checked = false
+		}
+
+		injectToggle.addEventListener('change', () => {
+			console.log(injectToggle.checked)
+			localStorage.setItem("shouldInject", injectToggle.checked.toString())
+		})
+	}
 	/*function loadInjections() {
 		injectionsList.innerHTML = "";
 		const scripts = window.scriptManager.scripts;

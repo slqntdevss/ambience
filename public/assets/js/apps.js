@@ -44,6 +44,7 @@ class AppLoader {
 			if (!response.ok) throw new Error("Failed to load apps  data");
 
 			const data = await response.json();
+			data.apps.sort((a,b) => a.id.localeCompare(b.id))
 			this.allApps = data.apps;
 
 			this.renderApps(this.allApps);

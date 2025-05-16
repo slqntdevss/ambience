@@ -10,7 +10,6 @@
 		/>
 		<link href="/assets/css/style.css" rel="stylesheet" />
 		<link href="/assets/css/settings.css" rel="stylesheet" />
-		
 	</head>
 	<body>
 		<script src="/socket.io/socket.io.js"></script>
@@ -41,8 +40,8 @@
 				<ul class="nav-links">
 					<li>
 						<a href="g">
-                            <span>
-                                <svg
+							<span>
+								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="24"
 									height="24"
@@ -61,8 +60,8 @@
 									<path
 										d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"
 									/>
-                                    </svg>
-                                </span>
+								</svg>
+							</span>
 							games</a
 						>
 					</li>
@@ -85,8 +84,8 @@
 										d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"
 									/>
 									<path d="M21 16v2a4 4 0 0 1-4 4h-5" />
-                                </svg>
-                            </span>
+								</svg>
+							</span>
 							apps</a
 						>
 					</li>
@@ -119,8 +118,8 @@
 									<path d="m3.34 17 1.73-1" />
 									<path d="m17 3.34-1 1.73" />
 									<path d="m11 13.73-4 6.93" />
-                                </svg>
-                            </span>
+								</svg>
+							</span>
 							settings</a
 						>
 					</li>
@@ -144,8 +143,9 @@
 									<path d="M2 14h2" />
 									<path d="M20 14h2" />
 									<path d="M15 13v2" />
-									<path d="M9 13v2" /></svg>
-                        </span>
+									<path d="M9 13v2" />
+								</svg>
+							</span>
 							AI</a
 						>
 					</li>
@@ -226,14 +226,23 @@
 				<div class="settings-section">
 					<h2>Proxy</h2>
 					<span>Transport</span>
-					<div style="padding-top: 5px;">
+					<div style="padding-top: 5px">
 						<select id="transport">
 							<option value="epoxy">Epoxy (Default)</option>
 							<option value="libcurl">Libcurl</option>
 						</select>
 					</div>
+					<span style="margin-top: 5px">Injection</span>
+					<div style="padding-top: 5px">
+						<div class="switch-container">
+							<label class="switch">
+								<input type="checkbox" class="switch-checkbox" id="inject" />
+								<span class="slider"></span>
+							</label>
+						</div>
+					</div>
 				</div>
-				<div class="version-number">Prerelease 0.7.6</div>
+				<div class="version-number">Prerelease 0.7.8</div>
 				<!--<div class="settings-section">
                 <h2>Site Injections</h2>
                 <div class="injections-container">
