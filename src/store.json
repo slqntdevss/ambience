@@ -1,0 +1,16 @@
+[
+    {
+        "id": "edpuzzleskipper",
+        "name": "Edpuzzle Skipper",
+        "img": "https://www.aisd.net/wp-content/files/edpuzzle-logo.png",
+        "src": "fetch('https://cdn.jsdelivr.net/gh/ading2210/edpuzzle-answers@latest/script.js').then(r => r.text()).then(r => __uv$eval(r))",
+        "author": "ading2210"
+    },
+    {
+        "id": "vencord",
+        "name": "Vencord",
+        "img": "https://docs.vencord.dev/_astro/cute-logo.CNQPwym8_Z17SO47.webp",
+        "src": "// this is weird cus it runs in the config ill add later :333333",
+        "author": "Vendicated"
+    }
+]

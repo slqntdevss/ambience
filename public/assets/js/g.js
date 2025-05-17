@@ -226,5 +226,5 @@ class GamesLoader {
 document.addEventListener("DOMContentLoaded", async () => {
 	const gamesLoader = new GamesLoader();
 	await gamesLoader.loadGames();
-	gameCountText.innerText = `${gameCounter} games loadedd`;
+	gameCountText.innerText = `${gameCounter} games loaded`;
 });

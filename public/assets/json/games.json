@@ -6,7 +6,7 @@
             "type": "local",
             "description": "Upload your own file",
             "image": "assets/img/games/flash.png",
-            "path": "/games/minecraft",
+            "path": "/games/flash/custom",
             "categories": ["strategy", "arcade", "sandbox"]
         },
         {
@@ -15,7 +15,7 @@
             "type": "local",
             "description": "Survival",
             "image": "assets/img/games/minecraft.jpg",
-            "path": "/games/flash/custom",
+            "path": "/games/minecraft",
             "categories": ["arcade", "sandbox"]
         },
         {
@@ -413,6 +413,42 @@
             "image": "assets/img/games/stumble.jpg",
             "url": "https://www.easyfun.gg/embed/stumble-guys-cloud-online.html?start=1",
             "categories": ["strategy", "action"]
+        },
+        {
+            "id": "tlozoot",
+            "title": "The Legend Of Zelda: Ocarina of Time",
+            "type": "local",
+            "description": "Adventure Game",
+            "image": "assets/img/games/tlozoot.jpg",
+            "path": "/games/n64/tlozoot",
+            "categories": ["action", "arcade", "strategy"]
+        },
+        {
+            "id": "tlozmm",
+            "title": "The Legend Of Zelda: Majora's Mask",
+            "type": "local",
+            "description": "Adventure Game",
+            "image": "assets/img/games/tlozmm.jpg",
+            "path": "/games/n64/tlozmm",
+            "categories": ["action", "arcade", "strategy"]
+        },
+        {
+            "id": "tloztmc",
+            "title": "The Legend Of Zelda: The Minish Cap",
+            "type": "local",
+            "description": "Adventure Game",
+            "image": "assets/img/games/tloztmc.jpg",
+            "path": "/games/gba/tloztmc",
+            "categories": ["action", "arcade", "strategy"]
+        },
+        {
+            "id": "tlozalttp",
+            "title": "The Legend Of Zelda: A Link To The Past",
+            "type": "local",
+            "description": "Adventure Game",
+            "image": "assets/img/games/tlozalttp.jpg",
+            "path": "/games/snes/tloztmc",
+            "categories": ["action", "arcade", "strategy"]
         }
     ]
 }
