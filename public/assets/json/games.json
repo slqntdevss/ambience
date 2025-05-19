@@ -52,7 +52,7 @@
             "description": "Platformer",
             "image": "assets/img/games/sm64.jpg",
             "path": "/games/n64/supermario",
-            "categories": ["action", "arcade"]
+            "categories": ["action", "arcade", "platformer"]
         },
         {
             "id": "2048",
@@ -415,6 +415,15 @@
             "categories": ["strategy", "action"]
         },
         {
+            "id": "adofai",
+            "title": "A Dance Of Fire And Ice",
+            "type": "local",
+            "description": "Game of the century",
+            "image": "assets/img/games/adofai.png",
+            "path": "/games/adofai/",
+            "categories": ["arcade", "puzzle", "strategy"]
+        },
+        {
             "id": "tlozoot",
             "title": "The Legend Of Zelda: Ocarina of Time",
             "type": "local",
@@ -449,6 +458,33 @@
             "image": "assets/img/games/tlozalttp.jpg",
             "path": "/games/snes/tloztmc",
             "categories": ["action", "arcade", "strategy"]
+        },
+        {
+            "id": "akr",
+            "title": "A Koopa's Revenge",
+            "type": "local",
+            "description": "Revenge For Koopaz",
+            "image": "assets/img/games/akr.jpg",
+            "path": "/games/akoopasrevenge",
+            "categories": ["platformer", "strategy"]
+        },
+        {
+            "id": "akr2",
+            "title": "A Koopa's Revenge 2",
+            "type": "local",
+            "description": "Revenge For Koopaz",
+            "image": "assets/img/games/akr2.jpg",
+            "path": "/games/akoopasrevenge/2",
+            "categories": ["platformer", "strategy"]
+        },
+        {
+            "id": "agariolite",
+            "title": "Agar.IO Lite",
+            "type": "local",
+            "description": "agario lite",
+            "image": "assets/img/games/agl.webp",
+            "path": "/games/agariolite",
+            "categories": ["arcade", "io", "strategy"]
         }
     ]
 }
