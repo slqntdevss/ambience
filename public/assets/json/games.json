@@ -10,6 +10,24 @@
             "categories": ["strategy", "arcade", "sandbox"]
         },
         {
+            "id": "customgba",
+            "title": "Custom GBA Game",
+            "type": "local",
+            "description": "Upload your own file",
+            "image": "assets/img/games/gba.jpg",
+            "path": "/games/gba/custom",
+            "categories": ["strategy", "arcade", "sandbox"]
+        },
+        {
+            "id": "customds",
+            "title": "Custom DS Game",
+            "type": "local",
+            "description": "Upload your own file",
+            "image": "assets/img/games/ds.jpg",
+            "path": "/games/ds/custom",
+            "categories": ["strategy", "arcade", "sandbox"]
+        },
+        {
             "id": "eaglercraft",
             "title": "Eaglercraft",
             "type": "local",
@@ -456,7 +474,7 @@
             "type": "local",
             "description": "Adventure Game",
             "image": "assets/img/games/tlozalttp.jpg",
-            "path": "/games/snes/tloztmc",
+            "path": "/games/snes/tlozalttp",
             "categories": ["action", "arcade", "strategy"]
         },
         {

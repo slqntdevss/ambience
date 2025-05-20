@@ -3,10 +3,11 @@ import { join } from "node:path";
 import { hostname } from "node:os";
 import wisp from "wisp-server-node";
 import Fastify from "fastify";
-import fastifyStatic from "@fastify/static";
+import fastifyStatic from '@fastify/static'
 import { fileURLToPath } from "url";
 import { Server } from "socket.io"
 import { Groq } from 'groq-sdk';
+import { readFile } from 'node:fs/promises';
 import 'dotenv/config'
 import sanitizeHtml from 'sanitize-html';
 
@@ -51,9 +52,6 @@ io.on("connection", (socket) => {
 			}))
 		}
 	})
-	socket.on("freak", () => {
-		console.log(`freak at ${socket.handshake.address}`)
-	})
 })
 
 
@@ -65,6 +63,11 @@ fastify.register(fastifyStatic, {
 fastify.get("/uv/uv.config.js", (req, res) => {
 	return res.sendFile("uv/uv.config.js", publicPath);
 });
+
+fastify.get('/store/apps', async function (req, res) {
+	const storeJson = await readFile(join(__dirname,'/store.json'), 'utf-8')
+	res.type('application/json').send(storeJson)
+})
 
 fastify.register(fastifyStatic, {
 	root: uvPath,
