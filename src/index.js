@@ -13,6 +13,7 @@ import sanitizeHtml from 'sanitize-html';
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const publicPath = join(__dirname, "../public");
+
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport"; 
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
@@ -60,8 +61,8 @@ fastify.register(fastifyStatic, {
 	decorateReply: true,
 });
 
-fastify.get("/uv/uv.config.js", (req, res) => {
-	return res.sendFile("uv/uv.config.js", publicPath);
+fastify.get("/ambi/ambi.config.js", (req, res) => {
+	return res.sendFile("ambi/ambi.config.js", publicPath);
 });
 
 fastify.get('/store/apps', async function (req, res) {
@@ -71,7 +72,7 @@ fastify.get('/store/apps', async function (req, res) {
 
 fastify.register(fastifyStatic, {
 	root: uvPath,
-	prefix: "/uv/",
+	prefix: "/ambi/",
 	decorateReply: false,
 });
 

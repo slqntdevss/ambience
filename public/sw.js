@@ -1,6 +1,6 @@
-importScripts("uv/uv.bundle.js");
-importScripts("uv/uv.config.js");
-importScripts("uv/uv.sw.js");
+importScripts("ambi/ambi.bundle.js");
+importScripts("ambi/ambi.config.js");
+importScripts("ambi/ambi.sw.js");
 
 const uv = new UVServiceWorker();
 
