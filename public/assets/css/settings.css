@@ -321,7 +321,7 @@
 	bottom: 3px;
 	background-color: white;
 	border-radius: 50%;
-    background: var(--amethyst-primary);
+	background: var(--amethyst-primary);
 	border-color: var(--glass-border);
 	transition: 0.3s;
 }
@@ -332,5 +332,53 @@
 
 .switch-checkbox:checked + .slider {
 	box-shadow: 0 0 3px var(--glass-border);
-    background: var(--glass-bg);
+	background: var(--glass-bg);
+}
+.fileContainer {
+	margin-top: 24px;
+	width: 300px;
+	height: 100px;
+	max-height: 300px;
+}
+#fontUpload {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.fileLabel {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background: var(--glass-bg);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid var(--glass-border);
+	border-radius: 12px;
+	color: white;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	padding: 1.5rem;
+}
+
+.fileLabel:hover {
+	background: rgba(255, 255, 255, 0.15);
+}
+
+.resetFontData {
+	color: white;
+	background: var(--glass-bg);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid var(--glass-border);
+	border-radius: 12px;
+	height: 70px;
+	width: 125px;
+	cursor: pointer;
 }

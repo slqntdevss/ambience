@@ -73,8 +73,8 @@ urlInput.addEventListener("keypress", (e) => {
 	if (e.key === "Enter") {
 		e.preventDefault();
 		iframeContainer.style.display = "block";
-	    iframeContainer.offsetHeight;
-	    iframeContainer.classList.add("visible");
+		iframeContainer.offsetHeight;
+		iframeContainer.classList.add("visible");
 		handleSearch();
 	}
 });
@@ -102,7 +102,7 @@ urlInput.addEventListener("input", (e) => {
 				);
 				if (!response.ok) throw new Error("Network response was not ok");
 				const suggestions = await response.json();
-                console.log(suggestions)
+				console.log(suggestions);
 				await suggestions.map((item) => item.phrase).slice(0, 8);
 				autocompleteResults.innerHTML = "";
 				if (suggestions.length > 0) {
@@ -130,7 +130,6 @@ urlInput.addEventListener("input", (e) => {
 	}, 300);
 });
 
-
 // for some reason it wont work unless its a fucntion smh
 async function handleSearch() {
 	try {
@@ -143,7 +142,11 @@ async function handleSearch() {
 		throw err;
 	}
 
-	const url = search(urlInput.value, "https://duckduckgo.com/?q=%s");
+	if (!localStorage.getItem("currentSearchEngine")) {
+		localStorage.setItem("currentSearchEngine", "https://duckduckgo.com/?q=%s");
+	}
+
+	const url = search(addr.value, localStorage.getItem("currentSearchEngine"));
 
 	let wispUrl =
 		(location.protocol === "https:" ? "wss" : "ws") +
@@ -158,7 +161,10 @@ async function handleSearch() {
 	currentURL = url;
 	setTimeout(() => {
 		iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-        console.log("blah blah blah heres the encoded url:", __uv$config.prefix + __uv$config.encodeUrl(url))
+		console.log(
+			"blah blah blah heres the encoded url:",
+			__uv$config.prefix + __uv$config.encodeUrl(url)
+		);
 	}, 500);
 
 	window.scriptManager.handleInject(currentURL);
@@ -179,7 +185,11 @@ searchForm.addEventListener("submit", async (event) => {
 		throw err;
 	}
 
-	const url = search(addr.value, "https://duckduckgo.com/?q=%s");
+	if (!localStorage.getItem("currentSearchEngine")) {
+		localStorage.setItem("currentSearchEngine", "https://duckduckgo.com/?q=%s");
+	}
+
+	const url = search(addr.value, localStorage.getItem("currentSearchEngine"));
 
 	let wispUrl =
 		(location.protocol === "https:" ? "wss" : "ws") +
@@ -187,10 +197,11 @@ searchForm.addEventListener("submit", async (event) => {
 		location.host +
 		"/wisp/";
 
-	const transport = localStorage.getItem("currentTransport") || "/epoxy/index.mjs"
+	const transport =
+		localStorage.getItem("currentTransport") || "/epoxy/index.mjs";
 
 	if (!localStorage.getItem("currentTransport")) {
-		localStorage.setItem("currentTransport", "/epoxy/index.mjs")
+		localStorage.setItem("currentTransport", "/epoxy/index.mjs");
 	}
 
 	if ((await connection.getTransport()) !== transport) {
@@ -215,15 +226,15 @@ if (urlForm) {
 		handleSearch();
 	});
 } else {
-    console.log("BAD BAD BAD VERY BAD")
+	console.log("BAD BAD BAD VERY BAD");
 }
 
 if (closeBtn) {
-	closeBtn.addEventListener("click", () =>{
-        iframeContainer.classList.remove("visible");
-	    setTimeout(() => {
-		    iframeContainer.style.display = "none";
-		    iframe.src = "about:blank";
-	    }, 300);
-    });
+	closeBtn.addEventListener("click", () => {
+		iframeContainer.classList.remove("visible");
+		setTimeout(() => {
+			iframeContainer.style.display = "none";
+			iframe.src = "about:blank";
+		}, 300);
+	});
 }

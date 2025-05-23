@@ -222,17 +222,38 @@
 							<span>Pine Forest</span>
 						</div>
 					</div>
+					<div style="padding-top: 24px">
+						<span>Custom Font</span>
+						<div class="fileContainer">
+							<input type="file" id="fontUpload" accept=".ttf, .otf, .woff" />
+							<label for="fontUpload" class="fileLabel">
+								<span>Upload a font file</span>
+							</label>
+						</div>
+						<div style="padding-top: 24px">
+							<button class="resetFontData">Reset font data</button>
+						</div>
+					</div>
 				</div>
 				<div class="settings-section">
 					<h2>Proxy</h2>
 					<span>Transport</span>
-					<div style="padding-top: 5px">
+					<div style="padding: 24px 0 24px 0">
 						<select id="transport">
 							<option value="epoxy">Epoxy (Default)</option>
 							<option value="libcurl">Libcurl</option>
 						</select>
 					</div>
-					<span style="margin-top: 5px">Injection</span>
+					<span>Search engine</span>
+					<div style="padding: 24px 0 24px 0">
+						<select id="searchEngine">
+							<option value="duckduckgo">DuckDuckGo (Default)</option>
+							<option value="google">Google</option>
+							<option value="brave">Brave</option>
+							<option value="bing">Bing</option>
+						</select>
+					</div>
+					<span>Injection</span>
 					<div style="padding-top: 5px">
 						<div class="switch-container">
 							<label class="switch">
@@ -242,7 +263,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="version-number">Prerelease 0.7.8</div>
+				<div class="version-number">Prerelease 0.7.9</div>
 				<!--<div class="settings-section">
                 <h2>Site Injections</h2>
                 <div class="injections-container">
