@@ -1,66 +1,226 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ambience - extensions</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/st.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <script src="/socket.io/socket.io.js"></script>
-    <button class="toggle-btn expanded"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
-    
-    <div class="container">
-        <nav class="sidebar">
-            <a href="/" class="logo-link">
-                <h1>ambience.</h1>
-            </a>
-            <ul class="nav-links">
-                <li><a href="g"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg></span> games</a></li>
-                <li><a href="a"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-headset"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></svg></span> apps</a></li>
-                <li><a href="s"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cog"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M12 2v2"/><path d="M12 22v-2"/><path d="m17 20.66-1-1.73"/><path d="M11 10.27 7 3.34"/><path d="m20.66 17-1.73-1"/><path d="m3.34 7 1.73 1"/><path d="M14 12h8"/><path d="M2 12h2"/><path d="m20.66 7-1.73 1"/><path d="m3.34 17 1.73-1"/><path d="m17 3.34-1 1.73"/><path d="m11 13.73-4 6.93"/></svg></span> settings</a></li>
-                <li><a href="i"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot-icon lucide-bot"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span> AI</a></li>
-                <li><a href="e" class="active"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-puzzle"><path d="M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-1.705.707 2.402 2.402 0 0 1-1.704-.706l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.493.074-.84.504-1.02.968a2.5 2.5 0 1 1-3.237-3.237c.464-.18.894-.527.967-1.02a1.026 1.026 0 0 0-.289-.877l-1.568-1.568A2.402 2.402 0 0 1 3.008 12c0-.617.236-1.234.706-1.704L5.25 8.77c.24-.24.581-.353.917-.303.515.077.877.528 1.073 1.01a2.5 2.5 0 1 0 3.259-3.259c-.482-.196-.933-.558-1.01-1.073-.05-.336.062-.676.303-.917l1.525-1.526A2.402 2.402 0 0 1 12 2c.617 0 1.234.236 1.704.706l1.568 1.568c.23.23.556.338.877.29.493-.074.84-.504 1.02-.968a2.5 2.5 0 1 1 3.237 3.237c-.464.18-.894.527-.967 1.02Z"/></svg></span> extensions</a></li>
-            </ul>
-        </nav>
-        
-        <div class="extensions-content main-content">
-            <h1>Extensions</h1>
-            
-            <div class="search-container">
-                <h3>Find Extensions</h3>
-                <input type="text" id="extensionSearch" placeholder="Search extensions...">
-                <div class="category-filters">
-                    <button class="category-btn active" data-category="all">All</button>
-                    <button class="category-btn" data-category="tools">Tools</button>
-                    <button class="category-btn" data-category="themes">Themes</button>
-                    <button class="category-btn" data-category="productivity">Productivity</button>
-                    <button class="category-btn" data-category="social">Social</button>
-                    <button class="category-btn" data-category="games">Games</button>
-                </div>
-            </div>
-            
-            <div class="extensions-grid">
-                <div class="extension-card" data-category="tools" data-id="1">
-                    <img src="/api/placeholder/200/200" alt="Dark Reader">
-                    <div class="extension-info">
-                        <h3>Dark Reader</h3>
-                        <p>Dark mode for every website. Take care of your eyes, use dark theme for night and daily browsing.</p>
-                        <div class="extension-meta">
-                            <span class="extension-author">DarkReader</span>
-                            <button class="install-btn">Install</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="notifications-container" id="notifContainer"></div>
-    <script src="assets/js/xtra.js"></script>
-    <script src="assets/js/settings.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ambience - extensions</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css"
+		/>
+		<link rel="stylesheet" href="/assets/css/style.css" />
+		<link rel="stylesheet" href="/assets/css/st.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<script src="/socket.io/socket.io.js"></script>
+		<button class="toggle-btn expanded">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="lucide lucide-menu"
+			>
+				<line x1="4" x2="20" y1="12" y2="12" />
+				<line x1="4" x2="20" y1="6" y2="6" />
+				<line x1="4" x2="20" y1="18" y2="18" />
+			</svg>
+		</button>
+
+		<div class="container">
+			<nav class="sidebar">
+				<a href="/" class="logo-link">
+					<h1>ambience.</h1>
+				</a>
+				<ul class="nav-links">
+					<li>
+						<a href="g"
+							><span
+								><svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="lucide lucide-gamepad-2"
+								>
+									<line x1="6" x2="10" y1="11" y2="11" />
+									<line x1="8" x2="8" y1="9" y2="13" />
+									<line x1="15" x2="15.01" y1="12" y2="12" />
+									<line x1="18" x2="18.01" y1="10" y2="10" />
+									<path
+										d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"
+									/></svg
+							></span>
+							games</a
+						>
+					</li>
+					<li>
+						<a href="a"
+							><span
+								><svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="lucide lucide-headset"
+								>
+									<path
+										d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"
+									/>
+									<path d="M21 16v2a4 4 0 0 1-4 4h-5" /></svg
+							></span>
+							apps</a
+						>
+					</li>
+					<li>
+						<a href="s"
+							><span
+								><svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="lucide lucide-cog"
+								>
+									<path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" />
+									<path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+									<path d="M12 2v2" />
+									<path d="M12 22v-2" />
+									<path d="m17 20.66-1-1.73" />
+									<path d="M11 10.27 7 3.34" />
+									<path d="m20.66 17-1.73-1" />
+									<path d="m3.34 7 1.73 1" />
+									<path d="M14 12h8" />
+									<path d="M2 12h2" />
+									<path d="m20.66 7-1.73 1" />
+									<path d="m3.34 17 1.73-1" />
+									<path d="m17 3.34-1 1.73" />
+									<path d="m11 13.73-4 6.93" /></svg
+							></span>
+							settings</a
+						>
+					</li>
+					<li>
+						<a href="i"
+							><span
+								><svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="lucide lucide-bot-icon lucide-bot"
+								>
+									<path d="M12 8V4H8" />
+									<rect width="16" height="12" x="4" y="8" rx="2" />
+									<path d="M2 14h2" />
+									<path d="M20 14h2" />
+									<path d="M15 13v2" />
+									<path d="M9 13v2" /></svg
+							></span>
+							AI</a
+						>
+					</li>
+					<li>
+						<a href="e" class="active"
+							><span
+								><svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="lucide lucide-puzzle"
+								>
+									<path
+										d="M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-1.705.707 2.402 2.402 0 0 1-1.704-.706l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.493.074-.84.504-1.02.968a2.5 2.5 0 1 1-3.237-3.237c.464-.18.894-.527.967-1.02a1.026 1.026 0 0 0-.289-.877l-1.568-1.568A2.402 2.402 0 0 1 3.008 12c0-.617.236-1.234.706-1.704L5.25 8.77c.24-.24.581-.353.917-.303.515.077.877.528 1.073 1.01a2.5 2.5 0 1 0 3.259-3.259c-.482-.196-.933-.558-1.01-1.073-.05-.336.062-.676.303-.917l1.525-1.526A2.402 2.402 0 0 1 12 2c.617 0 1.234.236 1.704.706l1.568 1.568c.23.23.556.338.877.29.493-.074.84-.504 1.02-.968a2.5 2.5 0 1 1 3.237 3.237c-.464.18-.894.527-.967 1.02Z"
+									/></svg
+							></span>
+							extensions</a
+						>
+					</li>
+				</ul>
+			</nav>
+
+			<div class="extensions-content main-content">
+				<h1>Extensions</h1>
+
+				<div class="search-container">
+					<h3>Find Extensions</h3>
+					<input
+						type="text"
+						id="extensionSearch"
+						placeholder="Search extensions..."
+					/>
+					<div class="category-filters">
+						<button class="category-btn active" data-category="all">All</button>
+						<button class="category-btn" data-category="tools">Tools</button>
+						<button class="category-btn" data-category="themes">Themes</button>
+						<button class="category-btn" data-category="productivity">
+							Productivity
+						</button>
+						<button class="category-btn" data-category="social">Social</button>
+						<button class="category-btn" data-category="games">Games</button>
+					</div>
+				</div>
+
+				<div class="extensions-grid">
+					<div class="extension-card" data-category="tools" data-id="1">
+						<img src="/api/placeholder/200/200" alt="Dark Reader" />
+						<div class="extension-info">
+							<h3>Dark Reader</h3>
+							<p>
+								Dark mode for every website. Take care of your eyes, use dark
+								theme for night and daily browsing.
+							</p>
+							<div class="extension-meta">
+								<span class="extension-author">DarkReader</span>
+								<button class="install-btn">Install</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h3 class="activeUsers">0 users using Ambience</h3>
+		<div class="notifications-container" id="notifContainer"></div>
+		<script src="assets/js/xtra.js"></script>
+		<script src="assets/js/settings.js"></script>
+	</body>
 </html>

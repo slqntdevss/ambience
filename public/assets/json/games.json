@@ -463,7 +463,7 @@
 			"id": "adofai",
 			"title": "A Dance Of Fire And Ice",
 			"type": "local",
-			"description": "Game of the century",
+			"description": "Rythem game",
 			"image": "assets/img/games/adofai.png",
 			"path": "/games/adofai/",
 			"categories": ["arcade", "puzzle", "strategy"]

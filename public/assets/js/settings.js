@@ -281,3 +281,12 @@ socket.on("version", (hash) => {
 		versionText.innerHTML = hash;
 	}
 });
+
+socket.on("users", (count) => {
+	const activeUsersText = document.querySelector(".activeUsers");
+	if (count == 1) {
+		activeUsersText.innerHTML = `${count} user using Ambience`;
+	} else {
+		activeUsersText.innerHTML = `${count} users using Ambience`;
+	}
+});

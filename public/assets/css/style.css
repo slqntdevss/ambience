@@ -284,118 +284,119 @@ body {
 }
 
 .eval-popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: transparent;
-  z-index: 1999;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: transparent;
+	z-index: 1999;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
 }
 
 .eval-popup-overlay.visible {
-  opacity: 1;
-  visibility: visible;
+	opacity: 1;
+	visibility: visible;
 }
 
 .eval-popup {
-  position: absolute;
-  bottom: -200px;
-  left: 20px;
-  width: calc(100% - 40px);
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid var(--glass-border);
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-  z-index: 2000;
-  color: white;
-  text-shadow: 0 0px 10px rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  transform: translateY(0);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-              opacity 0.3s ease;
+	position: absolute;
+	bottom: -200px;
+	left: 20px;
+	width: calc(100% - 40px);
+	background: var(--glass-bg);
+	backdrop-filter: blur(10px);
+	border-top: 1px solid var(--glass-border);
+	border-radius: 12px;
+	padding: 1rem 1.25rem;
+	z-index: 2000;
+	color: white;
+	text-shadow: 0 0px 10px rgba(255, 255, 255, 0.5);
+	opacity: 0;
+	transform: translateY(0);
+	transition:
+		transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+		opacity 0.3s ease;
 }
 
 .eval-popup.visible {
-  transform: translateY(-290px);
-  opacity: 1;
+	transform: translateY(-290px);
+	opacity: 1;
 }
 
 .eval-popup-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
+	display: flex;
+	align-items: center;
+	margin-bottom: 0.5rem;
 }
 
 .eval-popup-icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1rem;
+	width: 40px;
+	height: 40px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 1rem;
 }
 
 .eval-popup-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0;
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin: 0;
 }
 
 .eval-popup-content {
-  margin: 0.5rem 0;
+	margin: 0.5rem 0;
 }
 
 .eval-popup-description {
-  margin: 0.5rem 0;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.9rem;
+	margin: 0.5rem 0;
+	line-height: 1.4;
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 0.9rem;
 }
 .eval-popup-script-info,
 .eval-popup-script-description {
-  display: none;
+	display: none;
 }
 
 .eval-popup-buttons {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.75rem;
-  margin-top: 1rem;
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.75rem;
+	margin-top: 1rem;
 }
 
 .eval-popup-button {
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-  border: none;
+	padding: 0.6rem 1.2rem;
+	border-radius: 8px;
+	font-size: 0.9rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s;
+	border: none;
 }
 
 .eval-popup-button.cancel {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+	background: rgba(255, 255, 255, 0.1);
+	color: white;
 }
 
 .eval-popup-button.cancel:hover {
-  background: rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.2);
 }
 
 .eval-popup-button.inject {
-  background: var(--amethyst-secondary);
-  color: white;
+	background: var(--amethyst-secondary);
+	color: white;
 }
 
 .eval-popup-button.inject:hover {
-  background: var(--amethyst-primary);
+	background: var(--amethyst-primary);
 }
 
 .notifications-container {
@@ -408,7 +409,7 @@ body {
 	z-index: 2000;
 	height: 80vh;
 	max-height: 80vh;
-	overflow: hidden; 
+	overflow: hidden;
 	padding-right: 5px;
 	max-width: 60vw;
 }
@@ -489,4 +490,9 @@ option {
 	background: var(--glass-bg);
 	backdrop-filter: blur(10px);
 	border: 1px solid var(--glass-border);
+}
+.activeUsers {
+	position: fixed;
+	left: 5px;
+	bottom: 5px;
 }
