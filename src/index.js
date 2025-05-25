@@ -46,9 +46,7 @@ io.on("connection", (socket) => {
 	if (!activeUsers.has(socket.handshake.query.uuid)) {
 		activeUsers.set(socket.handshake.query.uuid, socket.id);
 	}
-
-	console.log("Unique users:", activeUsers.size);
-
+	io.emit("users", activeUsers.size);
 	console.log(
 		`new connection on ${socket.handshake.time} with ID ${socket.id} : active users at ${activeUsers.size}`
 	);
@@ -73,7 +71,7 @@ io.on("connection", (socket) => {
 	});
 	socket.on("disconnect", (reason) => {
 		activeUsers.delete(socket.handshake.query.uuid);
-		console.log("Unique users:", activeUsers.size);
+		io.emit("users", activeUsers.size);
 	});
 });
 
