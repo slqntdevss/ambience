@@ -265,7 +265,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	}*/
 });
 //socket io stuffs
-const socket = io();
+const uuid = localStorage.getItem("uuid");
+const socket = io({
+	query: { uuid },
+});
 
 socket.emit("connection");
 
@@ -273,7 +276,8 @@ socket.on("notificationReturn", (message) => {
 	createNotification(message);
 });
 socket.on("version", (hash) => {
-	console.log("bra");
 	const versionText = document.querySelector(".version-number");
-	versionText.innerHTML = hash;
+	if (versionText) {
+		versionText.innerHTML = hash;
+	}
 });

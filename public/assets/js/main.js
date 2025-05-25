@@ -15,6 +15,13 @@ const iframeContainer = document.querySelector(".iframe-container");
 let currentURL = "";
 
 let debounceTimeout;
+
+// give the user a uuid for sockets blehhhh >:333
+
+if (!localStorage.getItem("uuid")) {
+	localStorage.setItem("uuid", crypto.randomUUID());
+}
+
 searchInput.addEventListener("input", (e) => {
 	clearTimeout(debounceTimeout);
 	debounceTimeout = setTimeout(async () => {

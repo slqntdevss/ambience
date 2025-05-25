@@ -3,10 +3,8 @@ import Fastify from "fastify";
 import fastifyStatic from "@fastify/static";
 import "dotenv/config";
 import sanitizeHtml from "sanitize-html";
-import { fileURLToPath } from "url";
 
-const __dirname = fileURLToPath(new URL(".", import.meta.url));
-const publicPath = join(__dirname, "../public");
+let activeUsers = new Map();
 
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
@@ -19,6 +17,10 @@ import { readFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { join } from "node:path";
 import { hostname } from "node:os";
+import { fileURLToPath } from "url";
+
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
+const publicPath = join(__dirname, "../public");
 
 const groq = new Groq({
 	apiKey: process.env.GROQ_API_KEY,
@@ -41,8 +43,14 @@ const fastify = Fastify({
 const io = new Server(fastify.server);
 
 io.on("connection", (socket) => {
+	if (!activeUsers.has(socket.handshake.query.uuid)) {
+		activeUsers.set(socket.handshake.query.uuid, socket.id);
+	}
+
+	console.log("Unique users:", activeUsers.size);
+
 	console.log(
-		`new connection on ${socket.handshake.time} with ID ${socket.id}`
+		`new connection on ${socket.handshake.time} with ID ${socket.id} : active users at ${activeUsers.size}`
 	);
 	setTimeout(() => {
 		socket.emit(
@@ -62,6 +70,10 @@ io.on("connection", (socket) => {
 				})
 			);
 		}
+	});
+	socket.on("disconnect", (reason) => {
+		activeUsers.delete(socket.handshake.query.uuid);
+		console.log("Unique users:", activeUsers.size);
 	});
 });
 
@@ -134,8 +146,8 @@ fastify.post("/ai", async function (req, res) {
 			{
 				role: "system",
 				content:
-					"Try to avoid using markdown tags, like **** and just keep everything in plaintext.",
-			}, //ill add markdown support later im just lazy af
+					"You are a helpful AI assistant, you have access to markdown tags to make the conversation more lively.",
+			},
 			{ role: "user", content: prompt },
 		],
 		model: "llama3-70b-8192",
