@@ -495,4 +495,25 @@ option {
 	position: fixed;
 	left: 5px;
 	bottom: 5px;
+	transition: transform 0.3s ease;
+}
+.activeUsers.hidden {
+	transform: translateX(-240px);
+}
+.dynamic-island {
+	position: fixed;
+	width: 200px;
+	height: 50px;
+	border-radius: 25px;
+	top: 24px;
+	left: 50%;
+	transform: translate(-50%);
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.175);
+}
+.dynamic-island:hover {
+	width: 250px;
+	height: 100px;
+	border-radius: 25px;
 }

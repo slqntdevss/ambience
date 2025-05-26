@@ -21,8 +21,8 @@ self.__uv$config = {
 	const decodedUrl = __uv$config.decodeUrl(
 		location.pathname.replace(__uv$config.prefix, "")
 	);
-	// 100% freak detector
 	const currentHost = new URL(decodedUrl).host;
+	// 100% freak detector
 	if (
 		decodedUrl.includes("porn") ||
 		decodedUrl.includes("hentai") ||

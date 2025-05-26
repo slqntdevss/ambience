@@ -1,6 +1,7 @@
 import wisp from "wisp-server-node";
 import Fastify from "fastify";
 import fastifyStatic from "@fastify/static";
+import cors from "@fastify/cors";
 import "dotenv/config";
 import sanitizeHtml from "sanitize-html";
 
@@ -58,7 +59,6 @@ io.on("connection", (socket) => {
 	}, 500);
 	socket.on("notification", (token, message) => {
 		console.log("bl;ahhh ", message);
-		//stop people from spamming the notif :33333
 		if (token == process.env.NOTIFICATION_SECRET_KEY) {
 			io.emit(
 				"notificationReturn",

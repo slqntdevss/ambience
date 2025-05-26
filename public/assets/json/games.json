@@ -28,6 +28,15 @@
 			"categories": ["strategy", "arcade", "sandbox"]
 		},
 		{
+			"id": "customn64",
+			"title": "Custom N64 Game",
+			"type": "local",
+			"description": "Upload your own file",
+			"image": "assets/img/games/n64.jpg",
+			"path": "/games/n64/custom",
+			"categories": ["strategy", "arcade", "sandbox"]
+		},
+		{
 			"id": "eaglercraft",
 			"title": "Eaglercraft",
 			"type": "local",

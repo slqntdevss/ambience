@@ -1,3 +1,5 @@
+const activeUsersText = document.querySelector(".activeUsers");
+
 function createNotification(message) {
 	const notifContainer = document.getElementById("notifContainer");
 	const notif = document.createElement("div");
@@ -42,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (toggleBtn) {
 		toggleBtn.addEventListener("click", () => {
 			sidebar.classList.toggle("hidden");
+			activeUsersText.classList.toggle("hidden");
 			toggleBtn.classList.toggle("expanded");
 			mainContent.classList.toggle("expanded");
 		});
@@ -283,7 +286,6 @@ socket.on("version", (hash) => {
 });
 
 socket.on("users", (count) => {
-	const activeUsersText = document.querySelector(".activeUsers");
 	if (count == 1) {
 		activeUsersText.innerHTML = `${count} user using Ambience`;
 	} else {
