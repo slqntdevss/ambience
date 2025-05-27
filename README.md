@@ -16,4 +16,10 @@ an amazing web proxy powered by Ultraviolet. we have everything you can imagine
 - slqnt - founder and main dev
 - jordan - games and other features
 
+## hosting/running
+docker (recommended)
+```shell
+docker build . -t ambience
+docker run -p 8080:8080 ambience
+```
 what are you waiting for? use ambience today.
