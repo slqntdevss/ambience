@@ -11,6 +11,7 @@ const backBtn = document.getElementById("backBtn");
 const forwardBtn = document.getElementById("forwardBtn");
 const reloadBtn = document.getElementById("reloadBtn");
 const closeBtn = document.getElementById("closeBtn");
+const fullscreenBtn = document.getElementById("fullscreenBtn");
 const iframeContainer = document.querySelector(".iframe-container");
 let currentURL = "";
 
@@ -96,6 +97,10 @@ forwardBtn.addEventListener("click", () => {
 
 reloadBtn.addEventListener("click", () => {
 	iframe.contentWindow.location.reload();
+});
+
+fullscreenBtn.addEventListener("click", () => {
+	iframe.requestFullscreen();
 });
 
 urlInput.addEventListener("input", (e) => {

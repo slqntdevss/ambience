@@ -17,3 +17,7 @@ an amazing web proxy powered by Ultraviolet. we have everything you can imagine
 - jordan - games and other features
 
 what are you waiting for? use ambience today.
+
+## license
+
+If you use ANY of our code, you must credit us or not use it at all, if you are found to be using our code and haven't credited us there will be repercussions.

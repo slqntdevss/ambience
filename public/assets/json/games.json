@@ -114,7 +114,7 @@
 			"type": "local",
 			"description": "Sports Game",
 			"image": "assets/img/games/basketrandom.jpg",
-			"path": "/games/basket-random",
+			"path": "/games/basketrandom",
 			"categories": ["2player", "sports", "arcade"]
 		},
 		{
@@ -123,16 +123,16 @@
 			"type": "local",
 			"description": "Sports Game",
 			"image": "assets/img/games/soccerrandom.jpg",
-			"path": "/games/soccer-random",
+			"path": "/games/soccerrandom",
 			"categories": ["2player", "sports", "arcade"]
 		},
 		{
 			"id": "volleyrandom",
 			"title": "Volley Random",
-			"type": "proxied",
+			"type": "local",
 			"description": "Sports Game",
 			"image": "assets/img/games/volleyrandom.jpg",
-			"url": "https://raw.rawgit.net/galacticnetwork/3kh0-assets/refs/heads/main/volley-random/index.html",
+			"path": "/games/volleyrandom",
 			"categories": ["2player", "sports", "arcade"]
 		},
 		{
@@ -141,7 +141,7 @@
 			"type": "local",
 			"description": "Sports Game",
 			"image": "assets/img/games/boxingrandom.jpg",
-			"path": "/games/boxing-random",
+			"path": "/games/boxingrandom",
 			"categories": ["2player", "sports", "arcade"]
 		},
 		{
@@ -539,6 +539,24 @@
 			"image": "assets/img/games/agl.webp",
 			"path": "/games/agariolite",
 			"categories": ["arcade", "io", "strategy"]
+		},
+		{
+			"id": "cookieclicker",
+			"title": "Cookie Clicker",
+			"type": "local",
+			"description": "Clicker game",
+			"image": "assets/img/games/cc.png",
+			"path": "/games/cc",
+			"categories": ["arcade", "sandbox", "strategy"]
+		},
+		{
+			"id": "spacecompany",
+			"title": "Space Company",
+			"type": "local",
+			"description": "Clicker game",
+			"image": "assets/img/games/spacecompany.jpg",
+			"path": "/games/spacecompany",
+			"categories": ["arcade", "sandbox", "strategy"]
 		}
 	]
 }
