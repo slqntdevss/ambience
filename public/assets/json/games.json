@@ -37,7 +37,7 @@
 			"categories": ["strategy", "arcade", "sandbox"]
 		},
 		{
-			"id": "eaglercraft",
+			"id": "minecraft",
 			"title": "Eaglercraft",
 			"type": "local",
 			"description": "Survival",
@@ -433,13 +433,13 @@
 			"categories": ["puzzle", "strategy", "horror"]
 		},
 		{
-			"id": "buckshotroulette",
-			"title": "Buckshot Roulette",
+			"id": "bballfrvr",
+			"title": "Basketball FRVR",
 			"type": "local",
-			"description": "Shooting Game",
-			"image": "assets/img/games/br.jpg",
-			"path": "/games/buckshot",
-			"categories": ["horror", "shooter", "strategy"]
+			"description": "Basketball Game",
+			"image": "assets/img/games/",
+			"path": "/games/basketball/frvr",
+			"categories": ["sports"]
 		},
 		{
 			"id": "crk",
@@ -530,6 +530,114 @@
 			"image": "assets/img/games/akr2.jpg",
 			"path": "/games/akoopasrevenge/2",
 			"categories": ["platformer", "strategy"]
+		},
+		{
+			"id": "8ball",
+			"title": "8 Ball; Singleplayer",
+			"type": "local",
+			"description": "Strategy Game",
+			"image": "assets/img/games/agl.webp",
+			"path": "/games/8ballclassic",
+			"categories": ["strategy", "puzzle"]
+		},
+		{
+			"id": "angrybirds",
+			"title": "Angry Birds",
+			"type": "local",
+			"description": "Ahehehea",
+			"image": "assets/img/games/",
+			"path": "/games/angrybirds",
+			"categories": ["arcade", "strategy"]
+		},
+		{
+			"id": "br",
+			"title": "Backrooms",
+			"type": "local",
+			"description": "Scary game with levels",
+			"image": "assets/img/games/",
+			"path": "/games/backrooms",
+			"categories": ["arcade", "horror"]
+		},
+		{
+			"id": "abspace",
+			"title": "Angry Birds Space",
+			"type": "local",
+			"description": "Angry Birds; In Space!",
+			"image": "assets/img/games/",
+			"path": "/games/angrybirds/space",
+			"categories": ["arcade","action"]
+		},
+		{
+			"id": "baldi",
+			"title": "Baldi's Basics",
+			"type": "local",
+			"description": "..and Education and Learning!",
+			"image": "assets/img/games/",
+			"path": "/games/baldi",
+			"categories": ["horror", "strategy"]
+		},
+		{
+			"id": "baconmaydie",
+			"title": "Bacon May Die",
+			"type": "proxied",
+			"description": "Bacon Could Die",
+			"image": "assets/img/games/",
+			"url": "https://betterbull.com/uploads/5/5/6/7/5567194/custom_themes/320690105873469650/files/index.html",
+			"categories": ["action", "arcade","strategy"]
+		},
+				{
+			"id": "footballbros",
+			"title": "Football Bros",
+			"type": "local",
+			"description": "Tackle it down!",
+			"image": "assets/img/games/",
+			"path": "/games/football-bros",
+			"categories": ["sports", "2player"]
+		},
+						{
+			"id": "FNAF",
+			"title": "Five Nights At Freddy's",
+			"type": "local",
+			"description": "FNAF",
+			"image": "assets/img/games/",
+			"path": "/games/FNAF",
+			"categories": ["horror","action","strategy","story"]
+		},
+								{
+			"id": "FNAF2",
+			"title": "Five Nights At Freddy's 2",
+			"type": "local",
+			"description": "FNAF 2",
+			"image": "assets/img/games/",
+			"path": "/games/FNAF/2",
+			"categories": ["horror","action","strategy","story"]
+		},
+								{
+			"id": "FNAF3",
+			"title": "Five Nights At Freddy's 3",
+			"type": "local",
+			"description": "FNAF 3",
+			"image": "assets/img/games/",
+			"path": "/games/FNAF/3",
+			"categories": ["horror","action","strategy","story"]
+		},
+								{
+			"id": "FNAF4",
+			"title": "Five Nights At Freddy's 4",
+			"type": "local",
+			"description": "FNAF 4",
+			"image": "assets/img/games/",
+			"path": "/games/FNAF/4",
+			"categories": ["horror","action","strategy","story"]
+		},
+								{
+			"id": "FNAFANI",
+			"title": "Five Nights At Freddy's Animatronics",
+			"type": "local",
+			"description": "FNAFA",
+			"image": "assets/img/games/",
+			"path": "/games/FNAF/animatronics",
+			"categories": ["horror","action","strategy","story"]
 		},
 		{
 			"id": "agariolite",
