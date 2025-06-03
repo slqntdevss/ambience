@@ -7,7 +7,11 @@
 			"description": "Upload your own file",
 			"image": "assets/img/games/flash.png",
 			"path": "/games/flash/custom",
-			"categories": ["strategy", "arcade", "sandbox"]
+			"categories": [
+				"strategy",
+				"arcade",
+				"sandbox"
+			]
 		},
 		{
 			"id": "customgba",
@@ -16,7 +20,11 @@
 			"description": "Upload your own file",
 			"image": "assets/img/games/gba.jpg",
 			"path": "/games/gba/custom",
-			"categories": ["strategy", "arcade", "sandbox"]
+			"categories": [
+				"strategy",
+				"arcade",
+				"sandbox"
+			]
 		},
 		{
 			"id": "customds",
@@ -25,7 +33,11 @@
 			"description": "Upload your own file",
 			"image": "assets/img/games/ds.jpg",
 			"path": "/games/ds/custom",
-			"categories": ["strategy", "arcade", "sandbox"]
+			"categories": [
+				"strategy",
+				"arcade",
+				"sandbox"
+			]
 		},
 		{
 			"id": "customn64",
@@ -34,7 +46,11 @@
 			"description": "Upload your own file",
 			"image": "assets/img/games/n64.jpg",
 			"path": "/games/n64/custom",
-			"categories": ["strategy", "arcade", "sandbox"]
+			"categories": [
+				"strategy",
+				"arcade",
+				"sandbox"
+			]
 		},
 		{
 			"id": "minecraft",
@@ -43,7 +59,10 @@
 			"description": "Survival",
 			"image": "assets/img/games/minecraft.jpg",
 			"path": "/games/minecraft",
-			"categories": ["arcade", "sandbox"]
+			"categories": [
+				"arcade",
+				"sandbox"
+			]
 		},
 		{
 			"id": "slope",
@@ -52,7 +71,10 @@
 			"description": "Endless Runner",
 			"image": "assets/img/games/slope.jpg",
 			"path": "/games/slope",
-			"categories": ["strategy", "arcade"]
+			"categories": [
+				"strategy",
+				"arcade"
+			]
 		},
 		{
 			"id": "mariokart64",
@@ -61,7 +83,10 @@
 			"description": "Racing Game",
 			"image": "assets/img/games/mariokart.jpg",
 			"path": "/games/n64/mariokart",
-			"categories": ["action", "arcade"]
+			"categories": [
+				"action",
+				"arcade"
+			]
 		},
 		{
 			"id": "ssb64",
@@ -70,7 +95,10 @@
 			"description": "Fighting",
 			"image": "assets/img/games/ssb64.jpg",
 			"path": "/games/n64/supersmashbros",
-			"categories": ["action", "arcade"]
+			"categories": [
+				"action",
+				"arcade"
+			]
 		},
 		{
 			"id": "supermario64",
@@ -79,7 +107,11 @@
 			"description": "Platformer",
 			"image": "assets/img/games/sm64.jpg",
 			"path": "/games/n64/supermario",
-			"categories": ["action", "arcade", "platformer"]
+			"categories": [
+				"action",
+				"arcade",
+				"platformer"
+			]
 		},
 		{
 			"id": "2048",
@@ -88,7 +120,11 @@
 			"description": "Puzzle Game",
 			"image": "assets/img/games/2048.jpg",
 			"url": "https://raw.githack.com/GalacticNetwork/3kh0-assets/main/2048/index.html",
-			"categories": ["puzzle", "arcade", "strategy"]
+			"categories": [
+				"puzzle",
+				"arcade",
+				"strategy"
+			]
 		},
 		{
 			"id": "mcjava",
@@ -97,7 +133,11 @@
 			"description": "Sandbox Game",
 			"image": "assets/img/games/java.jpg",
 			"url": "https://eaglercraft.com/mc/1.12.2/",
-			"categories": ["sandbox", "arcade", "strategy"]
+			"categories": [
+				"sandbox",
+				"arcade",
+				"strategy"
+			]
 		},
 		{
 			"id": "basketbros",
@@ -106,7 +146,10 @@
 			"description": "Sports Game",
 			"image": "assets/img/games/basketbros.jpg",
 			"url": "https://script.google.com/macros/s/AKfycbxUfaDSpH-0SJL0WPKt38JY7OOOGMmtpY9JTSbL8pvtjxS7jSpNHHu6MdZgWUshIU00Kw/exec",
-			"categories": ["2player", "sports"]
+			"categories": [
+				"2player",
+				"sports"
+			]
 		},
 		{
 			"id": "basketrandom",
@@ -115,7 +158,11 @@
 			"description": "Sports Game",
 			"image": "assets/img/games/basketrandom.jpg",
 			"path": "/games/basketrandom",
-			"categories": ["2player", "sports", "arcade"]
+			"categories": [
+				"2player",
+				"sports",
+				"arcade"
+			]
 		},
 		{
 			"id": "soccerrandom",
@@ -124,7 +171,11 @@
 			"description": "Sports Game",
 			"image": "assets/img/games/soccerrandom.jpg",
 			"path": "/games/soccerrandom",
-			"categories": ["2player", "sports", "arcade"]
+			"categories": [
+				"2player",
+				"sports",
+				"arcade"
+			]
 		},
 		{
 			"id": "volleyrandom",
@@ -133,7 +184,11 @@
 			"description": "Sports Game",
 			"image": "assets/img/games/volleyrandom.jpg",
 			"path": "/games/volleyrandom",
-			"categories": ["2player", "sports", "arcade"]
+			"categories": [
+				"2player",
+				"sports",
+				"arcade"
+			]
 		},
 		{
 			"id": "boxingrandom",
@@ -142,7 +197,11 @@
 			"description": "Sports Game",
 			"image": "assets/img/games/boxingrandom.jpg",
 			"path": "/games/boxingrandom",
-			"categories": ["2player", "sports", "arcade"]
+			"categories": [
+				"2player",
+				"sports",
+				"arcade"
+			]
 		},
 		{
 			"id": "basketballstars",
@@ -151,7 +210,10 @@
 			"description": "Sports Game",
 			"image": "assets/img/games/basketball-stars.jpg",
 			"path": "/games/basketball/stars",
-			"categories": ["2player", "sports"]
+			"categories": [
+				"2player",
+				"sports"
+			]
 		},
 		{
 			"id": "basketballlegends",
@@ -160,7 +222,10 @@
 			"description": "Sports Game",
 			"image": "assets/img/games/basketballlegends.jpg",
 			"path": "/games/basketball/legends",
-			"categories": ["2player", "sports"]
+			"categories": [
+				"2player",
+				"sports"
+			]
 		},
 		{
 			"id": "1v1.lol",
@@ -169,7 +234,11 @@
 			"description": "Shooting game",
 			"image": "assets/img/games/1v1lol.jpg",
 			"path": "/games/1v1-lol/oldest",
-			"categories": ["shooter", "action", "strategy"]
+			"categories": [
+				"shooter",
+				"action",
+				"strategy"
+			]
 		},
 		{
 			"id": "cc3d",
@@ -178,7 +247,11 @@
 			"description": "Game of the century",
 			"image": "assets/img/games/cc3d.jpg",
 			"path": "/games/cc3d/",
-			"categories": ["arcade", "action", "strategy"]
+			"categories": [
+				"arcade",
+				"action",
+				"strategy"
+			]
 		},
 		{
 			"id": "ltf2",
@@ -187,7 +260,11 @@
 			"description": "Flight game",
 			"image": "assets/img/games/ltf2.jpg",
 			"path": "/games/flash/ltf2",
-			"categories": ["arcade", "strategy", "sandbox"]
+			"categories": [
+				"arcade",
+				"strategy",
+				"sandbox"
+			]
 		},
 		{
 			"id": "dl1",
@@ -196,7 +273,11 @@
 			"description": "Competition game",
 			"image": "assets/img/games/dl1.jpg",
 			"path": "/games/flash/dl1",
-			"categories": ["arcade", "strategy", "sandbox"]
+			"categories": [
+				"arcade",
+				"strategy",
+				"sandbox"
+			]
 		},
 		{
 			"id": "dl2",
@@ -205,7 +286,11 @@
 			"description": "Competition game",
 			"image": "assets/img/games/dl2.jpg",
 			"path": "/games/flash/dl2",
-			"categories": ["arcade", "strategy", "sandbox"]
+			"categories": [
+				"arcade",
+				"strategy",
+				"sandbox"
+			]
 		},
 		{
 			"id": "dl3",
@@ -214,7 +299,11 @@
 			"description": "Competition game",
 			"image": "assets/img/games/dl3.jpg",
 			"path": "/games/flash/dl3",
-			"categories": ["arcade", "strategy", "sandbox"]
+			"categories": [
+				"arcade",
+				"strategy",
+				"sandbox"
+			]
 		},
 		{
 			"id": "dl4",
@@ -223,7 +312,11 @@
 			"description": "Competition game",
 			"image": "assets/img/games/dl4.jpg",
 			"path": "/games/flash/dl4",
-			"categories": ["arcade", "strategy", "sandbox"]
+			"categories": [
+				"arcade",
+				"strategy",
+				"sandbox"
+			]
 		},
 		{
 			"id": "whg",
@@ -232,7 +325,10 @@
 			"description": "Challenge game",
 			"image": "assets/img/games/whg.jpg",
 			"path": "/games/flash/whg",
-			"categories": ["arcade", "strategy"]
+			"categories": [
+				"arcade",
+				"strategy"
+			]
 		},
 		{
 			"id": "whg2",
@@ -241,7 +337,10 @@
 			"description": "Challenge game",
 			"image": "assets/img/games/whg2.jpg",
 			"path": "/games/flash/whg2",
-			"categories": ["arcade", "strategy"]
+			"categories": [
+				"arcade",
+				"strategy"
+			]
 		},
 		{
 			"id": "pbake",
@@ -250,7 +349,10 @@
 			"description": "Papa Louie Game",
 			"image": "assets/img/games/pbake.jpg",
 			"path": "/games/flash/pbake",
-			"categories": ["strategy", "simulation"]
+			"categories": [
+				"strategy",
+				"simulation"
+			]
 		},
 		{
 			"id": "pburg",
@@ -259,7 +361,10 @@
 			"description": "Papa Louie Game",
 			"image": "assets/img/games/pburg.jpg",
 			"path": "/games/flash/pburg",
-			"categories": ["strategy", "simulation"]
+			"categories": [
+				"strategy",
+				"simulation"
+			]
 		},
 		{
 			"id": "pchee",
@@ -268,7 +373,10 @@
 			"description": "Papa Louie Game",
 			"image": "assets/img/games/pchee.jpg",
 			"path": "/games/flash/pchee",
-			"categories": ["strategy", "simulation"]
+			"categories": [
+				"strategy",
+				"simulation"
+			]
 		},
 		{
 			"id": "pcupc",
@@ -277,7 +385,10 @@
 			"description": "Papa Louie Game",
 			"image": "assets/img/games/pcupc.jpg",
 			"path": "/games/flash/pcupc",
-			"categories": ["strategy", "simulation"]
+			"categories": [
+				"strategy",
+				"simulation"
+			]
 		},
 		{
 			"id": "pdonut",
@@ -286,7 +397,10 @@
 			"description": "Papa Louie Game",
 			"image": "assets/img/games/pdonut.jpg",
 			"path": "/games/flash/pdonut",
-			"categories": ["strategy", "simulation"]
+			"categories": [
+				"strategy",
+				"simulation"
+			]
 		},
 		{
 			"id": "pfreeze",
@@ -295,7 +409,10 @@
 			"description": "Papa Louie Game",
 			"image": "assets/img/games/pfreeze.jpg",
 			"path": "/games/flash/pfreeze",
-			"categories": ["strategy", "simulation"]
+			"categories": [
+				"strategy",
+				"simulation"
+			]
 		},
 		{
 			"id": "photdog",
@@ -304,7 +421,10 @@
 			"description": "Papa Louie Game",
 			"image": "assets/img/games/photdog.jpg",
 			"path": "/games/flash/photdog",
-			"categories": ["strategy", "simulation"]
+			"categories": [
+				"strategy",
+				"simulation"
+			]
 		},
 		{
 			"id": "ppan",
@@ -313,7 +433,10 @@
 			"description": "Papa Louie Game",
 			"image": "assets/img/games/ppan.jpg",
 			"path": "/games/flash/ppan",
-			"categories": ["strategy", "simulation"]
+			"categories": [
+				"strategy",
+				"simulation"
+			]
 		},
 		{
 			"id": "ppasta",
@@ -322,7 +445,10 @@
 			"description": "Papa Louie Game",
 			"image": "assets/img/games/ppasta.jpg",
 			"path": "/games/flash/ppasta",
-			"categories": ["strategy", "simulation"]
+			"categories": [
+				"strategy",
+				"simulation"
+			]
 		},
 		{
 			"id": "ppizza",
@@ -331,7 +457,10 @@
 			"description": "Papa Louie Game",
 			"image": "assets/img/games/ppizza.jpg",
 			"path": "/games/flash/ppizza",
-			"categories": ["strategy", "simulation"]
+			"categories": [
+				"strategy",
+				"simulation"
+			]
 		},
 		{
 			"id": "pwing",
@@ -340,7 +469,10 @@
 			"description": "Papa Louie Game",
 			"image": "assets/img/games/pwing.jpg",
 			"path": "/games/flash/pwing",
-			"categories": ["strategy", "simulation"]
+			"categories": [
+				"strategy",
+				"simulation"
+			]
 		},
 		{
 			"id": "pscoop",
@@ -349,7 +481,10 @@
 			"description": "Papa Louie Game",
 			"image": "assets/img/games/pscoop.jpg",
 			"path": "/games/flash/pscoop",
-			"categories": ["strategy", "simulation"]
+			"categories": [
+				"strategy",
+				"simulation"
+			]
 		},
 		{
 			"id": "psushi",
@@ -358,7 +493,10 @@
 			"description": "Papa Louie Game",
 			"image": "assets/img/games/psushi.jpg",
 			"path": "/games/flash/psushi",
-			"categories": ["strategy", "simulation"]
+			"categories": [
+				"strategy",
+				"simulation"
+			]
 		},
 		{
 			"id": "ultrakill",
@@ -367,7 +505,11 @@
 			"description": "Shooting game",
 			"image": "assets/img/games/ultrakill.webp",
 			"url": "https://celebrated-griffin-f093cc.netlify.app/ultrakill/",
-			"categories": ["shooter", "action", "strategy"]
+			"categories": [
+				"shooter",
+				"action",
+				"strategy"
+			]
 		},
 		{
 			"id": "repo",
@@ -376,7 +518,10 @@
 			"description": "Strategy Game",
 			"image": "assets/img/games/repo.jpg",
 			"url": "https://preeminent-pastelito-e22a5f.netlify.app/",
-			"categories": ["2player", "strategy"]
+			"categories": [
+				"2player",
+				"strategy"
+			]
 		},
 		{
 			"id": "roblox",
@@ -385,7 +530,9 @@
 			"description": "Sandbox Game",
 			"image": "assets/img/games/rblx.avif",
 			"url": "https://www.easyfun.gg/embed/roblox.html?start=1",
-			"categories": ["sandbox"]
+			"categories": [
+				"sandbox"
+			]
 		},
 		{
 			"id": "Roblox-2014",
@@ -394,7 +541,9 @@
 			"description": "Sandbox Game",
 			"image": "assets/img/games/roblox.jpg",
 			"url": "https://voluble-fairy-ba4138.netlify.app/roblox/",
-			"categories": ["sandbox"]
+			"categories": [
+				"sandbox"
+			]
 		},
 		{
 			"id": "badparenting",
@@ -403,7 +552,10 @@
 			"description": "ironic since its made by a pedo",
 			"image": "assets/img/games/bp.jpg",
 			"url": "https://magical-dasik-5018b4.netlify.app/",
-			"categories": ["horror", "story"]
+			"categories": [
+				"horror",
+				"story"
+			]
 		},
 		{
 			"id": "hl",
@@ -412,7 +564,10 @@
 			"description": "evil scheme",
 			"image": "assets/img/games/hl.jpg",
 			"url": "https://hl-ecru.vercel.app/",
-			"categories": ["shooter", "puzzle"]
+			"categories": [
+				"shooter",
+				"puzzle"
+			]
 		},
 		{
 			"id": "people-playground",
@@ -421,7 +576,9 @@
 			"description": "Sandbox Game",
 			"image": "assets/img/games/people.jpg",
 			"url": "https://celebrated-griffin-f093cc.netlify.app/people-playground/",
-			"categories": ["sandbox"]
+			"categories": [
+				"sandbox"
+			]
 		},
 		{
 			"id": "batim",
@@ -430,7 +587,11 @@
 			"description": "oooh scary",
 			"image": "assets/img/games/batim.jpg",
 			"url": "https://voluble-fairy-ba4138.netlify.app/bendy/",
-			"categories": ["puzzle", "strategy", "horror"]
+			"categories": [
+				"puzzle",
+				"strategy",
+				"horror"
+			]
 		},
 		{
 			"id": "bballfrvr",
@@ -439,7 +600,9 @@
 			"description": "Basketball Game",
 			"image": "assets/img/games/",
 			"path": "/games/basketball/frvr",
-			"categories": ["sports"]
+			"categories": [
+				"sports"
+			]
 		},
 		{
 			"id": "crk",
@@ -448,7 +611,10 @@
 			"description": "cookie run",
 			"image": "assets/img/games/crk.webp",
 			"url": "https://www.easyfun.gg/embed/cookierun-kingdom-cloud-online.html?start=1",
-			"categories": ["strategy", "story"]
+			"categories": [
+				"strategy",
+				"story"
+			]
 		},
 		{
 			"id": "fortnite",
@@ -457,7 +623,10 @@
 			"description": "Shooting Game",
 			"image": "assets/img/games/fn.jpeg",
 			"url": "https://www.easyfun.gg/embed/fortnite-battle-royale-cloud-online.html?start=1",
-			"categories": ["shooter", "strategy"]
+			"categories": [
+				"shooter",
+				"strategy"
+			]
 		},
 		{
 			"id": "stumbleguys",
@@ -466,7 +635,10 @@
 			"description": "fall guys but better",
 			"image": "assets/img/games/stumble.jpg",
 			"url": "https://www.easyfun.gg/embed/stumble-guys-cloud-online.html?start=1",
-			"categories": ["strategy", "action"]
+			"categories": [
+				"strategy",
+				"action"
+			]
 		},
 		{
 			"id": "adofai",
@@ -475,7 +647,11 @@
 			"description": "Rythem game",
 			"image": "assets/img/games/adofai.png",
 			"path": "/games/adofai/",
-			"categories": ["arcade", "puzzle", "strategy"]
+			"categories": [
+				"arcade",
+				"puzzle",
+				"strategy"
+			]
 		},
 		{
 			"id": "tlozoot",
@@ -484,7 +660,11 @@
 			"description": "Adventure Game",
 			"image": "assets/img/games/tlozoot.jpg",
 			"path": "/games/n64/tlozoot",
-			"categories": ["action", "arcade", "strategy"]
+			"categories": [
+				"action",
+				"arcade",
+				"strategy"
+			]
 		},
 		{
 			"id": "tlozmm",
@@ -493,7 +673,11 @@
 			"description": "Adventure Game",
 			"image": "assets/img/games/tlozmm.jpg",
 			"path": "/games/n64/tlozmm",
-			"categories": ["action", "arcade", "strategy"]
+			"categories": [
+				"action",
+				"arcade",
+				"strategy"
+			]
 		},
 		{
 			"id": "tloztmc",
@@ -502,7 +686,11 @@
 			"description": "Adventure Game",
 			"image": "assets/img/games/tloztmc.jpg",
 			"path": "/games/gba/tloztmc",
-			"categories": ["action", "arcade", "strategy"]
+			"categories": [
+				"action",
+				"arcade",
+				"strategy"
+			]
 		},
 		{
 			"id": "tlozalttp",
@@ -511,7 +699,11 @@
 			"description": "Adventure Game",
 			"image": "assets/img/games/tlozalttp.jpg",
 			"path": "/games/snes/tlozalttp",
-			"categories": ["action", "arcade", "strategy"]
+			"categories": [
+				"action",
+				"arcade",
+				"strategy"
+			]
 		},
 		{
 			"id": "akr",
@@ -520,7 +712,10 @@
 			"description": "Revenge For Koopaz",
 			"image": "assets/img/games/akr.jpg",
 			"path": "/games/akoopasrevenge",
-			"categories": ["platformer", "strategy"]
+			"categories": [
+				"platformer",
+				"strategy"
+			]
 		},
 		{
 			"id": "akr2",
@@ -529,7 +724,10 @@
 			"description": "Revenge For Koopaz",
 			"image": "assets/img/games/akr2.jpg",
 			"path": "/games/akoopasrevenge/2",
-			"categories": ["platformer", "strategy"]
+			"categories": [
+				"platformer",
+				"strategy"
+			]
 		},
 		{
 			"id": "8ball",
@@ -538,7 +736,10 @@
 			"description": "Strategy Game",
 			"image": "assets/img/games/agl.webp",
 			"path": "/games/8ballclassic",
-			"categories": ["strategy", "puzzle"]
+			"categories": [
+				"strategy",
+				"puzzle"
+			]
 		},
 		{
 			"id": "angrybirds",
@@ -547,7 +748,10 @@
 			"description": "Ahehehea",
 			"image": "assets/img/games/",
 			"path": "/games/angrybirds",
-			"categories": ["arcade", "strategy"]
+			"categories": [
+				"arcade",
+				"strategy"
+			]
 		},
 		{
 			"id": "br",
@@ -556,7 +760,10 @@
 			"description": "Scary game with levels",
 			"image": "assets/img/games/",
 			"path": "/games/backrooms",
-			"categories": ["arcade", "horror"]
+			"categories": [
+				"arcade",
+				"horror"
+			]
 		},
 		{
 			"id": "abspace",
@@ -565,7 +772,10 @@
 			"description": "Angry Birds; In Space!",
 			"image": "assets/img/games/",
 			"path": "/games/angrybirds/space",
-			"categories": ["arcade","action"]
+			"categories": [
+				"arcade",
+				"action"
+			]
 		},
 		{
 			"id": "baldi",
@@ -574,7 +784,10 @@
 			"description": "..and Education and Learning!",
 			"image": "assets/img/games/",
 			"path": "/games/baldi",
-			"categories": ["horror", "strategy"]
+			"categories": [
+				"horror",
+				"strategy"
+			]
 		},
 		{
 			"id": "baconmaydie",
@@ -583,61 +796,93 @@
 			"description": "Bacon Could Die",
 			"image": "assets/img/games/",
 			"url": "https://betterbull.com/uploads/5/5/6/7/5567194/custom_themes/320690105873469650/files/index.html",
-			"categories": ["action", "arcade","strategy"]
+			"categories": [
+				"action",
+				"arcade",
+				"strategy"
+			]
 		},
-				{
+		{
 			"id": "footballbros",
 			"title": "Football Bros",
 			"type": "local",
 			"description": "Tackle it down!",
 			"image": "assets/img/games/",
 			"path": "/games/football-bros",
-			"categories": ["sports", "2player"]
+			"categories": [
+				"sports",
+				"2player"
+			]
 		},
-						{
+		{
 			"id": "FNAF",
 			"title": "Five Nights At Freddy's",
 			"type": "local",
 			"description": "FNAF",
 			"image": "assets/img/games/",
 			"path": "/games/FNAF",
-			"categories": ["horror","action","strategy","story"]
+			"categories": [
+				"horror",
+				"action",
+				"strategy",
+				"story"
+			]
 		},
-								{
+		{
 			"id": "FNAF2",
 			"title": "Five Nights At Freddy's 2",
 			"type": "local",
 			"description": "FNAF 2",
 			"image": "assets/img/games/",
 			"path": "/games/FNAF/2",
-			"categories": ["horror","action","strategy","story"]
+			"categories": [
+				"horror",
+				"action",
+				"strategy",
+				"story"
+			]
 		},
-								{
+		{
 			"id": "FNAF3",
 			"title": "Five Nights At Freddy's 3",
 			"type": "local",
 			"description": "FNAF 3",
 			"image": "assets/img/games/",
 			"path": "/games/FNAF/3",
-			"categories": ["horror","action","strategy","story"]
+			"categories": [
+				"horror",
+				"action",
+				"strategy",
+				"story"
+			]
 		},
-								{
+		{
 			"id": "FNAF4",
 			"title": "Five Nights At Freddy's 4",
 			"type": "local",
 			"description": "FNAF 4",
 			"image": "assets/img/games/",
 			"path": "/games/FNAF/4",
-			"categories": ["horror","action","strategy","story"]
+			"categories": [
+				"horror",
+				"action",
+				"strategy",
+				"story"
+			]
 		},
-								{
+		{
 			"id": "FNAFANI",
 			"title": "Five Nights At Freddy's Animatronics",
 			"type": "local",
 			"description": "FNAFA",
 			"image": "assets/img/games/",
 			"path": "/games/FNAF/animatronics",
-			"categories": ["horror","action","strategy","story"]
+			"categories": [
+				"horror",
+				"action",
+				"strategy",
+				"story"
+			]
 		},
 		{
 			"id": "agariolite",
@@ -646,7 +891,11 @@
 			"description": "agario lite",
 			"image": "assets/img/games/agl.webp",
 			"path": "/games/agariolite",
-			"categories": ["arcade", "io", "strategy"]
+			"categories": [
+				"arcade",
+				"io",
+				"strategy"
+			]
 		},
 		{
 			"id": "cookieclicker",
@@ -655,7 +904,47 @@
 			"description": "Clicker game",
 			"image": "assets/img/games/cc.png",
 			"path": "/games/cc",
-			"categories": ["arcade", "sandbox", "strategy"]
+			"categories": [
+				"arcade",
+				"sandbox",
+				"strategy"
+			]
+		},
+		{
+			"id": "fzne",
+			"title": "Fortzone Battle Royale",
+			"type": "proxied",
+			"description": "Fortzone; The ripoff of fortnite.",
+			"image": "assets/img/games/",
+			"url": "https://www.crazygames.com/embed/fortzone-battle-royale-xkd",
+			"categories": ["shooter","strategy"]
+		},
+										{
+			"id": "gdl",
+			"title": "Geometry Dash Lite",
+			"type": "local",
+			"description": "Geometry Dash",
+			"image": "assets/img/games/",
+			"path": "/games/geodash-lite",
+			"categories": ["platformer","puzzle","simulation"]
+		},
+										{
+			"id": "gs",
+			"title": "Getaway Shootout",
+			"type": "local",
+			"description": "Get to the destination first!",
+			"image": "assets/img/games/",
+			"path": "/games/getaway-shootout",
+			"categories": ["shooter","platformer"]
+		},
+										{
+			"id": "fnf",
+			"title": "Friday Night Funkin",
+			"type": "local",
+			"description": "Match the rythem!",
+			"image": "assets/img/games/",
+			"path": "/games/fnf",
+			"categories": ["action","arcade","story"]
 		},
 		{
 			"id": "spacecompany",
@@ -664,7 +953,11 @@
 			"description": "Clicker game",
 			"image": "assets/img/games/spacecompany.jpg",
 			"path": "/games/spacecompany",
-			"categories": ["arcade", "sandbox", "strategy"]
+			"categories": [
+				"arcade",
+				"sandbox",
+				"strategy"
+			]
 		}
 	]
 }
