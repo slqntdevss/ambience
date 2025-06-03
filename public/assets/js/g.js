@@ -22,9 +22,9 @@ class GamesLoader {
 	setupEventListeners() {
 		this.closeBtn.addEventListener("click", () => {
 			this.iframeContainer.classList.remove("visible");
+			this.gameFrame.src = "about:blank";
 			setTimeout(() => {
 				this.iframeContainer.style.display = "none";
-				this.gameFrame.src = "about:blank";
 				this.gameTitle.textContent = "";
 			}, 300);
 		});
@@ -62,14 +62,14 @@ class GamesLoader {
 			if (!response.ok) throw new Error("Failed to load games data");
 
 			const data = await response.json();
-			data.games.sort((a,b) => a.id.localeCompare(b.id))
+			data.games.sort((a, b) => a.id.localeCompare(b.id));
 			this.allGames = data.games;
 
 			this.renderGames(this.allGames);
 			this.addClickHandlers();
 		} catch (error) {
 			console.error("Error loading games:", error);
-			
+
 			this.gamesGrid.innerHTML = '<p class="error">Failed to load games</p>';
 		}
 	}

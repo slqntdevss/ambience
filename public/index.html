@@ -154,7 +154,11 @@
 					</li>
 				</ul>
 			</nav>
-			<div class="dynamic-island"></div>
+			<div class="dynamic-island">
+				<div class="buttons">
+					<button></button>
+				</div>
+			</div>
 			<main class="main-content">
 				<div class="search-container">
 					<h1 class="title">ambience.</h1>
@@ -173,9 +177,57 @@
 				<div class="iframe-container" style="display: none">
 					<div class="utility-bar">
 						<div class="left-controls">
-							<button class="nav-btn" id="backBtn">←</button>
-							<button class="nav-btn" id="forwardBtn">→</button>
-							<button class="nav-btn" id="reloadBtn">↻</button>
+							<button class="nav-btn" id="backBtn">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="lucide lucide-arrow-left-icon lucide-arrow-left"
+								>
+									<path d="m12 19-7-7 7-7" />
+									<path d="M19 12H5" />
+								</svg>
+							</button>
+							<button class="nav-btn" id="forwardBtn">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="lucide lucide-arrow-right-icon lucide-arrow-right"
+								>
+									<path d="M5 12h14" />
+									<path d="m12 5 7 7-7 7" />
+								</svg>
+							</button>
+							<button class="nav-btn" id="reloadBtn">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="lucide lucide-rotate-cw-icon lucide-rotate-cw"
+								>
+									<path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
+									<path d="M21 3v5h-5" />
+								</svg>
+							</button>
 						</div>
 						<form class="url-bar">
 							<input
@@ -185,7 +237,42 @@
 							/>
 						</form>
 						<div class="right-controls">
-							<button class="close-btn" id="closeBtn">✕</button>
+							<button class="nav-btn" id="fullscreenBtn">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="lucide lucide-maximize-icon lucide-maximize"
+								>
+									<path d="M8 3H5a2 2 0 0 0-2 2v3" />
+									<path d="M21 8V5a2 2 0 0 0-2-2h-3" />
+									<path d="M3 16v3a2 2 0 0 0 2 2h3" />
+									<path d="M16 21h3a2 2 0 0 0 2-2v-3" />
+								</svg>
+							</button>
+							<button class="close-btn" id="closeBtn">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="lucide lucide-x-icon lucide-x"
+								>
+									<path d="M18 6 6 18" />
+									<path d="m6 6 12 12" />
+								</svg>
+							</button>
 						</div>
 					</div>
 					<iframe id="browserFrame" src="about:blank"></iframe>

@@ -23,3 +23,7 @@ docker build . -t ambience
 docker run -p 8080:8080 ambience
 ```
 what are you waiting for? use ambience today.
+
+## license
+
+If you use ANY of our code, you must credit us or not use it at all, if you are found to be using our code and haven't credited us there will be repercussions.

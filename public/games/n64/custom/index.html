@@ -73,10 +73,15 @@
 					const blobURL = URL.createObjectURL(file);
 
 					document.querySelector(".fileContainer").style.display = "none";
-
+					window.EJS_defaultOptions = {
+						"save-state-location": "browser",
+						"save-state-slot": 1,
+					};
+					window.EJS_DEBUG_XX = true;
 					window.EJS_player = "#game";
 					window.EJS_core = "n64";
 					window.EJS_gameUrl = blobURL;
+					window.EJS_gameName = file.name;
 					window.EJS_pathtodata =
 						"https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/";
 
