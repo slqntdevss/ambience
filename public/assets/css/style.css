@@ -275,7 +275,6 @@ body {
 	transition:
 		background 0.2s,
 		color 0.2s;
-	margin-left: 10px;
 }
 
 .close-btn:hover {
@@ -516,4 +515,31 @@ option {
 	width: 250px;
 	height: 100px;
 	border-radius: 25px;
+}
+.action-menu {
+	position: fixed;
+	width: 300px;
+	height: 50vh;
+	right: 3.7%;
+	bottom: 80px;
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	opacity: 0;
+	transition: 0.4s ease;
+	border-radius: 12px;
+}
+.action-menu.visible {
+	opacity: 1;
+}
+.action-menu button {
+	width: 98%;
+	height: 100px;
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	transition: 0.4s ease;
+	border-radius: 12px;
+	padding: 1%;
+	margin: 5px;
+	color: var(--text-color);
+	font-size: 24px;
 }
