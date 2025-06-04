@@ -938,6 +938,24 @@
 			"categories": ["shooter","platformer"]
 		},
 										{
+			"id": "boiwotl",
+			"title": "Binding of issac; Wrath of the lamb",
+			"type": "local",
+			"description": "Face the wrath of the lamb!",
+			"image": "assets/img/games/boiwotl.jpg",
+			"path": "/games/boi-wrathofthelamb",
+			"categories": ["story","puzzle","horror"]
+		},
+												{
+			"id": "cnttt",
+			"title": "Cartoon Network Table Tennis Ultimate Tournament",
+			"type": "local",
+			"description": "Beat characters from cartoon network in a tourney!",
+			"image": "assets/img/games/cnttt.jpeg",
+			"path": "/games/cnttt",
+			"categories": ["sports","arcade","simulator"]
+		},
+												{
 			"id": "fnf",
 			"title": "Friday Night Funkin",
 			"type": "local",
