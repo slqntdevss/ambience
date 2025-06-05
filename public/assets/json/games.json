@@ -598,7 +598,7 @@
 			"title": "Basketball FRVR",
 			"type": "local",
 			"description": "Basketball Game",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/bfrvr.jpeg",
 			"path": "/games/basketball/frvr",
 			"categories": [
 				"sports"
@@ -734,7 +734,7 @@
 			"title": "8 Ball; Singleplayer",
 			"type": "local",
 			"description": "Strategy Game",
-			"image": "assets/img/games/agl.webp",
+			"image": "assets/img/games/8ball.jpeg",
 			"path": "/games/8ballclassic",
 			"categories": [
 				"strategy",
@@ -746,7 +746,7 @@
 			"title": "Angry Birds",
 			"type": "local",
 			"description": "Ahehehea",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/ag.jpeg",
 			"path": "/games/angrybirds",
 			"categories": [
 				"arcade",
@@ -758,7 +758,7 @@
 			"title": "Backrooms",
 			"type": "local",
 			"description": "Scary game with levels",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/brms.webp",
 			"path": "/games/backrooms",
 			"categories": [
 				"arcade",
@@ -770,7 +770,7 @@
 			"title": "Angry Birds Space",
 			"type": "local",
 			"description": "Angry Birds; In Space!",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/ags.jpeg",
 			"path": "/games/angrybirds/space",
 			"categories": [
 				"arcade",
@@ -782,7 +782,7 @@
 			"title": "Baldi's Basics",
 			"type": "local",
 			"description": "..and Education and Learning!",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/baldi.jpeg",
 			"path": "/games/baldi",
 			"categories": [
 				"horror",
@@ -794,7 +794,7 @@
 			"title": "Bacon May Die",
 			"type": "proxied",
 			"description": "Bacon Could Die",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/bmd.jpeg",
 			"url": "https://betterbull.com/uploads/5/5/6/7/5567194/custom_themes/320690105873469650/files/index.html",
 			"categories": [
 				"action",
@@ -807,7 +807,7 @@
 			"title": "Football Bros",
 			"type": "local",
 			"description": "Tackle it down!",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/fb.jpeg",
 			"path": "/games/football-bros",
 			"categories": [
 				"sports",
@@ -819,7 +819,7 @@
 			"title": "Five Nights At Freddy's",
 			"type": "local",
 			"description": "FNAF",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/fnaf.jpeg",
 			"path": "/games/FNAF",
 			"categories": [
 				"horror",
@@ -833,7 +833,7 @@
 			"title": "Five Nights At Freddy's 2",
 			"type": "local",
 			"description": "FNAF 2",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/fnaf2.jpeg",
 			"path": "/games/FNAF/2",
 			"categories": [
 				"horror",
@@ -847,7 +847,7 @@
 			"title": "Five Nights At Freddy's 3",
 			"type": "local",
 			"description": "FNAF 3",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/fnaf3.jpeg",
 			"path": "/games/FNAF/3",
 			"categories": [
 				"horror",
@@ -861,7 +861,7 @@
 			"title": "Five Nights At Freddy's 4",
 			"type": "local",
 			"description": "FNAF 4",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/fnaf4.jpeg",
 			"path": "/games/FNAF/4",
 			"categories": [
 				"horror",
@@ -875,7 +875,7 @@
 			"title": "Five Nights At Freddy's Animatronics",
 			"type": "local",
 			"description": "FNAFA",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/fnafa.jpeg",
 			"path": "/games/FNAF/animatronics",
 			"categories": [
 				"horror",
@@ -915,7 +915,7 @@
 			"title": "Fortzone Battle Royale",
 			"type": "proxied",
 			"description": "Fortzone; The ripoff of fortnite.",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/fbr.jpeg",
 			"url": "https://www.crazygames.com/embed/fortzone-battle-royale-xkd",
 			"categories": ["shooter","strategy"]
 		},
@@ -924,7 +924,7 @@
 			"title": "Geometry Dash Lite",
 			"type": "local",
 			"description": "Geometry Dash",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/gdl.jpeg",
 			"path": "/games/geodash-lite",
 			"categories": ["platformer","puzzle","simulation"]
 		},
@@ -933,16 +933,34 @@
 			"title": "Getaway Shootout",
 			"type": "local",
 			"description": "Get to the destination first!",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/gs.png",
 			"path": "/games/getaway-shootout",
 			"categories": ["shooter","platformer"]
 		},
 										{
+			"id": "boiwotl",
+			"title": "Binding of issac; Wrath of the lamb",
+			"type": "local",
+			"description": "Face the wrath of the lamb!",
+			"image": "assets/img/games/boiwotl.jpg",
+			"path": "/games/boi-wrathofthelamb",
+			"categories": ["story","puzzle","horror"]
+		},
+												{
+			"id": "cnttt",
+			"title": "Cartoon Network Table Tennis Ultimate Tournament",
+			"type": "local",
+			"description": "Beat characters from cartoon network in a tourney!",
+			"image": "assets/img/games/cnttt.jpeg",
+			"path": "/games/cnttt",
+			"categories": ["sports","arcade","simulator"]
+		},
+												{
 			"id": "fnf",
 			"title": "Friday Night Funkin",
 			"type": "local",
 			"description": "Match the rythem!",
-			"image": "assets/img/games/",
+			"image": "assets/img/games/fnf.webp",
 			"path": "/games/fnf",
 			"categories": ["action","arcade","story"]
 		},
