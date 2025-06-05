@@ -518,8 +518,8 @@ option {
 }
 .action-menu {
 	position: fixed;
-	width: 300px;
-	height: 50vh;
+	width: 250px;
+	height: fit-content;
 	right: 3.7%;
 	bottom: 80px;
 	background: var(--glass-bg);
@@ -533,13 +533,21 @@ option {
 }
 .action-menu button {
 	width: 98%;
-	height: 100px;
+	height: 60px;
 	background: var(--glass-bg);
 	border: 1px solid var(--glass-border);
 	transition: 0.4s ease;
 	border-radius: 12px;
-	padding: 1%;
-	margin: 5px;
+	padding: 5%;
+	margin: 2.5px 0 2.5px 2.5px;
 	color: var(--text-color);
-	font-size: 24px;
+	font-size: 1rem;
+	text-align: center;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+.action-menu button span {
+	text-align: left;
 }
