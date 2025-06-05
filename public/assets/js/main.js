@@ -163,7 +163,10 @@ async function handleSearch() {
 		localStorage.setItem("currentSearchEngine", "https://duckduckgo.com/?q=%s");
 	}
 
-	const url = search(addr.value, localStorage.getItem("currentSearchEngine"));
+	const url = search(
+		urlInput.value,
+		localStorage.getItem("currentSearchEngine")
+	);
 
 	let wispUrl =
 		(location.protocol === "https:" ? "wss" : "ws") +

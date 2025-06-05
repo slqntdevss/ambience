@@ -213,7 +213,7 @@ class ScriptManager {
 
 			this.popupTimeout = setTimeout(() => {
 				if (localStorage.getItem("shouldInject") == "true") {
-					console.log(localStorage.getItem("shouldInject"))
+					console.log(localStorage.getItem("shouldInject"));
 					this.init(scriptInfo);
 					this.showPopup(scriptInfo, url);
 				}
@@ -228,6 +228,7 @@ window.evalPopupManager = scriptManager;
 
 document.addEventListener("DOMContentLoaded", () => {
 	const iframe = document.getElementById("browserFrame");
+	const urlInput = document.getElementById("urlInput");
 
 	if (iframe) {
 		iframe.addEventListener("load", () => {
