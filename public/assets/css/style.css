@@ -510,11 +510,15 @@ option {
 	background: var(--glass-bg);
 	border: 1px solid var(--glass-border);
 	transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.175);
+	opacity: 0;
 }
 .dynamic-island:hover {
 	width: 250px;
 	height: 100px;
 	border-radius: 25px;
+}
+.dynamic-island.visible {
+	opacity: 1;
 }
 .action-menu {
 	position: fixed;
