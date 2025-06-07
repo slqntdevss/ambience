@@ -24,6 +24,7 @@
 		"@mercuryworkshop/bare-mux": "^2.1.7",
 		"@mercuryworkshop/epoxy-transport": "^2.1.25",
 		"@mercuryworkshop/libcurl-transport": "^1.4.0",
+		"@mercuryworkshop/scramjet": "^1.0.2",
 		"@titaniumnetwork-dev/ultraviolet": "^3.2.10",
 		"dompurify": "^3.2.5",
 		"dotenv": "^16.5.0",

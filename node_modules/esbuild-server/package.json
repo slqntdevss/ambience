@@ -1,0 +1,43 @@
+{
+  "name": "esbuild-server",
+  "version": "0.3.0",
+  "author": "Joel Arvidsson",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "esbuild src/livereload.js --outdir=dist --target=es6 --minify --log-level=warning && tsc",
+    "format": "prettier '{,src/,example/**/}*.{md,js,ts,json,html}' --write",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oblador/esbuild-server.git"
+  },
+  "homepage": "https://github.com/oblador/esbuild-server#readme",
+  "engines": {
+    "node": ">=14"
+  },
+  "keywords": [
+    "esbuild",
+    "dev-server",
+    "development"
+  ],
+  "files": [
+    "browser/*",
+    "dist/*"
+  ],
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.1",
+    "@types/node": "14",
+    "esbuild": "^0.17.16",
+    "prettier": "^2.6.0",
+    "typescript": "^4.6.2"
+  },
+  "peerDependencies": {
+    "esbuild": ">=0.17.0"
+  },
+  "volta": {
+    "node": "16.14.2"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@webreflection/idb-map",
+  "version": "0.1.3",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "keywords": [
+    "IndexedDB",
+    "Map"
+  ],
+  "author": "Andrea Giammarchi",
+  "license": "MIT",
+  "description": "Async IndexedDB based Map",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebReflection/idb-map.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WebReflection/idb-map/issues"
+  },
+  "homepage": "https://github.com/WebReflection/idb-map#readme"
+}
