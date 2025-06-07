@@ -1,7 +1,7 @@
 self.__uv$config = {
 	prefix: "/ambi/ence/",
-	encodeUrl: Ultraviolet.codec.base64.encode,
-	decodeUrl: Ultraviolet.codec.base64.decode,
+	encodeUrl: Ultraviolet.codec.xor.encode,
+	decodeUrl: Ultraviolet.codec.xor.decode,
 	handler: "/ambi/ambi.handler.js",
 	client: "/ambi/ambi.client.js",
 	bundle: "/ambi/ambi.bundle.js",

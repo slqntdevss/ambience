@@ -14,7 +14,11 @@ const closeBtn = document.getElementById("closeBtn");
 const actionBtn = document.getElementById("actionsBtn");
 const fullscreenBtn = document.getElementById("fullscreenBtn");
 const actionMenu = document.querySelector(".action-menu");
+const historyBtn = document.getElementById("historyBtn");
+const extensionsBtn = document.getElementById("extensionsBtn");
+const inspectBtn = document.getElementById("inspectBtn");
 const iframeContainer = document.querySelector(".iframe-container");
+
 let currentURL = "";
 
 let debounceTimeout;
@@ -63,6 +67,53 @@ searchInput.addEventListener("input", (e) => {
 	}, 300);
 });
 
+async function proxy(e, value) {
+	e.preventDefault();
+
+	try {
+		await registerSW();
+	} catch (err) {
+		console.error(
+			"An error occurred while registering the service worker: ",
+			err
+		);
+		throw err;
+	}
+
+	if (!localStorage.getItem("currentSearchEngine")) {
+		localStorage.setItem("currentSearchEngine", "https://duckduckgo.com/?q=%s");
+	}
+
+	const url = search(value, localStorage.getItem("currentSearchEngine"));
+
+	let wispUrl =
+		(location.protocol === "https:" ? "wss" : "ws") +
+		"://" +
+		location.host +
+		"/wisp/";
+
+	const transport =
+		localStorage.getItem("currentTransport") || "/epoxy/index.mjs";
+
+	if (!localStorage.getItem("currentTransport")) {
+		localStorage.setItem("currentTransport", "/epoxy/index.mjs");
+	}
+
+	if ((await connection.getTransport()) !== transport) {
+		console.log("setting transport to localstorage or epoxy");
+		await connection.setTransport(transport, [{ wisp: wispUrl }]);
+	}
+
+	currentURL = url;
+	setTimeout(() => {
+		iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+	}, 500);
+
+	window.scriptManager.handleInject(currentURL);
+
+	urlInput.value = currentURL;
+}
+
 document.addEventListener("click", (e) => {
 	if (
 		!searchInput.contains(e.target) &&
@@ -85,7 +136,7 @@ urlInput.addEventListener("keypress", (e) => {
 		iframeContainer.style.display = "block";
 		iframeContainer.offsetHeight;
 		iframeContainer.classList.add("visible");
-		handleSearch();
+		proxy(e, urlInput.value);
 	}
 });
 
@@ -107,7 +158,6 @@ fullscreenBtn.addEventListener("click", () => {
 actionBtn.addEventListener("click", () => {
 	actionMenu.classList.toggle("visible");
 });
-
 urlInput.addEventListener("input", (e) => {
 	clearTimeout(debounceTimeout);
 	debounceTimeout = setTimeout(async () => {
@@ -147,107 +197,15 @@ urlInput.addEventListener("input", (e) => {
 	}, 300);
 });
 
-// for some reason it wont work unless its a fucntion smh
-async function handleSearch() {
-	try {
-		await registerSW();
-	} catch (err) {
-		console.error(
-			"An error occurred while registering the service worker: ",
-			err
-		);
-		throw err;
-	}
-
-	if (!localStorage.getItem("currentSearchEngine")) {
-		localStorage.setItem("currentSearchEngine", "https://duckduckgo.com/?q=%s");
-	}
-
-	const url = search(
-		urlInput.value,
-		localStorage.getItem("currentSearchEngine")
-	);
-
-	let wispUrl =
-		(location.protocol === "https:" ? "wss" : "ws") +
-		"://" +
-		location.host +
-		"/wisp/";
-	if ((await connection.getTransport()) !== "/epoxy/index.mjs") {
-		console.log("setting transport to epoxy");
-		await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
-	}
-
-	currentURL = url;
-	setTimeout(() => {
-		iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-		console.log(
-			"blah blah blah heres the encoded url:",
-			__uv$config.prefix + __uv$config.encodeUrl(url)
-		);
-	}, 500);
-
-	window.scriptManager.handleInject(currentURL);
-
-	urlInput.value = currentURL;
-}
-
 searchForm.addEventListener("submit", async (event) => {
-	event.preventDefault();
-
-	try {
-		await registerSW();
-	} catch (err) {
-		console.error(
-			"An error occurred while registering the service worker: ",
-			err
-		);
-		throw err;
-	}
-
-	if (!localStorage.getItem("currentSearchEngine")) {
-		localStorage.setItem("currentSearchEngine", "https://duckduckgo.com/?q=%s");
-	}
-
-	const url = search(addr.value, localStorage.getItem("currentSearchEngine"));
-
-	let wispUrl =
-		(location.protocol === "https:" ? "wss" : "ws") +
-		"://" +
-		location.host +
-		"/wisp/";
-
-	const transport =
-		localStorage.getItem("currentTransport") || "/epoxy/index.mjs";
-
-	if (!localStorage.getItem("currentTransport")) {
-		localStorage.setItem("currentTransport", "/epoxy/index.mjs");
-	}
-
-	if ((await connection.getTransport()) !== transport) {
-		console.log("setting transport to localstorage or epoxy");
-		await connection.setTransport(transport, [{ wisp: wispUrl }]);
-	}
-
-	currentURL = url;
-	setTimeout(() => {
-		iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-	}, 500);
-
-	window.scriptManager.handleInject(currentURL);
-
-	urlInput.value = currentURL;
+	proxy(event, addr.value);
 });
 
-if (urlForm) {
-	urlForm.addEventListener("submit", (event) => {
-		event.preventDefault();
-		console.log("URL form submit event triggered");
-		handleSearch();
-	});
-} else {
-	console.log("BAD BAD BAD VERY BAD");
-}
+iframe.addEventListener("load", () => {
+	urlInput.value = __uv$config.decodeUrl(
+		iframe.contentWindow.location.href.split("/ence/")[1]
+	);
+});
 
 if (closeBtn) {
 	closeBtn.addEventListener("click", () => {
