@@ -8,6 +8,7 @@ import sanitizeHtml from "sanitize-html";
 let activeUsers = new Map();
 
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
+import { scramjetPath } from "@mercuryworkshop/scramjet";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
@@ -94,6 +95,11 @@ fastify.register(fastifyStatic, {
 	prefix: "/ambi/",
 	decorateReply: false,
 });
+fastify.register(fastifyStatic, {
+	root: scramjetPath,
+	prefix: "/sj/",
+	decorateReply: false,
+});
 
 fastify.register(fastifyStatic, {
 	root: epoxyPath,
@@ -149,7 +155,7 @@ fastify.post("/ai", async function (req, res) {
 			{ role: "user", content: prompt },
 		],
 		model: "llama3-70b-8192",
-		temperature: 1,
+		temperature: 0.6,
 		max_completion_tokens: 1024,
 		top_p: 1,
 		stream: true,

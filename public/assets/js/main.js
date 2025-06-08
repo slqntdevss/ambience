@@ -158,6 +158,28 @@ fullscreenBtn.addEventListener("click", () => {
 actionBtn.addEventListener("click", () => {
 	actionMenu.classList.toggle("visible");
 });
+inspectBtn.addEventListener("click", () => {
+	if (!iframe) return;
+
+	const proccyWindow = iframe.contentWindow;
+	const proccyDocument = iframe.contentDocument;
+
+	if (!proccyWindow || !proccyDocument) return;
+
+	if (proccyWindow.eruda?._isInit) {
+		proccyWindow.eruda.destroy();
+	} else {
+		let script = proccyDocument.createElement("script");
+		script.src = "https://cdn.jsdelivr.net/npm/eruda";
+		script.onload = function () {
+			if (!proccyWindow) return;
+			proccyWindow.eruda.init();
+			proccyWindow.eruda.show();
+		};
+		proccyDocument.head.appendChild(script);
+	}
+});
+
 urlInput.addEventListener("input", (e) => {
 	clearTimeout(debounceTimeout);
 	debounceTimeout = setTimeout(async () => {
@@ -205,6 +227,7 @@ iframe.addEventListener("load", () => {
 	urlInput.value = __uv$config.decodeUrl(
 		iframe.contentWindow.location.href.split("/ence/")[1]
 	);
+	const history = null;
 });
 
 if (closeBtn) {

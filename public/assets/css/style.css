@@ -551,6 +551,11 @@ option {
 	display: flex;
 	align-items: center;
 	gap: 12px;
+	transition: 0.4s ease;
+}
+.action-menu button:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 .action-menu button span {
 	text-align: left;

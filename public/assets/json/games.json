@@ -719,6 +719,15 @@
 			"image": "assets/img/games/spacecompany.jpg",
 			"path": "/games/spacecompany",
 			"categories": ["arcade", "sandbox", "strategy"]
+		},
+		{
+			"id": "bshotroulette",
+			"title": "Buckshot Roulette",
+			"type": "proxied",
+			"description": "Horror game",
+			"image": "assets/img/games/buckshotroulette.jpg",
+			"url": "https://buckshotroulette.online/steam/",
+			"categories": ["strategy", "simulation", "horror"]
 		}
 	]
 }
