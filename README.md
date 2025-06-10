@@ -15,6 +15,7 @@ an amazing web proxy powered by Ultraviolet. we have everything you can imagine
 - mercuryworkshop - libcurl, epoxy, and wisp
 - slqnt - founder and main dev
 - jordan - games and other features
+- thoq - randomly does something
 
 ## hosting/running
 docker (recommended)

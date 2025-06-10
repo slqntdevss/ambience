@@ -5,7 +5,7 @@
 	--glass-bg: rgba(255, 255, 255, 0.1);
 	--glass-border: rgba(255, 255, 255, 0.2);
 	--text-color: #ffffff;
-	--sidebar-bg: rgba(255, 255, 255, 0.1);
+	--sidebar-bg: rgba(155, 109, 255, 0.2);
 	--card-bg: rgba(40, 40, 50, 0.7);
 	--button-bg: rgba(156, 39, 176, 0.7);
 	--button-hover: rgba(156, 39, 176, 0.9);
@@ -20,7 +20,7 @@ body[data-theme="redmoon"] {
 	--glass-border: rgba(255, 255, 255, 0.1);
 	--amethyst-primary: #ff2222;
 	--amethyst-secondary: #cb2020;
-	--sidebar-bg: rgba(45, 15, 15, 0.8);
+	--sidebar-bg: rgba(255, 34, 34, 0.2);
 	--card-bg: rgba(60, 25, 25, 0.7);
 	--button-bg: rgba(255, 34, 34, 0.7);
 	--button-hover: rgba(255, 34, 34, 0.9);
@@ -32,7 +32,7 @@ body[data-theme="sunrise"] {
 	--glass-border: rgba(255, 255, 255, 0.1);
 	--amethyst-primary: #ff5e4d;
 	--amethyst-secondary: #2d2d78;
-	--sidebar-bg: rgba(30, 30, 55, 0.8);
+	--sidebar-bg: rgba(255, 94, 77, 0.2);
 	--card-bg: rgba(45, 45, 70, 0.7);
 	--button-bg: rgba(255, 94, 77, 0.7);
 	--button-hover: rgba(255, 94, 77, 0.9);
@@ -44,7 +44,7 @@ body[data-theme="bloodmoon"] {
 	--glass-border: rgba(255, 255, 255, 0.1);
 	--amethyst-primary: #ff4d4d;
 	--amethyst-secondary: #2a2a2a;
-	--sidebar-bg: rgba(45, 20, 20, 0.8);
+	--sidebar-bg: rgba(255, 77, 77, 0.2);
 	--card-bg: rgba(60, 30, 30, 0.7);
 	--button-bg: rgba(255, 77, 77, 0.7);
 	--button-hover: rgba(255, 77, 77, 0.9);
@@ -56,7 +56,7 @@ body[data-theme="cottoncandy"] {
 	--glass-border: rgba(255, 255, 255, 0.2);
 	--amethyst-primary: #e4b3ff;
 	--amethyst-secondary: #98ccff;
-	--sidebar-bg: rgba(35, 35, 55, 0.8);
+	--sidebar-bg: rgba(228, 179, 255, 0.2);
 	--card-bg: rgba(50, 50, 70, 0.7);
 	--button-bg: rgba(228, 179, 255, 0.7);
 	--button-hover: rgba(228, 179, 255, 0.9);
@@ -69,7 +69,7 @@ body[data-theme="space"] {
 	--glass-border: rgba(123, 104, 238, 0.2);
 	--amethyst-primary: #7b68ee;
 	--amethyst-secondary: #191970;
-	--sidebar-bg: rgba(15, 15, 35, 0.8);
+	--sidebar-bg: rgba(123, 104, 238, 0.2);
 	--card-bg: rgba(30, 30, 50, 0.7);
 	--button-bg: rgba(123, 104, 238, 0.7);
 	--button-hover: rgba(123, 104, 238, 0.9);
@@ -81,7 +81,7 @@ body[data-theme="winter"] {
 	--glass-border: rgba(255, 255, 255, 0.3);
 	--amethyst-primary: #00bfff;
 	--amethyst-secondary: #0077be;
-	--sidebar-bg: rgba(25, 35, 45, 0.8);
+	--sidebar-bg: rgba(0, 191, 255, 0.2);
 	--card-bg: rgba(40, 50, 60, 0.7);
 	--button-bg: rgba(0, 191, 255, 0.7);
 	--button-hover: rgba(0, 191, 255, 0.9);
@@ -94,7 +94,7 @@ body[data-theme="gold"] {
 	--glass-border: rgba(255, 215, 0, 0.2);
 	--amethyst-primary: #ffd700;
 	--amethyst-secondary: #b8860b;
-	--sidebar-bg: rgba(45, 35, 15, 0.8);
+	--sidebar-bg: rgba(255, 215, 0, 0.2);
 	--card-bg: rgba(60, 50, 30, 0.7);
 	--button-bg: rgba(255, 215, 0, 0.7);
 	--button-hover: rgba(255, 215, 0, 0.9);
@@ -107,7 +107,7 @@ body[data-theme="ocean"] {
 	--glass-border: rgba(255, 255, 255, 0.1);
 	--amethyst-primary: #03a9f4;
 	--amethyst-secondary: #3f51b5;
-	--sidebar-bg: rgba(15, 25, 45, 0.8);
+	--sidebar-bg: rgba(3, 169, 244, 0.2);
 	--card-bg: rgba(30, 40, 60, 0.7);
 	--button-bg: rgba(3, 169, 244, 0.7);
 	--button-hover: rgba(3, 169, 244, 0.9);
@@ -119,18 +119,19 @@ body[data-theme="forest"] {
 	--glass-border: rgba(255, 255, 255, 0.1);
 	--amethyst-primary: #4caf50;
 	--amethyst-secondary: #009688;
-	--sidebar-bg: rgba(25, 45, 35, 0.8);
+	--sidebar-bg: rgba(76, 175, 80, 0.2);
 	--card-bg: rgba(40, 60, 50, 0.7);
 	--button-bg: rgba(76, 175, 80, 0.7);
 	--button-hover: rgba(76, 175, 80, 0.9);
 }
+
 body[data-theme="nebula"] {
 	--primary-gradient: linear-gradient(135deg, #a66cff, #5ee7df);
 	--glass-bg: rgba(30, 20, 40, 0.7);
 	--glass-border: rgba(255, 255, 255, 0.15);
 	--amethyst-primary: #a66cff;
 	--amethyst-secondary: #5ee7df;
-	--sidebar-bg: rgba(25, 15, 35, 0.8);
+	--sidebar-bg: rgba(166, 108, 255, 0.2);
 	--card-bg: rgba(40, 30, 50, 0.7);
 	--button-bg: rgba(166, 108, 255, 0.7);
 	--button-hover: rgba(166, 108, 255, 0.9);
@@ -139,13 +140,14 @@ body[data-theme="nebula"] {
 	--input-border: rgba(255, 255, 255, 0.2);
 	--shadow-color: rgba(0, 0, 0, 0.4);
 }
+
 body[data-theme="aurora"] {
 	--primary-gradient: linear-gradient(135deg, #00ffd5, #4d00ff);
 	--glass-bg: rgba(15, 25, 30, 0.75);
 	--glass-border: rgba(0, 255, 213, 0.15);
 	--amethyst-primary: #00ffd5;
 	--amethyst-secondary: #4d00ff;
-	--sidebar-bg: rgba(10, 20, 25, 0.85);
+	--sidebar-bg: rgba(0, 255, 213, 0.2);
 	--card-bg: rgba(20, 30, 40, 0.7);
 	--button-bg: rgba(0, 255, 213, 0.6);
 	--button-hover: rgba(0, 255, 213, 0.85);
@@ -154,13 +156,14 @@ body[data-theme="aurora"] {
 	--input-border: rgba(0, 255, 213, 0.2);
 	--shadow-color: rgba(0, 0, 0, 0.4);
 }
+
 body[data-theme="twilight"] {
 	--primary-gradient: linear-gradient(135deg, #ff9a8b, #2b5876);
 	--glass-bg: rgba(30, 25, 40, 0.75);
 	--glass-border: rgba(255, 154, 139, 0.2);
 	--amethyst-primary: #ff9a8b;
 	--amethyst-secondary: #2b5876;
-	--sidebar-bg: rgba(25, 20, 35, 0.85);
+	--sidebar-bg: rgba(255, 154, 139, 0.2);
 	--card-bg: rgba(40, 30, 50, 0.7);
 	--button-bg: rgba(255, 154, 139, 0.7);
 	--button-hover: rgba(255, 154, 139, 0.9);
@@ -169,13 +172,14 @@ body[data-theme="twilight"] {
 	--input-border: rgba(255, 154, 139, 0.2);
 	--shadow-color: rgba(0, 0, 0, 0.4);
 }
+
 body[data-theme="pineforest"] {
 	--primary-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 	--glass-bg: rgba(20, 30, 35, 0.75);
 	--glass-border: rgba(255, 255, 255, 0.15);
 	--amethyst-primary: #8fd3f4;
 	--amethyst-secondary: #1e3c50;
-	--sidebar-bg: rgba(15, 25, 30, 0.85);
+	--sidebar-bg: rgba(143, 211, 244, 0.2);
 	--card-bg: rgba(30, 40, 45, 0.7);
 	--button-bg: rgba(143, 211, 244, 0.7);
 	--button-hover: rgba(143, 211, 244, 0.9);
@@ -184,6 +188,39 @@ body[data-theme="pineforest"] {
 	--input-border: rgba(255, 255, 255, 0.2);
 	--shadow-color: rgba(0, 0, 0, 0.4);
 }
+
+body[data-theme="terminal"] {
+	--primary-gradient: linear-gradient(135deg, #000000, #0f9b0f);
+	--glass-bg: rgba(0, 20, 0, 0.8);
+	--glass-border: rgba(15, 155, 15, 0.2);
+	--amethyst-primary: #0f9b0f;
+	--amethyst-secondary: #000000;
+	--text-color: #00ff00;
+	--sidebar-bg: rgba(15, 155, 15, 0.2);
+	--card-bg: rgba(0, 30, 0, 0.8);
+	--button-bg: rgba(15, 155, 15, 0.7);
+	--button-hover: rgba(15, 155, 15, 0.9);
+	--input-bg: rgba(0, 0, 0, 0.5);
+	--input-border: rgba(15, 155, 15, 0.3);
+	--shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+body[data-theme="darkmode"] {
+	--primary-gradient: linear-gradient(135deg, #121212, #1e1e1e);
+	--glass-bg: rgba(25, 25, 25, 0.8);
+	--glass-border: rgba(40, 40, 40, 0.3);
+	--amethyst-primary: #444444;
+	--amethyst-secondary: #222222;
+	--text-color: #ffffff;
+	--sidebar-bg: rgba(68, 68, 68, 0.2);
+	--card-bg: rgba(30, 30, 30, 0.8);
+	--button-bg: rgba(50, 50, 50, 0.8);
+	--button-hover: rgba(60, 60, 60, 0.9);
+	--input-bg: rgba(40, 40, 40, 0.5);
+	--input-border: rgba(60, 60, 60, 0.3);
+	--shadow-color: rgba(0, 0, 0, 0.5);
+}
+
 body {
 	background: var(--primary-gradient);
 	color: var(--text-color);
@@ -237,36 +274,4 @@ select {
 .utility-bar {
 	background: var(--glass-bg);
 	border-bottom: 1px solid var(--glass-border);
-}
-
-body[data-theme="terminal"] {
-	--primary-gradient: linear-gradient(135deg, #000000, #0f9b0f);
-	--glass-bg: rgba(0, 20, 0, 0.8);
-	--glass-border: rgba(15, 155, 15, 0.2);
-	--amethyst-primary: #0f9b0f;
-	--amethyst-secondary: #000000;
-	--text-color: black;
-	--sidebar-bg: rgba(0, 10, 0, 0.9);
-	--card-bg: rgba(0, 30, 0, 0.8);
-	--button-bg: rgba(15, 155, 15, 0.7);
-	--button-hover: rgba(15, 155, 15, 0.9);
-	--input-bg: rgba(0, 0, 0, 0.5);
-	--input-border: rgba(15, 155, 15, 0.3);
-	--shadow-color: rgba(0, 0, 0, 0.5);
-}
-
-body[data-theme="darkmode"] {
-	--primary-gradient: linear-gradient(135deg, #121212, #1e1e1e);
-	--glass-bg: rgba(25, 25, 25, 0.8);
-	--glass-border: rgba(40, 40, 40, 0.3);
-	--amethyst-primary: #444444;
-	--amethyst-secondary: #222222;
-	--text-color: #ffffff;
-	--sidebar-bg: rgba(18, 18, 18, 0.9);
-	--card-bg: rgba(30, 30, 30, 0.8);
-	--button-bg: rgba(50, 50, 50, 0.8);
-	--button-hover: rgba(60, 60, 60, 0.9);
-	--input-bg: rgba(40, 40, 40, 0.5);
-	--input-border: rgba(60, 60, 60, 0.3);
-	--shadow-color: rgba(0, 0, 0, 0.5);
 }
