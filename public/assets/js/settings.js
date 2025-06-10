@@ -41,6 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	const fontUpload = document.getElementById("fontUpload");
 	const resetFont = document.querySelector(".resetFontData");
 
+	if (!localStorage.getItem("currentTransport")) {
+		localStorage.setItem("currentTransport", "/epoxy/index.mjs");
+	}
+
+	if (!localStorage.getItem("currentSearchEngine")) {
+		localStorage.setItem("currentSearchEngine", "https://duckduckgo.com/?q=%s");
+	}
+
 	if (toggleBtn) {
 		toggleBtn.addEventListener("click", () => {
 			sidebar.classList.toggle("hidden");

@@ -61,7 +61,7 @@ body {
 
 .sidebar {
 	width: 240px;
-	background: var(--glass-bg);
+	background: var(--sidebar-bg);
 	backdrop-filter: blur(10px);
 	border-right: 1px solid var(--glass-border);
 	padding: 2rem 1rem;
@@ -501,6 +501,7 @@ option {
 }
 .dynamic-island {
 	position: fixed;
+	z-index: 999;
 	width: 200px;
 	height: 50px;
 	border-radius: 25px;
@@ -529,10 +530,12 @@ option {
 	background: var(--glass-bg);
 	border: 1px solid var(--glass-border);
 	opacity: 0;
+	pointer-events: none;
 	transition: 0.4s ease;
 	border-radius: 12px;
 }
 .action-menu.visible {
+	pointer-events: all;
 	opacity: 1;
 }
 .action-menu button {
@@ -540,7 +543,6 @@ option {
 	height: 60px;
 	background: var(--glass-bg);
 	border: 1px solid var(--glass-border);
-	transition: 0.4s ease;
 	border-radius: 12px;
 	padding: 5%;
 	margin: 2.5px 0 2.5px 2.5px;
@@ -559,4 +561,81 @@ option {
 }
 .action-menu button span {
 	text-align: left;
+}
+.history-container {
+	position: fixed;
+	z-index: 1001;
+	width: 92.5vw;
+	height: 77.5vh;
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	backdrop-filter: blur(8px);
+	margin: 2.5vw 0 0 2.5vw;
+	border-radius: 12px;
+	padding: 12px;
+	opacity: 0;
+	transition: opacity 0.4s ease;
+	pointer-events: none;
+}
+.history-container.visible {
+	opacity: 1;
+	pointer-events: all;
+}
+.history-container input {
+	position: relative;
+	margin-left: auto;
+	margin-right: 0;
+	width: fit-content;
+	height: 30px;
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	padding: 12px;
+	border-radius: 12px;
+	margin-bottom: 12px;
+}
+.history-container .close-btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	display: flex;
+	width: 32px;
+	height: 32px;
+	padding: 5px;
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	cursor: pointer;
+	color: white;
+	transition: 0.4s ease;
+}
+.history-container .close-btn:hover {
+	background: rgba(255, 255, 255, 0.2);
+	color: red;
+}
+.history-container .siteContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+.history-container .siteContainer .site {
+	display: flex;
+	gap: 5px;
+	width: 100% - 17px;
+	height: 80px;
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	padding: 5px;
+	border-radius: 12px;
+	transition: 0.4s ease;
+}
+.history-container .siteContainer .site:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.history-container .siteContainer .site img {
+	border-radius: 4px;
+	width: 64px;
+	height: 64px;
+}
+.history-container .siteContainer .site .url {
+	color: #797979;
 }

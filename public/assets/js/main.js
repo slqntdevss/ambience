@@ -1,5 +1,4 @@
 const searchContainer = document.querySelector(".search-container");
-const searchInput = document.querySelector("#addr");
 const autocompleteResults = document.querySelector(".autocomplete-results");
 const addr = document.getElementById("addr");
 const searchForm = document.getElementById("searchForm");
@@ -18,18 +17,63 @@ const historyBtn = document.getElementById("historyBtn");
 const extensionsBtn = document.getElementById("extensionsBtn");
 const inspectBtn = document.getElementById("inspectBtn");
 const iframeContainer = document.querySelector(".iframe-container");
+const historyContainer = document.querySelector(".history-container");
+const siteContainer = document.querySelector(".siteContainer");
+const historyClose = document.getElementById("historyClose");
 
 let currentURL = "";
 
 let debounceTimeout;
 
-// give the user a uuid for sockets blehhhh >:333
+const index = 0;
+
+function fetchHistory(fullHistory) {
+	const currentPage = fullHistory.slice(index, index + 8);
+	siteContainer.innerHTML = "";
+
+	for (const i in currentPage) {
+		const currentSite = currentPage[i];
+		console.log(currentSite);
+		const site = document.createElement("div");
+		site.classList.add("site");
+		site.innerHTML = `
+							<img
+								src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${currentSite.url}/&size=128"
+							/>
+							<h4 class="siteTitle">${currentSite.title}</h4>`;
+
+		siteContainer.appendChild(site);
+	}
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+	const dbRequest = indexedDB.open("history", 5);
+	dbRequest.onerror = (e) => {
+		console.error("failed to load history: ", e.target.result);
+	};
+	dbRequest.onupgradeneeded = (e) => {
+		if (!e.target.result.objectStoreNames.contains("sites")) {
+			e.target.result.createObjectStore("sites", { keyPath: "time" });
+		}
+	};
+	dbRequest.onsuccess = (e) => {
+		const db = e.target.result;
+		const transaction = db.transaction("sites", "readonly");
+
+		const getRequest = transaction.objectStore("sites").getAll();
+		getRequest.onsuccess = (event) => {
+			const fullHistory = event.target.result.reverse();
+			console.log(fullHistory);
+			//fetchHistory(fullHistory);
+		};
+	};
+});
 
 if (!localStorage.getItem("uuid")) {
 	localStorage.setItem("uuid", crypto.randomUUID());
 }
 
-searchInput.addEventListener("input", (e) => {
+addr.addEventListener("input", (e) => {
 	clearTimeout(debounceTimeout);
 	debounceTimeout = setTimeout(async () => {
 		const query = e.target.value.trim();
@@ -48,7 +92,7 @@ searchInput.addEventListener("input", (e) => {
 						div.className = "autocomplete-item";
 						div.textContent = suggestion;
 						div.addEventListener("click", () => {
-							searchInput.value = suggestion;
+							addr.value = suggestion;
 							autocompleteResults.classList.remove("show");
 						});
 						autocompleteResults.appendChild(div);
@@ -80,10 +124,6 @@ async function proxy(e, value) {
 		throw err;
 	}
 
-	if (!localStorage.getItem("currentSearchEngine")) {
-		localStorage.setItem("currentSearchEngine", "https://duckduckgo.com/?q=%s");
-	}
-
 	const url = search(value, localStorage.getItem("currentSearchEngine"));
 
 	let wispUrl =
@@ -94,10 +134,6 @@ async function proxy(e, value) {
 
 	const transport =
 		localStorage.getItem("currentTransport") || "/epoxy/index.mjs";
-
-	if (!localStorage.getItem("currentTransport")) {
-		localStorage.setItem("currentTransport", "/epoxy/index.mjs");
-	}
 
 	if ((await connection.getTransport()) !== transport) {
 		console.log("setting transport to localstorage or epoxy");
@@ -115,10 +151,7 @@ async function proxy(e, value) {
 }
 
 document.addEventListener("click", (e) => {
-	if (
-		!searchInput.contains(e.target) &&
-		!autocompleteResults.contains(e.target)
-	) {
+	if (!addr.contains(e.target) && !autocompleteResults.contains(e.target)) {
 		autocompleteResults.classList.remove("show");
 	}
 });
@@ -157,6 +190,12 @@ fullscreenBtn.addEventListener("click", () => {
 });
 actionBtn.addEventListener("click", () => {
 	actionMenu.classList.toggle("visible");
+});
+historyBtn.addEventListener("click", () => {
+	historyContainer.classList.toggle("visible");
+});
+historyClose.addEventListener("click", () => {
+	historyContainer.classList.remove("visible");
 });
 inspectBtn.addEventListener("click", () => {
 	if (!iframe) return;
@@ -200,7 +239,7 @@ urlInput.addEventListener("input", (e) => {
 						div.className = "autocomplete-item";
 						div.textContent = suggestion;
 						div.addEventListener("click", () => {
-							searchInput.value = suggestion;
+							addr.value = suggestion;
 							autocompleteResults.classList.remove("show");
 						});
 						autocompleteResults.appendChild(div);
@@ -224,10 +263,44 @@ searchForm.addEventListener("submit", async (event) => {
 });
 
 iframe.addEventListener("load", () => {
-	urlInput.value = __uv$config.decodeUrl(
+	//if ((iframe.src = "about:blank")) return;
+	const websiteUrl = __uv$config.decodeUrl(
 		iframe.contentWindow.location.href.split("/ence/")[1]
 	);
-	const history = null;
+
+	console.log(websiteUrl);
+	urlInput.value = websiteUrl;
+	let history;
+	const dbRequest = indexedDB.open("history", 5);
+	dbRequest.onerror = (e) => {
+		console.log("failed to open the history db");
+		return;
+	};
+	dbRequest.onupgradeneeded = (e) => {
+		if (!e.target.result.objectStoreNames.contains("sites")) {
+			e.target.result.createObjectStore("sites", { keyPath: "time" });
+		}
+	};
+	dbRequest.onsuccess = (e) => {
+		history = e.target.result;
+		const transaction = history.transaction("sites", "readwrite");
+		const store = transaction.objectStore("sites");
+
+		const site = {
+			time: Date.now(),
+			url: websiteUrl,
+			favicon: `https://www.google.com/s2/favicons?domain=${websiteUrl}`,
+			title: iframe.contentWindow.document.title,
+		};
+		console.log(site);
+		store.put(site);
+		const getRequest = store.getAll();
+		getRequest.onsuccess = (event) => {
+			const fullHistory = event.target.result.reverse();
+			console.log(typeof fullHistory);
+			//fetchHistory(fullHistory);
+		};
+	};
 });
 
 if (closeBtn) {
