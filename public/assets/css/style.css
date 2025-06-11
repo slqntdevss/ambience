@@ -636,6 +636,24 @@ option {
 	width: 64px;
 	height: 64px;
 }
+.history-container .siteContainer .site .siteTitle {
+	order: 1;
+}
 .history-container .siteContainer .site .url {
+	order: 2;
 	color: #797979;
+}
+.history-container .siteContainer .site .content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.history-container .siteContainer .site .open {
+	width: 66px;
+	border-radius: 12px;
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	color: white;
+	margin-right: 0;
+	margin-left: auto;
 }

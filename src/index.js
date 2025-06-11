@@ -96,12 +96,6 @@ fastify.register(fastifyStatic, {
 	decorateReply: false,
 });
 fastify.register(fastifyStatic, {
-	root: scramjetPath,
-	prefix: "/sj/",
-	decorateReply: false,
-});
-
-fastify.register(fastifyStatic, {
 	root: epoxyPath,
 	prefix: "/epoxy/",
 	decorateReply: false,

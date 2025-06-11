@@ -27,6 +27,47 @@ let debounceTimeout;
 
 const index = 0;
 
+async function proxy(e, value) {
+	if (e) {
+		e.preventDefault();
+	}
+
+	try {
+		await registerSW();
+	} catch (err) {
+		console.error(
+			"An error occurred while registering the service worker: ",
+			err
+		);
+		throw err;
+	}
+
+	const url = search(value, localStorage.getItem("currentSearchEngine"));
+
+	let wispUrl =
+		(location.protocol === "https:" ? "wss" : "ws") +
+		"://" +
+		location.host +
+		"/wisp/";
+
+	const transport =
+		localStorage.getItem("currentTransport") || "/epoxy/index.mjs";
+
+	if ((await connection.getTransport()) !== transport) {
+		console.log("setting transport to localstorage or epoxy");
+		await connection.setTransport(transport, [{ wisp: wispUrl }]);
+	}
+
+	currentURL = url;
+	setTimeout(() => {
+		iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+	}, 500);
+
+	window.scriptManager.handleInject(currentURL);
+
+	urlInput.value = currentURL;
+}
+
 function fetchHistory(fullHistory) {
 	const currentPage = fullHistory.slice(index, index + 8);
 	siteContainer.innerHTML = "";
@@ -37,10 +78,34 @@ function fetchHistory(fullHistory) {
 		const site = document.createElement("div");
 		site.classList.add("site");
 		site.innerHTML = `
-							<img
-								src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${currentSite.url}/&size=128"
-							/>
-							<h4 class="siteTitle">${currentSite.title}</h4>`;
+								<img
+									src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${currentSite.url}/&size=128"
+								/>
+								<div class="content">
+									<h4 class="siteTitle">${currentSite.title}</h4>
+									<h4 class="url">${currentSite.url}</h4>
+								</div>
+								<button class="open" onclick="proxy(null, '${currentSite.url}');historyContainer.classList.toggle('visible')">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										class="lucide lucide-external-link-icon lucide-external-link"
+									>
+										<path d="M15 3h6v6" />
+										<path d="M10 14 21 3" />
+										<path
+											d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+										/>
+										open
+									</svg>
+								</button>`;
 
 		siteContainer.appendChild(site);
 	}
@@ -64,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		getRequest.onsuccess = (event) => {
 			const fullHistory = event.target.result.reverse();
 			console.log(fullHistory);
-			//fetchHistory(fullHistory);
+			fetchHistory(fullHistory);
 		};
 	};
 });
@@ -110,45 +175,6 @@ addr.addEventListener("input", (e) => {
 		}
 	}, 300);
 });
-
-async function proxy(e, value) {
-	e.preventDefault();
-
-	try {
-		await registerSW();
-	} catch (err) {
-		console.error(
-			"An error occurred while registering the service worker: ",
-			err
-		);
-		throw err;
-	}
-
-	const url = search(value, localStorage.getItem("currentSearchEngine"));
-
-	let wispUrl =
-		(location.protocol === "https:" ? "wss" : "ws") +
-		"://" +
-		location.host +
-		"/wisp/";
-
-	const transport =
-		localStorage.getItem("currentTransport") || "/epoxy/index.mjs";
-
-	if ((await connection.getTransport()) !== transport) {
-		console.log("setting transport to localstorage or epoxy");
-		await connection.setTransport(transport, [{ wisp: wispUrl }]);
-	}
-
-	currentURL = url;
-	setTimeout(() => {
-		iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-	}, 500);
-
-	window.scriptManager.handleInject(currentURL);
-
-	urlInput.value = currentURL;
-}
 
 document.addEventListener("click", (e) => {
 	if (!addr.contains(e.target) && !autocompleteResults.contains(e.target)) {
@@ -263,12 +289,10 @@ searchForm.addEventListener("submit", async (event) => {
 });
 
 iframe.addEventListener("load", () => {
-	//if ((iframe.src = "about:blank")) return;
 	const websiteUrl = __uv$config.decodeUrl(
 		iframe.contentWindow.location.href.split("/ence/")[1]
 	);
 
-	console.log(websiteUrl);
 	urlInput.value = websiteUrl;
 	let history;
 	const dbRequest = indexedDB.open("history", 5);
@@ -293,12 +317,17 @@ iframe.addEventListener("load", () => {
 			title: iframe.contentWindow.document.title,
 		};
 		console.log(site);
-		store.put(site);
+		if (
+			typeof site.url === "string" &&
+			!site.url.includes("about") &&
+			!site.url.includes("undefined")
+		) {
+			store.put(site);
+		}
 		const getRequest = store.getAll();
 		getRequest.onsuccess = (event) => {
 			const fullHistory = event.target.result.reverse();
-			console.log(typeof fullHistory);
-			//fetchHistory(fullHistory);
+			fetchHistory(fullHistory);
 		};
 	};
 });
