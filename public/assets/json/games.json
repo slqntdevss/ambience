@@ -728,6 +728,33 @@
 			"image": "assets/img/games/buckshotroulette.jpg",
 			"url": "https://buckshotroulette.online/steam/",
 			"categories": ["strategy", "simulation", "horror"]
+		},
+		{
+			"id": "gtb",
+			"title": "GO TO BED",
+			"type": "proxied",
+			"description": "Horror game",
+			"image": "assets/img/games/gotobed.png",
+			"url": "https://slqntdevss.github.io/GTBPort",
+			"categories": ["strategy", "simulation", "horror"]
+		},
+		{
+			"id": "bowerwhelm",
+			"title": "Bowerhelm",
+			"type": "path",
+			"description": "Horror game",
+			"image": "assets/img/games/bowerwhelm.jpg",
+			"url": "https://slqntdevss.github.io/BowerhelmPort",
+			"categories": ["strategy", "simulation", "arcade"]
+		},
+		{
+			"id": "ttc",
+			"title": "To The Core",
+			"type": "local",
+			"description": "Clicker game",
+			"image": "assets/img/games/ttc.jpg",
+			"url": "https://slqntdevss.github.io/TTCPort",
+			"categories": ["strategy", "simulation", "arcade"]
 		}
 	]
 }
