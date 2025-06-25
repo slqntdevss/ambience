@@ -740,9 +740,9 @@
 		},
 		{
 			"id": "bowerwhelm",
-			"title": "Bowerhelm",
+			"title": "Bowerwhelm",
 			"type": "path",
-			"description": "Horror game",
+			"description": "Fighting game",
 			"image": "assets/img/games/bowerwhelm.jpg",
 			"url": "https://slqntdevss.github.io/BowerhelmPort",
 			"categories": ["strategy", "simulation", "arcade"]
